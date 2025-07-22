@@ -22,3 +22,31 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.staging
+
+# dependencies
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+/out
+
+# misc
+*.pem
+
+# additional env files
+.env.development.local
+.env.test.local
+.env.production.local
+
+# deployment
+.vercel
