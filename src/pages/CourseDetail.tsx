@@ -7,6 +7,7 @@ import { Users, Clock, Award, Star, CheckCircle, Code, Brain, Gamepad2, External
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { DemoBookingModal } from '@/components/DemoBookingModal';
+import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { useState, useCallback, useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import codingFunImage from '@/assets/coding-fun.jpg';
@@ -1133,6 +1134,9 @@ const CourseDetail = () => {
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
       />
+      
+      {/* WhatsApp Float Button */}
+      <WhatsAppFloat />
     </div>
   );
 };

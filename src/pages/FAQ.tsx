@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { DemoBookingModal } from '@/components/DemoBookingModal';
+import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { useState, useEffect } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
@@ -432,6 +433,9 @@ const FAQ = () => {
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
       />
+      
+      {/* WhatsApp Float Button */}
+      <WhatsAppFloat />
     </div>
   );
 };

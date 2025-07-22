@@ -7,6 +7,7 @@ import { Courses } from '@/components/Courses';
 import { Testimonials } from '@/components/Testimonials';
 import { Footer } from '@/components/Footer';
 import { DemoBookingModal } from '@/components/DemoBookingModal';
+import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 
 const Index = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -42,6 +43,9 @@ const Index = () => {
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
       />
+      
+      {/* WhatsApp Float Button */}
+      <WhatsAppFloat />
     </motion.div>
   );
 };
