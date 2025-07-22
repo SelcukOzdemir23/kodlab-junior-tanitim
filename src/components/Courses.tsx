@@ -156,16 +156,28 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
                   </ul>
                 </div>
 
-                {/* CTA */}
-                <Button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onBookDemo();
-                  }}
-                  className="w-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold group-hover:bg-secondary group-hover:text-secondary-foreground transition-all duration-300"
-                >
-                  Deneme Dersi Al
-                </Button>
+                {/* CTA Buttons */}
+                <div className="flex space-x-3">
+                  <Button 
+                    variant="outline"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCourseClick(course.slug);
+                    }}
+                    className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold transition-all duration-300"
+                  >
+                    📖 Kursu İncele
+                  </Button>
+                  <Button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onBookDemo();
+                    }}
+                    className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground font-semibold group-hover:bg-secondary group-hover:text-secondary-foreground transition-all duration-300"
+                  >
+                    Deneme Dersi Al
+                  </Button>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -176,7 +188,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-16 bg-gradient-secondary rounded-3xl p-12"
+          className="text-center mt-16 bg-gradient-primary rounded-3xl p-12"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
             Hangi kurs çocuğunuz için uygun?

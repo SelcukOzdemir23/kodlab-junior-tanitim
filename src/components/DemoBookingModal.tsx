@@ -460,7 +460,11 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                               mode="single"
                               selected={bookingData.selectedDate || undefined}
                               onSelect={(date) => handleInputChange('selectedDate', date)}
-                              disabled={(date) => date < new Date() || date.getDay() === 0} // Disable past dates and Sundays
+                              disabled={(date) => {
+                                const today = new Date();
+                                today.setHours(0, 0, 0, 0);
+                                return date.getTime() < today.getTime();
+                              }} // Sadece geçmiş tarihleri disable et
                               initialFocus
                               locale={tr}
                               className="p-3 pointer-events-auto bg-white"
