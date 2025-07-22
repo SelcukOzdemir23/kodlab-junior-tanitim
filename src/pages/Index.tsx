@@ -23,11 +23,19 @@ const Index = () => {
     >
       <Header onBookDemo={handleBookDemo} />
       <main>
-        <Hero onBookDemo={handleBookDemo} />
-        <Features />
-        <Courses onBookDemo={handleBookDemo} />
+        <section id="home">
+          <Hero onBookDemo={handleBookDemo} />
+        </section>
+        <section id="about">
+          <Features />
+        </section>
+        <section id="courses">
+          <Courses onBookDemo={handleBookDemo} />
+        </section>
         <Testimonials />
-        <Footer onBookDemo={handleBookDemo} />
+        <section id="contact">
+          <Footer onBookDemo={handleBookDemo} />
+        </section>
       </main>
       
       <DemoBookingModal 

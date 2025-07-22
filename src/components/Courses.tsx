@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Clock, Users, Award, ChevronRight } from 'lucide-react';
@@ -8,9 +9,16 @@ interface CoursesProps {
 }
 
 export const Courses = ({ onBookDemo }: CoursesProps) => {
+  const navigate = useNavigate();
+
+  const handleCourseClick = (slug: string) => {
+    navigate(`/kurslar/${slug}`);
+  };
+
   const courses = [
     {
       title: 'Scratch ile Başlangıç',
+      slug: 'scratch-ile-baslangic',
       description: 'Görsel programlama ile kodlamaya ilk adım. Oyun ve animasyon yaratma.',
       ageRange: '6-9 yaş',
       duration: '12 hafta',
@@ -21,6 +29,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
     },
     {
       title: 'Python ile Kodlama',
+      slug: 'python-ile-kodlama',
       description: 'Gerçek programlama diline giriş. Temel algoritmalar ve mantık geliştirme.',
       ageRange: '10-13 yaş',
       duration: '16 hafta',
@@ -30,6 +39,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
     },
     {
       title: 'Web Geliştirme',
+      slug: 'web-gelistirme',
       description: 'HTML, CSS ve JavaScript ile web sitesi yapımı. Responsive tasarım.',
       ageRange: '12-15 yaş',
       duration: '20 hafta',
@@ -39,6 +49,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
     },
     {
       title: 'Mobil Uygulama',
+      slug: 'mobil-uygulama',
       description: 'MIT App Inventor ile basit mobil uygulamalar geliştirme.',
       ageRange: '13-17 yaş',
       duration: '18 hafta',
@@ -48,6 +59,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
     },
     {
       title: 'Oyun Geliştirme',
+      slug: 'oyun-gelistirme',
       description: 'Unity ile 2D oyun tasarımı. Oyun mekaniği ve karakter tasarımı.',
       ageRange: '14-17 yaş',
       duration: '24 hafta',
@@ -58,6 +70,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
     },
     {
       title: 'Robotik & Arduino',
+      slug: 'robotik-arduino',
       description: 'Fiziksel bilgi işlem. Sensörler ve robotik projeler.',
       ageRange: '11-16 yaş',
       duration: '16 hafta',
@@ -95,7 +108,10 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
               whileHover={{ y: -10 }}
               className="group"
             >
-              <div className={`bg-card rounded-2xl p-8 shadow-brand hover:shadow-glow transition-all duration-300 h-full border-2 ${course.color} relative overflow-hidden`}>
+              <div 
+                className={`bg-card rounded-2xl p-8 shadow-brand hover:shadow-glow transition-all duration-300 h-full border-2 ${course.color} relative overflow-hidden cursor-pointer`}
+                onClick={() => handleCourseClick(course.slug)}
+              >
                 {course.badge && (
                   <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground">
                     {course.badge}
@@ -142,7 +158,10 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
 
                 {/* CTA */}
                 <Button 
-                  onClick={onBookDemo}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onBookDemo();
+                  }}
                   className="w-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold group-hover:bg-secondary group-hover:text-secondary-foreground transition-all duration-300"
                 >
                   Deneme Dersi Al

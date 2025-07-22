@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Badge } from '@/components/ui/badge';
-import { CalendarIcon, Clock, User, Phone, Mail, Baby, CheckCircle, X } from 'lucide-react';
+import { CalendarIcon, Clock, User, Phone, Mail, Baby, CheckCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import { tr } from 'date-fns/locale';
 import { cn } from '@/lib/utils';
@@ -106,13 +106,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="relative">
-          <button
-            onClick={handleClose}
-            className="absolute right-0 top-0 p-2 hover:bg-muted rounded-md transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
+        <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center text-primary">
             {isSuccess ? 'Ders Hakkında Bilgi' : 'Deneme Dersi Planla'}
           </DialogTitle>
@@ -388,7 +382,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                               )}
                             </Button>
                           </PopoverTrigger>
-                          <PopoverContent className="w-auto p-0" align="start">
+                          <PopoverContent className="w-auto p-0 bg-white border shadow-lg" align="start">
                             <Calendar
                               mode="single"
                               selected={bookingData.selectedDate || undefined}
@@ -396,7 +390,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                               disabled={(date) => date < new Date() || date.getDay() === 0} // Disable past dates and Sundays
                               initialFocus
                               locale={tr}
-                              className="p-3 pointer-events-auto"
+                              className="p-3 pointer-events-auto bg-white"
                             />
                           </PopoverContent>
                         </Popover>

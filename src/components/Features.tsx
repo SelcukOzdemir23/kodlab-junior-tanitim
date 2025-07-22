@@ -1,42 +1,42 @@
 import { motion } from 'framer-motion';
-import { Brain, Gamepad2, Users, Award, Clock, Heart } from 'lucide-react';
+import { Code, Home, Users, Monitor, MessageCircle, Github } from 'lucide-react';
 
 export const Features = () => {
   const features = [
     {
-      icon: Gamepad2,
-      title: 'Eğlenceli Öğrenme',
-      description: 'Oyun temelli öğrenme yöntemiyle kodlama hiç bu kadar eğlenceli olmamıştı',
+      icon: Code,
+      title: 'Aktif Yazılımcı Eğitmenler',
+      description: 'Sadece öğretmen değil, günlük kod yazan yazılım mühendisleri. Çocuğunuz sektörün gerçeklerini öğreniyor.',
       color: 'accent'
     },
     {
-      icon: Brain,
-      title: 'Yaratıcı Düşünce',
-      description: 'Problem çözme becerilerini geliştiren, yaratıcılığı destekleyen program',
+      icon: Home,
+      title: 'Evden Güvenli Eğitim',
+      description: 'Modern online platformlarla evinin konforunda öğreniyor. COVID endişesi yok, ulaşım yorgunluğu yok.',
       color: 'primary'
     },
     {
       icon: Users,
-      title: 'Küçük Sınıflar',
-      description: 'Maksimum 8 kişilik küçük gruplarla kişiselleştirilmiş öğrenme deneyimi',
+      title: 'Mini Gruplar (Max 4 Kişi)',
+      description: 'Gerçekten küçük gruplarla birebir ilgi. Her çocuğun kodunu tek tek kontrol ediyoruz.',
       color: 'secondary'
     },
     {
-      icon: Award,
-      title: 'Sertifika Programı',
-      description: 'Her seviyeyi tamamladığında çocuğun başarısını belgeleyen sertifika',
+      icon: Monitor,
+      title: 'Interaktif Online Deneyim',
+      description: 'Screen sharing, canlı kod yazma, anlık geri bildirim. Sanki yanında oturuyormuş gibi öğreniyor.',
       color: 'accent'
     },
     {
-      icon: Clock,
-      title: 'Esnek Saatler',
-      description: 'Hafta içi ve hafta sonu çeşitli saat seçenekleriyle uygun program',
+      icon: MessageCircle,
+      title: '7/24 Aile İletişimi',
+      description: 'WhatsApp üzerinden her soru anında cevaplanıyor. Ders sonrası detaylı veli raporu.',
       color: 'primary'
     },
     {
-      icon: Heart,
-      title: 'Deneyimli Eğitmenler',
-      description: 'Çocuk gelişimi uzmanı ve teknoloji alanında deneyimli eğitmenler',
+      icon: Github,
+      title: 'Gerçek Proje Portföyü',
+      description: 'Çocuğunuz sadece öğrenmiyor, kendi projelerini yapıyor. GitHub\'da portfolio oluşturuyor.',
       color: 'secondary'
     }
   ];
@@ -51,11 +51,12 @@ export const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Burada çocuklar kendi <span className="text-secondary">yollarını</span> çiziyor
+            <span className="text-secondary">4 Yazılım Mühendisi</span>, Tek Hedef: <br />
+            Çocuğunuzun Teknoloji Geleceği
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            KodLab Junior'da çocuklar sadece kod öğrenmekle kalmıyor, 
-            aynı zamanda problem çözme becerilerini geliştiriyor ve yaratıcılıklarını keşfediyorlar.
+            Biz sadece öğretmen değiliz. Her gün kod yazan, gerçek projeler geliştiren yazılım mühendisleriyiz. 
+            Çocuğunuza sektörün en güncel bilgilerini, gerçek deneyimlerimizle öğretiyoruz.
           </p>
         </motion.div>
 
@@ -100,10 +101,10 @@ export const Features = () => {
         >
           <div className="bg-gradient-primary rounded-3xl p-12 text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-              Çocuğunuzun kodlama yolculuğu başlasın!
+              Çocuğunuz İlk Uygulamasını Bizimle Yapacak!
             </h3>
             <p className="text-primary-foreground/80 text-lg mb-6">
-              İlk derste ne öğreneceğini keşfetmek için ücretsiz deneme dersine katılın
+              Gerçek yazılımcılardan öğrenmeye şimdi başlayın, farkı görün.
             </p>
           </div>
         </motion.div>

@@ -2,12 +2,15 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface FooterProps {
   onBookDemo: () => void;
 }
 
 export const Footer = ({ onBookDemo }: FooterProps) => {
+  const navigate = useNavigate();
+
   const socialLinks = [
     { icon: Facebook, href: '#', label: 'Facebook' },
     { icon: Instagram, href: '#', label: 'Instagram' },
@@ -16,11 +19,36 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
   ];
 
   const quickLinks = [
-    { label: 'Ana Sayfa', href: '#home' },
-    { label: 'Kurslar', href: '#courses' },
-    { label: 'Hakkımızda', href: '#about' },
-    { label: 'İletişim', href: '#contact' }
+    { label: 'Ana Sayfa', href: '#home', isScroll: true },
+    { label: 'Kurslar', href: '#courses', isScroll: true },
+    { label: 'Hakkımızda', href: '#about', isScroll: true },
+    { label: 'İletişim', href: '#contact', isScroll: true },
+    { label: 'SSS', href: '/sss', isScroll: false },
+    { label: 'İade Politikası', href: '/iade-politikasi', isScroll: false }
   ];
+
+  const handleQuickLinkClick = (link: { label: string; href: string; isScroll: boolean }) => {
+    if (link.isScroll) {
+      // Ana sayfaya git ve scroll yap
+      if (window.location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(link.href);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        const element = document.querySelector(link.href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      // Route'a git
+      navigate(link.href);
+    }
+  };
 
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
@@ -120,12 +148,12 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
             <ul className="space-y-4">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-primary-foreground/80 hover:text-secondary transition-colors"
+                  <button 
+                    onClick={() => handleQuickLinkClick(link)}
+                    className="text-primary-foreground/80 hover:text-secondary transition-colors text-left"
                   >
                     {link.label}
-                  </a>
+                  </button>
                 </li>
               ))}
               <li>

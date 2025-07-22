@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
   onBookDemo: () => void;
@@ -9,13 +10,51 @@ interface HeaderProps {
 
 export const Header = ({ onBookDemo }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = [
-    { label: 'Ana Sayfa', href: '#home' },
-    { label: 'Kurslar', href: '#courses' },
-    { label: 'Hakkımızda', href: '#about' },
-    { label: 'İletişim', href: '#contact' },
+    { label: 'Ana Sayfa', href: '#home', section: 'home' },
+    { label: 'Kurslar', href: '#courses', section: 'courses' },
+    { label: 'Hakkımızda', href: '#about', section: 'about' },
+    { label: 'İletişim', href: '#contact', section: 'contact' },
   ];
+
+  const handleNavigation = (item: { label: string; href: string; section: string }) => {
+    // Kurs detay sayfasındaysak ve aynı bölüm varsa, o bölüme scroll yap
+    if (location.pathname.startsWith('/kurslar/')) {
+      let targetSection = item.section;
+      
+      // Kurs detay sayfasındaki ID'leri eşleştir
+      if (item.section === 'about') {
+        targetSection = 'course-info';
+      }
+      
+      const element = document.getElementById(targetSection);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
+    
+    // Eğer ana sayfada değilsek, önce ana sayfaya git
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Ana sayfaya gittikten sonra scroll yapmak için kısa bir delay
+      setTimeout(() => {
+        const element = document.getElementById(item.section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Ana sayfadaysak direkt scroll yap
+      const element = document.getElementById(item.section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <motion.header 
@@ -30,7 +69,8 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 cursor-pointer"
+            onClick={() => navigate('/')}
           >
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">K</span>
@@ -43,16 +83,16 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item, index) => (
-              <motion.a
+              <motion.button
                 key={item.label}
-                href={item.href}
+                onClick={() => handleNavigation(item)}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.1 }}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                className="text-foreground hover:text-primary transition-colors duration-200 font-medium cursor-pointer"
               >
                 {item.label}
-              </motion.a>
+              </motion.button>
             ))}
           </nav>
 
@@ -91,14 +131,16 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
           >
             <nav className="py-4 space-y-4">
               {menuItems.map((item) => (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
-                  className="block px-4 py-2 text-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    handleNavigation(item);
+                    setIsMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
               <div className="px-4 pt-2">
                 <Button 

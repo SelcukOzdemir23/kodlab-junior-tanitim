@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { Play, Star, Users, Trophy } from 'lucide-react';
-import heroImage from '@/assets/hero-kids-coding.jpg';
+import heroVideo from '@/assets/AnaSayfaVideo.mp4';
 
 interface HeroProps {
   onBookDemo: () => void;
@@ -15,9 +15,11 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16 bg-gradient-hero relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center pt-16 relative overflow-hidden" style={{
+      background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)'
+    }}>
       {/* Background decorations */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-600/10 to-blue-400/20"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -33,13 +35,14 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-4xl md:text-6xl font-bold text-foreground leading-tight"
+                className="text-4xl md:text-6xl font-bold leading-tight text-white"
+                style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.3)' }}
               >
                 Dünün çocukları,{' '}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                <span className="text-yellow-300 font-extrabold" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}>
                   yarının
                 </span>{' '}
-                <span className="text-secondary">
+                <span className="text-orange-400 font-extrabold" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}>
                   MUCİTLERİ
                 </span>
               </motion.h1>
@@ -48,7 +51,8 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg md:text-xl text-muted-foreground max-w-xl"
+                className="text-lg md:text-xl max-w-xl text-white font-medium"
+                style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.3)' }}
               >
                 6-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimi. 
                 Geleceğin teknolojisini bugünden öğrenmeye başlayın!
@@ -65,7 +69,15 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
               <Button 
                 size="lg" 
                 onClick={onBookDemo}
-                className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-lg px-8 py-6 shadow-glow animate-bounce-gentle"
+                className="font-semibold text-lg px-8 py-6 transform transition-all duration-300 hover:scale-105"
+                style={{
+                  background: 'linear-gradient(135deg, #f59e0b, #ea580c)',
+                  color: 'white',
+                  boxShadow: '0 8px 25px rgba(245, 158, 11, 0.4)',
+                  textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+                  border: 'none',
+                  animation: 'gentleBounce 3s ease-in-out infinite'
+                }}
               >
                 Ücretsiz Deneme Dersi Al
               </Button>
@@ -73,7 +85,14 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-semibold text-lg px-8 py-6 group"
+                className="font-semibold text-lg px-8 py-6 group transform transition-all duration-300 hover:scale-105"
+                style={{
+                  borderColor: '#fbbf24',
+                  color: '#fbbf24',
+                  background: 'rgba(251, 191, 36, 0.1)',
+                  boxShadow: '0 4px 15px rgba(251, 191, 36, 0.3)',
+                  textShadow: '1px 1px 1px rgba(0,0,0,0.2)'
+                }}
               >
                 <Play className="w-5 h-5 mr-2 group-hover:animate-pulse" />
                 Tanıtım Videosu
@@ -90,10 +109,10 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
               {stats.map((stat, index) => (
                 <div key={index} className="text-center group">
                   <div className="flex justify-center mb-2">
-                    <stat.icon className="w-6 h-6 text-primary group-hover:text-secondary transition-colors" />
+                    <stat.icon className="w-6 h-6 text-yellow-300 group-hover:text-orange-400 transition-colors" />
                   </div>
-                  <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-2xl font-bold text-white" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.3)' }}>{stat.value}</div>
+                  <div className="text-sm text-gray-200 font-medium" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -107,10 +126,13 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-brand">
-              <img 
-                src={heroImage} 
-                alt="Çocuklar kodlama öğreniyor" 
-                className="w-full h-auto"
+              <video 
+                src={heroVideo} 
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
             </div>
@@ -119,7 +141,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -top-4 -right-4 bg-accent text-accent-foreground p-4 rounded-2xl shadow-glow"
+              className="absolute -top-16 -right-8 bg-accent text-accent-foreground p-4 rounded-2xl shadow-glow"
             >
               <div className="text-center">
                 <div className="text-2xl font-bold">4-17</div>
