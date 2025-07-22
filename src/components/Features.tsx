@@ -51,12 +51,14 @@ export const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            <span className="text-secondary">4 Yazılım Mühendisi</span>, Tek Hedef: <br />
+            <span className="text-secondary">Geleceğe Hazırlanın </span><br />
             Çocuğunuzun Teknoloji Geleceği
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Biz sadece öğretmen değiliz. Her gün kod yazan, gerçek projeler geliştiren yazılım mühendisleriyiz. 
-            Çocuğunuza sektörün en güncel bilgilerini, gerçek deneyimlerimizle öğretiyoruz.
+          
+            Çocuğunuzun geleceğini inşa etmek için buradayız. 
+            Çocuğunuzun kendini keşfetme yolculuğunu destek olmaya çalışan yardımcılarız. 
+            Sektörün en güncel bilgilerini, gerçek deneyimlerimizle öğretiyoruz. 
           </p>
         </motion.div>
 
@@ -101,10 +103,10 @@ export const Features = () => {
         >
           <div className="bg-gradient-primary rounded-3xl p-12 text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-              Çocuğunuz İlk Uygulamasını Bizimle Yapacak!
+              Çocuğunuzun Yazılım ve Teknoloji Geleceğini Şekillendirin
             </h3>
             <p className="text-primary-foreground/80 text-lg mb-6">
-              Gerçek yazılımcılardan öğrenmeye şimdi başlayın, farkı görün.
+              Kaliteli ve Eğlenceli derslerle çocuğunuzun teknoloji dünyasında kendine yer edinmesini sağlayın.
             </p>
           </div>
         </motion.div>

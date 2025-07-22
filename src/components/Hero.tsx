@@ -8,11 +8,11 @@ interface HeroProps {
 }
 
 export const Hero = ({ onBookDemo }: HeroProps) => {
-  const stats = [
+  /*const stats = [
     { icon: Users, value: '1000+', label: 'Mutlu Öğrenci' },
     { icon: Trophy, value: '50+', label: 'Ödül Alan Proje' },
     { icon: Star, value: '4.9', label: 'Veli Memnuniyeti' },
-  ];
+  ];*/
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-16 relative overflow-hidden" style={{
@@ -38,12 +38,12 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 className="text-4xl md:text-6xl font-bold leading-tight text-white"
                 style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.3)' }}
               >
-                Bugünün çocukları,{' '}
+                Geleceği,{' '}
                 <span className="text-yellow-300 font-extrabold" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}>
-                  yarının
+                  İNŞA
                 </span>{' '}
                 <span className="text-orange-400 font-extrabold" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}>
-                  MUCİTLERİ
+                  EDİYORUZ
                 </span>
               </motion.h1>
               
@@ -54,7 +54,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 className="text-lg md:text-xl max-w-xl text-white font-medium"
                 style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.3)' }}
               >
-                6-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimi. 
+                10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri. 
                 Geleceğin teknolojisini bugünden öğrenmeye başlayın!
               </motion.p>
             </div>
@@ -95,7 +95,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 }}
               >
                 <Play className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-                Tanıtım Videosu
+                Tanıtım Videosu(eklenecek)
               </Button>
             </motion.div>
 
@@ -106,6 +106,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
               transition={{ delay: 0.8 }}
               className="grid grid-cols-3 gap-4 pt-8"
             >
+              {/*
               {stats.map((stat, index) => (
                 <div key={index} className="text-center group">
                   <div className="flex justify-center mb-2">
@@ -115,6 +116,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                   <div className="text-sm text-gray-200 font-medium" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>{stat.label}</div>
                 </div>
               ))}
+              */}
             </motion.div>
           </motion.div>
 
@@ -144,7 +146,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
               className="absolute -top-16 -right-8 bg-accent text-accent-foreground p-4 rounded-2xl shadow-glow"
             >
               <div className="text-center">
-                <div className="text-2xl font-bold">4-17</div>
+                <div className="text-2xl font-bold">10-17</div>
                 <div className="text-sm">yaş arası</div>
               </div>
             </motion.div>
@@ -156,7 +158,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
             >
               <div className="text-center">
                 <div className="text-2xl font-bold">%100</div>
-                <div className="text-sm">Eğlenceli</div>
+                <div className="text-sm">Eğlenceli🤣</div>
               </div>
             </motion.div>
           </motion.div>
