@@ -45,8 +45,11 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
         }
       }
     } else {
-      // Route'a git
+      // Route'a git ve en üste scroll yap
       navigate(link.href);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 200);
     }
   };
 

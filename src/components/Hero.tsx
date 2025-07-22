@@ -38,7 +38,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 className="text-4xl md:text-6xl font-bold leading-tight text-white"
                 style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.3)' }}
               >
-                Dünün çocukları,{' '}
+                Bugünün çocukları,{' '}
                 <span className="text-yellow-300 font-extrabold" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.4)' }}>
                   yarının
                 </span>{' '}

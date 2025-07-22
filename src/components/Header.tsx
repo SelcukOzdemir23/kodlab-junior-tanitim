@@ -18,9 +18,21 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
     { label: 'Kurslar', href: '#courses', section: 'courses' },
     { label: 'Hakkımızda', href: '#about', section: 'about' },
     { label: 'İletişim', href: '#contact', section: 'contact' },
+    { label: 'İade Politikası', href: '/iade-politikasi', section: 'refund-policy', isPage: true },
+    { label: 'SSS', href: '/sss', section: 'faq', isPage: true },
   ];
 
-  const handleNavigation = (item: { label: string; href: string; section: string }) => {
+  const handleNavigation = (item: { label: string; href: string; section: string; isPage?: boolean }) => {
+    // Eğer ayrı bir sayfa ise (İade Politikası, SSS)
+    if (item.isPage) {
+      navigate(item.href);
+      // Sayfanın en üstüne scroll yap
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+      return;
+    }
+    
     // Kurs detay sayfasındaysak ve aynı bölüm varsa, o bölüme scroll yap
     if (location.pathname.startsWith('/kurslar/')) {
       let targetSection = item.section;
@@ -70,7 +82,12 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="flex items-center space-x-2 cursor-pointer"
-            onClick={() => navigate('/')}
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }, 100);
+            }}
           >
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">K</span>
