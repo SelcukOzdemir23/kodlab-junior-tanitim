@@ -11,6 +11,8 @@ import { CalendarIcon, Clock, User, Phone, Mail, Baby, CheckCircle } from 'lucid
 import { format } from 'date-fns';
 import { tr } from 'date-fns/locale';
 import { cn } from '@/lib/utils';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
 interface DemoBookingModalProps {
   isOpen: boolean;
@@ -27,9 +29,21 @@ interface BookingData {
   selectedTime: string;
 }
 
-const timeSlots = [
-  '09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'
-];
+// Hafta içi ve hafta sonu saat seçeneklerini dinamik olarak oluştur
+const getTimeSlots = (date: Date | null) => {
+  if (!date) return [];
+  
+  const dayOfWeek = date.getDay(); // 0 = Pazar, 1 = Pazartesi, ..., 6 = Cumartesi
+  const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // Pazar veya Cumartesi
+  
+  if (isWeekend) {
+    // Hafta sonu: 10:00 - 21:00
+    return ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'];
+  } else {
+    // Hafta içi: 18:00 - 21:00
+    return ['18:00', '19:00', '20:00', '21:00'];
+  }
+};
 
 const ageOptions = [
   { value: 5, label: '< 5', disabled: true },
@@ -63,20 +77,85 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   const [isSuccess, setIsSuccess] = useState(false);
 
   const handleInputChange = (field: keyof BookingData, value: any) => {
-    setBookingData(prev => ({ ...prev, [field]: value }));
+    setBookingData(prev => ({ 
+      ...prev, 
+      [field]: value,
+      // Tarih değiştiğinde seçili saati sıfırla
+      ...(field === 'selectedDate' && { selectedTime: '' })
+    }));
+  };
+
+  // Tarih navigasyonu için fonksiyonlar
+  const goToPreviousDay = () => {
+    if (bookingData.selectedDate) {
+      const previousDay = new Date(bookingData.selectedDate);
+      previousDay.setDate(previousDay.getDate() - 1);
+      // Geçmiş tarihlere gitmeyi engelle
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (previousDay.getTime() >= today.getTime()) {
+        handleInputChange('selectedDate', previousDay);
+      }
+    }
+  };
+
+  const goToNextDay = () => {
+    if (bookingData.selectedDate) {
+      const nextDay = new Date(bookingData.selectedDate);
+      nextDay.setDate(nextDay.getDate() + 1);
+      handleInputChange('selectedDate', nextDay);
+    }
   };
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Here you would normally save to Supabase
-    console.log('Booking data:', bookingData);
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    try {
+      // Firebase'e veri kaydetme
+      const docData = {
+        // Veli Bilgileri
+        parentName: bookingData.parentName,
+        parentPhone: bookingData.phone,
+        parentEmail: bookingData.email,
+        
+        // Çocuk Bilgileri
+        childName: bookingData.childName,
+        childAge: bookingData.childAge,
+        
+        // Ders Bilgileri
+        selectedDate: bookingData.selectedDate ? format(bookingData.selectedDate, 'yyyy-MM-dd') : '',
+        selectedTime: bookingData.selectedTime,
+        
+        // Sistem Bilgileri
+        createdAt: Timestamp.now(),
+        updatedAt: Timestamp.now(),
+        status: 'pending',
+        
+        // Ek Bilgiler
+        timeZone: 'Europe/Istanbul',
+        dayOfWeek: bookingData.selectedDate ? format(bookingData.selectedDate, 'EEEE', { locale: tr }) : '',
+        isWeekend: bookingData.selectedDate ? [0, 6].includes(bookingData.selectedDate.getDay()) : false,
+        
+        // Opsiyonel Alanlar
+        notes: '',
+        reminderSent: false,
+        teacherAssigned: ''
+      };
+
+      // Firestore'a veri ekleme
+      const docRef = await addDoc(collection(db, 'demo_bookings'), docData);
+      
+      console.log('Reservation saved with ID: ', docRef.id);
+      console.log('Booking data:', docData);
+      
+      setIsSubmitting(false);
+      setIsSuccess(true);
+    } catch (error) {
+      console.error('Error saving reservation: ', error);
+      setIsSubmitting(false);
+      // Hata durumunda kullanıcıya bilgi verilebilir
+      alert('Rezervasyon kaydedilirken bir hata oluştu. Lütfen tekrar deneyin.');
+    }
   };
 
   const resetModal = () => {
@@ -156,12 +235,6 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
               </div>
 
               <div className="space-y-4">
-                <Button 
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent-hover"
-                  size="lg"
-                >
-                  Takvime ekle
-                </Button>
                 <Button 
                   variant="outline" 
                   className="w-full border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
@@ -404,12 +477,30 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                         animate={{ opacity: 1, y: 0 }}
                       >
                         <div className="flex items-center justify-between mb-4">
-                          <span className="text-sm text-muted-foreground">← Önceki gün</span>
-                          <span className="text-sm text-muted-foreground">Sonraki gün →</span>
+                          <button
+                            onClick={goToPreviousDay}
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                            disabled={bookingData.selectedDate && (() => {
+                              const today = new Date();
+                              today.setHours(0, 0, 0, 0);
+                              return bookingData.selectedDate!.getTime() <= today.getTime();
+                            })()}
+                          >
+                            ← Önceki gün
+                          </button>
+                          <button
+                            onClick={goToNextDay}
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                          >
+                            Sonraki gün →
+                          </button>
                         </div>
                         
-                        <div className="grid grid-cols-4 gap-3">
-                          {timeSlots.map((time) => (
+                        <div className={cn(
+                          "grid gap-3",
+                          getTimeSlots(bookingData.selectedDate).length > 8 ? "grid-cols-6" : "grid-cols-4"
+                        )}>
+                          {getTimeSlots(bookingData.selectedDate).map((time) => (
                             <button
                               key={time}
                               onClick={() => handleInputChange('selectedTime', time)}
