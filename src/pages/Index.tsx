@@ -33,7 +33,7 @@ const Index = () => {
         <section id="courses">
           <Courses onBookDemo={handleBookDemo} />
         </section>
-        <Testimonials />
+        {/* <Testimonials /> */}
         <section id="contact">
           <Footer onBookDemo={handleBookDemo} />
         </section>

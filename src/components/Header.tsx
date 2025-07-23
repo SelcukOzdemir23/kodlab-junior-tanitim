@@ -15,8 +15,8 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
 
   const menuItems = [
     { label: 'Ana Sayfa', href: '#home', section: 'home' },
-    { label: 'Kurslar', href: '#courses', section: 'courses' },
     { label: 'Hakkımızda', href: '#about', section: 'about' },
+    { label: 'Kurslar', href: '#courses', section: 'courses' },
     { label: 'İletişim', href: '#contact', section: 'contact' },
     { label: 'İade Politikası', href: '/iade-politikasi', section: 'refund-policy', isPage: true },
     { label: 'SSS', href: '/sss', section: 'faq', isPage: true },
@@ -33,14 +33,31 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
       return;
     }
     
-    // Kurs detay sayfasındaysak ve aynı bölüm varsa, o bölüme scroll yap
+    // Ana sayfa bölümleri için (home, about, courses, contact) - her zaman ana sayfaya yönlendir
+    if (item.section === 'home' || item.section === 'about' || item.section === 'courses' || item.section === 'contact') {
+      // Eğer ana sayfada değilsek, önce ana sayfaya git
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Ana sayfaya gittikten sonra scroll yapmak için kısa bir delay
+        setTimeout(() => {
+          const element = document.getElementById(item.section);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Ana sayfadaysak direkt scroll yap
+        const element = document.getElementById(item.section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      return;
+    }
+    
+    // Diğer durumlar için eski logic
     if (location.pathname.startsWith('/kurslar/')) {
       let targetSection = item.section;
-      
-      // Kurs detay sayfasındaki ID'leri eşleştir
-      if (item.section === 'about') {
-        targetSection = 'course-info';
-      }
       
       const element = document.getElementById(targetSection);
       if (element) {
@@ -49,22 +66,15 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
       }
     }
     
-    // Eğer ana sayfada değilsek, önce ana sayfaya git
+    // Default: ana sayfaya git
     if (location.pathname !== '/') {
       navigate('/');
-      // Ana sayfaya gittikten sonra scroll yapmak için kısa bir delay
       setTimeout(() => {
         const element = document.getElementById(item.section);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
       }, 100);
-    } else {
-      // Ana sayfadaysak direkt scroll yap
-      const element = document.getElementById(item.section);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
     }
   };
 

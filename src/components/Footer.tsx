@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 interface FooterProps {
@@ -10,6 +10,14 @@ interface FooterProps {
 
 export const Footer = ({ onBookDemo }: FooterProps) => {
   const navigate = useNavigate();
+
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "905523877207"; // WhatsApp numarası
+    const message = "Merhaba! KodLab Junior hakkında bilgi almak istiyorum.";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   const socialLinks = [
     { icon: Facebook, href: '#', label: 'Facebook' },
@@ -55,7 +63,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
 
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
-      {/* Newsletter Section */}
+      {/* WhatsApp Contact Section */}
       <div className="border-b border-primary-foreground/10">
         <div className="container mx-auto px-4 py-16">
           <motion.div 
@@ -65,35 +73,31 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
             className="text-center max-w-2xl mx-auto"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Hakkımızda daha fazla bilgi edinin
+              Bizimle İletişime Geçin
             </h3>
             <p className="text-primary-foreground/80 mb-8 text-lg">
-              Kodlama eğitimi hakkında güncel bilgiler ve özel fırsatlar için bültenimize abone olun
+              Sorularınız için WhatsApp üzerinden hemen ulaşabilirsiniz
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
-              <Input 
-                placeholder="E-posta adresiniz"
-                className="flex-1 h-12 bg-primary-foreground text-primary border-0"
-              />
+            <div className="flex flex-col items-center space-y-4">
               <Button 
-                className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold px-8"
+                onClick={handleWhatsAppClick}
                 size="lg"
+                className="w-full max-w-sm bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
-                Abone Ol
+                <FaWhatsapp className="w-6 h-6 mr-3" />
+                Bizimle İletişime Geçin
               </Button>
-            </div>
-
-            <div className="space-y-4">
+              
               <Button 
                 onClick={onBookDemo}
                 size="lg"
-                className="bg-secondary text-secondary-foreground hover:bg-secondary-hover font-semibold text-lg px-8 py-6 shadow-glow"
+                className="w-full max-w-sm bg-secondary text-secondary-foreground hover:bg-secondary-hover font-semibold text-lg px-8 py-6 shadow-glow"
               >
                 Hemen Tanışma Dersi Al
               </Button>
               
-              <p className="text-sm text-primary-foreground/60">
+              <p className="text-sm text-primary-foreground/60 mt-4">
                 Ücretsiz deneme dersi için hemen kaydolun
               </p>
             </div>

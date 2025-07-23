@@ -43,14 +43,14 @@ const CourseDetail = () => {
     }
   });
 
-  const [testimonialsEmblaRef, testimonialsEmblaApi] = useEmblaCarousel({ 
-    align: 'start',
-    slidesToScroll: 1,
-    breakpoints: {
-      '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 }
-    }
-  });
+  // const [testimonialsEmblaRef, testimonialsEmblaApi] = useEmblaCarousel({ 
+  //   align: 'start',
+  //   slidesToScroll: 1,
+  //   breakpoints: {
+  //     '(min-width: 768px)': { slidesToScroll: 2 },
+  //     '(min-width: 1024px)': { slidesToScroll: 3 }
+  //   }
+  // });
 
   const scrollAchievementsPrev = useCallback(() => {
     if (achievementsEmblaApi) achievementsEmblaApi.scrollPrev();
@@ -68,13 +68,13 @@ const CourseDetail = () => {
     if (projectsEmblaApi) projectsEmblaApi.scrollNext();
   }, [projectsEmblaApi]);
 
-  const scrollTestimonialsPrev = useCallback(() => {
-    if (testimonialsEmblaApi) testimonialsEmblaApi.scrollPrev();
-  }, [testimonialsEmblaApi]);
+  // const scrollTestimonialsPrev = useCallback(() => {
+  //   if (testimonialsEmblaApi) testimonialsEmblaApi.scrollPrev();
+  // }, [testimonialsEmblaApi]);
 
-  const scrollTestimonialsNext = useCallback(() => {
-    if (testimonialsEmblaApi) testimonialsEmblaApi.scrollNext();
-  }, [testimonialsEmblaApi]);
+  // const scrollTestimonialsNext = useCallback(() => {
+  //   if (testimonialsEmblaApi) testimonialsEmblaApi.scrollNext();
+  // }, [testimonialsEmblaApi]);
 
   // Kurs verilerini burada tanımlayacağız
   const courseData = {
@@ -947,7 +947,7 @@ const CourseDetail = () => {
             transition={{ delay: 0.4 }}
             className="text-center mt-16"
           >
-            <div className="bg-gradient-secondary rounded-3xl p-8">
+            <div className="bg-gradient-primary rounded-3xl p-8">
               <h3 className="text-2xl font-bold text-primary-foreground mb-4">
                 🚀 Çocuğunuz da bu projeleri yapabilir!
               </h3>
@@ -958,7 +958,10 @@ const CourseDetail = () => {
               <Button 
                 size="lg"
                 onClick={handleBookDemo}
-                className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-lg px-8 py-4"
+                className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300"
+                style={{
+                  animation: 'gentleBounce 3s ease-in-out infinite'
+                }}
               >
                 Hemen Başlayalım
               </Button>
@@ -967,164 +970,7 @@ const CourseDetail = () => {
         </div>
       </section>
 
-      {/* Veli Yorumları */}
-      <section id="testimonials" className="py-24 bg-background-secondary">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Velilerimiz <span className="text-secondary">ne diyor?</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Python ile Kodlama kursuna katılan çocukların ebeveynlerinden gelen gerçek yorumlar
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="relative"
-          >
-            <div className="embla overflow-hidden" ref={testimonialsEmblaRef}>
-              <div className="embla__container flex">
-                {course.testimonials.map((testimonial, index) => (
-                  <div key={testimonial.id} className="embla__slide flex-none w-full md:w-1/2 lg:w-1/3 px-4">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="bg-card rounded-2xl p-8 shadow-brand hover:shadow-glow transition-all duration-300 h-full border border-border group relative"
-                    >
-                      {/* Quote Icon */}
-                      <div className="absolute top-6 right-6 text-4xl text-secondary/20 group-hover:text-secondary/30 transition-colors">
-                        "
-                      </div>
-
-                      {/* Rating */}
-                      <div className="flex items-center space-x-1 mb-6">
-                        {[...Array(testimonial.rating)].map((_, starIndex) => (
-                          <Star key={starIndex} className="w-5 h-5 text-yellow-400 fill-current" />
-                        ))}
-                        <span className="ml-2 text-sm text-muted-foreground font-medium">
-                          ({testimonial.rating}.0)
-                        </span>
-                      </div>
-
-                      {/* Comment */}
-                      <blockquote className="text-foreground leading-relaxed mb-6 italic group-hover:text-foreground transition-colors">
-                        "{testimonial.comment}"
-                      </blockquote>
-
-                      {/* Parent Info */}
-                      <div className="flex items-center space-x-4 pt-4 border-t border-border">
-                        <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-xl">
-                          {testimonial.avatar}
-                        </div>
-                        <div className="flex-1">
-                          <div className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                            {testimonial.parentName}
-                          </div>
-                          <div className="text-sm text-muted-foreground">
-                            📍 {testimonial.location} • {testimonial.childName} ({testimonial.childAge} yaş)
-                          </div>
-                          <div className="text-xs text-secondary font-medium mt-1">
-                            {testimonial.course}
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Navigation buttons */}
-            <button
-              onClick={scrollTestimonialsPrev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
-            >
-              <ChevronLeft className="w-6 h-6 text-gray-600" />
-            </button>
-            <button
-              onClick={scrollTestimonialsNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
-            >
-              <ChevronRight className="w-6 h-6 text-gray-600" />
-            </button>
-          </motion.div>
-
-          {/* İstatistikler */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="grid md:grid-cols-4 gap-8 mt-16"
-          >
-            {[
-              { value: "4.9", label: "Ortalama Puan", icon: "⭐" },
-              { value: "127", label: "Veli Yorumu", icon: "💬" },
-              { value: "%98", label: "Memnuniyet", icon: "👍" },
-              { value: "1000+", label: "Mutlu Aile", icon: "👨‍👩‍👧‍👦" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-                className="text-center group"
-              >
-                <div className="text-3xl mb-3 group-hover:scale-110 transition-transform">
-                  {stat.icon}
-                </div>
-                <div className="text-3xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
-                  {stat.value}
-                </div>
-                <div className="text-muted-foreground font-medium">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Alt CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-            className="text-center mt-16"
-          >
-            <div className="bg-gradient-primary rounded-3xl p-8">
-              <h3 className="text-2xl font-bold text-primary-foreground mb-4">
-                Siz de mutlu velilerimize katılın! 🎉
-              </h3>
-              <p className="text-primary-foreground/90 text-lg mb-6">
-                Python ile Kodlama kursunda çocuğunuzun potansiyelini keşfedin. 
-                İlk ders tamamen ücretsiz!
-              </p>
-              <Button 
-                size="lg"
-                onClick={handleBookDemo}
-                className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300"
-                style={{
-                  animation: 'gentleBounce 3s ease-in-out infinite'
-                }}
-              >
-                Ücretsiz Deneme Dersi Al 🚀
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Veli Yorumları Bölümü Geçici Olarak Kaldırıldı */}
 
       <section id="contact">
         <Footer onBookDemo={handleBookDemo} />

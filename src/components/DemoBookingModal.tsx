@@ -29,6 +29,13 @@ interface BookingData {
   selectedTime: string;
 }
 
+interface ValidationErrors {
+  parentName?: string;
+  phone?: string;
+  email?: string;
+  childName?: string;
+}
+
 // Hafta içi ve hafta sonu saat seçeneklerini dinamik olarak oluştur
 const getTimeSlots = (date: Date | null) => {
   if (!date) return [];
@@ -46,11 +53,7 @@ const getTimeSlots = (date: Date | null) => {
 };
 
 const ageOptions = [
-  { value: 5, label: '< 5', disabled: true },
-  { value: 6, label: '6' },
-  { value: 7, label: '7' },
-  { value: 8, label: '8' },
-  { value: 9, label: '9' },
+  { value: 9, label: '< 10', disabled: true },
   { value: 10, label: '10' },
   { value: 11, label: '11' },
   { value: 12, label: '12' },
@@ -73,16 +76,111 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
     selectedDate: null,
     selectedTime: ''
   });
+  const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+  // Validation fonksiyonları
+  const validateParentName = (name: string): string => {
+    if (!name.trim()) return 'Ad ve soyad gereklidir';
+    
+    const nameParts = name.trim().split(/\s+/);
+    if (nameParts.length < 2) return 'Lütfen ad ve soyadınızı giriniz';
+    
+    for (const part of nameParts) {
+      if (part.length < 2) return 'Ad ve soyad en az 2 harften oluşmalıdır';
+      if (!/^[a-zA-ZğĞıİöÖüÜşŞçÇ]+$/.test(part)) return 'Sadece harfler kullanabilirsiniz';
+    }
+    
+    return '';
+  };
+
+  const validatePhone = (phone: string): string => {
+    if (!phone.trim()) return 'Telefon numarası gereklidir';
+    
+    // +90 5xx xxx xx xx formatını kontrol et
+    const phoneRegex = /^\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}$/;
+    if (!phoneRegex.test(phone)) return 'Lütfen +90 5xx xxx xx xx formatında giriniz';
+    
+    return '';
+  };
+
+  const validateEmail = (email: string): string => {
+    if (!email.trim()) return 'E-posta adresi gereklidir';
+    
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) return 'Geçerli bir e-posta adresi giriniz';
+    
+    return '';
+  };
+
+  const validateChildName = (name: string): string => {
+    if (!name.trim()) return 'Çocuğun adı gereklidir';
+    
+    const nameParts = name.trim().split(/\s+/);
+    for (const part of nameParts) {
+      if (part.length < 2) return 'İsim en az 2 harften oluşmalıdır';
+      if (!/^[a-zA-ZğĞıİöÖüÜşŞçÇ]+$/.test(part)) return 'Sadece harfler kullanabilirsiniz';
+    }
+    
+    return '';
+  };
+
+  // Telefon formatlaması
+  const formatPhoneNumber = (value: string): string => {
+    // Sadece rakamları al
+    const numbers = value.replace(/\D/g, '');
+    
+    // Eğer 90 ile başlıyorsa veya 0 ile başlıyorsa düzenle
+    let cleanNumbers = numbers;
+    if (cleanNumbers.startsWith('90')) {
+      cleanNumbers = cleanNumbers.substring(2);
+    } else if (cleanNumbers.startsWith('0')) {
+      cleanNumbers = cleanNumbers.substring(1);
+    }
+    
+    // 5 ile başlamazsa ve boş değilse hata
+    if (cleanNumbers.length > 0 && !cleanNumbers.startsWith('5')) {
+      return value; // Geçersiz format, değiştirme
+    }
+    
+    // Formatla: +90 5xx xxx xx xx
+    if (cleanNumbers.length === 0) return '';
+    if (cleanNumbers.length <= 3) return `+90 ${cleanNumbers}`;
+    if (cleanNumbers.length <= 6) return `+90 ${cleanNumbers.slice(0, 3)} ${cleanNumbers.slice(3)}`;
+    if (cleanNumbers.length <= 8) return `+90 ${cleanNumbers.slice(0, 3)} ${cleanNumbers.slice(3, 6)} ${cleanNumbers.slice(6)}`;
+    if (cleanNumbers.length <= 10) return `+90 ${cleanNumbers.slice(0, 3)} ${cleanNumbers.slice(3, 6)} ${cleanNumbers.slice(6, 8)} ${cleanNumbers.slice(8)}`;
+    
+    // Maksimum 10 haneli
+    return `+90 ${cleanNumbers.slice(0, 3)} ${cleanNumbers.slice(3, 6)} ${cleanNumbers.slice(6, 8)} ${cleanNumbers.slice(8, 10)}`;
+  };
 
   const handleInputChange = (field: keyof BookingData, value: any) => {
+    // Telefon alanı için özel formatlaması
+    if (field === 'phone') {
+      value = formatPhoneNumber(value);
+    }
+
     setBookingData(prev => ({ 
       ...prev, 
       [field]: value,
       // Tarih değiştiğinde seçili saati sıfırla
       ...(field === 'selectedDate' && { selectedTime: '' })
     }));
+
+    // Tarih seçildiğinde calendar'ı kapat
+    if (field === 'selectedDate') {
+      setIsCalendarOpen(false);
+    }
+
+    // Validation hatalarını temizle
+    if (validationErrors[field as keyof ValidationErrors]) {
+      setValidationErrors(prev => ({
+        ...prev,
+        [field]: undefined
+      }));
+    }
   };
 
   // Tarih navigasyonu için fonksiyonlar
@@ -158,6 +256,45 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
     }
   };
 
+  // Step validation fonksiyonları
+  const validateStep1 = (): boolean => {
+    const errors: ValidationErrors = {};
+    
+    const parentNameError = validateParentName(bookingData.parentName);
+    if (parentNameError) errors.parentName = parentNameError;
+    
+    const phoneError = validatePhone(bookingData.phone);
+    if (phoneError) errors.phone = phoneError;
+    
+    const emailError = validateEmail(bookingData.email);
+    if (emailError) errors.email = emailError;
+    
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const validateStep2 = (): boolean => {
+    const errors: ValidationErrors = {};
+    
+    const childNameError = validateChildName(bookingData.childName);
+    if (childNameError) errors.childName = childNameError;
+    
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0 && bookingData.childAge >= 10 && bookingData.childAge <= 17;
+  };
+
+  const handleNextStep = (currentStep: number) => {
+    if (currentStep === 1) {
+      if (validateStep1()) {
+        setStep(2);
+      }
+    } else if (currentStep === 2) {
+      if (validateStep2()) {
+        setStep(3);
+      }
+    }
+  };
+
   const resetModal = () => {
     setStep(1);
     setBookingData({
@@ -169,8 +306,10 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
       selectedDate: null,
       selectedTime: ''
     });
+    setValidationErrors({});
     setIsSuccess(false);
     setIsSubmitting(false);
+    setIsCalendarOpen(false);
   };
 
   const handleClose = () => {
@@ -178,8 +317,8 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
     onClose();
   };
 
-  const isStep1Valid = bookingData.parentName && bookingData.phone && bookingData.email;
-  const isStep2Valid = bookingData.childName && bookingData.childAge > 0;
+  const isStep1Valid = bookingData.parentName && bookingData.phone && bookingData.email && Object.keys(validationErrors).length === 0;
+  const isStep2Valid = bookingData.childName && bookingData.childAge >= 10 && bookingData.childAge <= 17;
   const isStep3Valid = bookingData.selectedDate && bookingData.selectedTime;
 
   return (
@@ -295,8 +434,11 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                         value={bookingData.parentName}
                         onChange={(e) => handleInputChange('parentName', e.target.value)}
                         placeholder="Adınız ve soyadınız"
-                        className="h-12"
+                        className={cn("h-12", validationErrors.parentName && "border-destructive")}
                       />
+                      {validationErrors.parentName && (
+                        <p className="text-sm text-destructive mt-1">{validationErrors.parentName}</p>
+                      )}
                     </div>
 
                     <div>
@@ -309,8 +451,11 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                         value={bookingData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         placeholder="+90 5xx xxx xx xx"
-                        className="h-12"
+                        className={cn("h-12", validationErrors.phone && "border-destructive")}
                       />
+                      {validationErrors.phone && (
+                        <p className="text-sm text-destructive mt-1">{validationErrors.phone}</p>
+                      )}
                     </div>
 
                     <div>
@@ -324,14 +469,16 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                         value={bookingData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
                         placeholder="ornek@email.com"
-                        className="h-12"
+                        className={cn("h-12", validationErrors.email && "border-destructive")}
                       />
+                      {validationErrors.email && (
+                        <p className="text-sm text-destructive mt-1">{validationErrors.email}</p>
+                      )}
                     </div>
                   </div>
 
                   <Button 
-                    onClick={() => setStep(2)}
-                    disabled={!isStep1Valid}
+                    onClick={() => handleNextStep(1)}
                     className="w-full bg-primary hover:bg-primary-hover text-primary-foreground"
                     size="lg"
                   >
@@ -363,10 +510,13 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                         value={bookingData.childName}
                         onChange={(e) => handleInputChange('childName', e.target.value)}
                         placeholder="Çocuğunuzun adı"
-                        className="h-12"
+                        className={cn("h-12", validationErrors.childName && "border-destructive")}
                       />
+                      {validationErrors.childName && (
+                        <p className="text-sm text-destructive mt-1">{validationErrors.childName}</p>
+                      )}
                       <p className="text-xs text-muted-foreground mt-1">
-                        Lütfen çocuğunuzun tam adını ve soyadını doğru olarak giriniz. Sizin iletişiğiniz şekilde de mevzuriyet sertifikasında görünecektir. Teşekkür ederiz!
+                        Lütfen çocuğunuzun tam adını ve soyadını doğru olarak giriniz. Sizin iletişiğiniz şekilde de sertifikasında görünecektir. Teşekkür ederiz!
                       </p>
                     </div>
 
@@ -407,8 +557,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                       Geri
                     </Button>
                     <Button 
-                      onClick={() => setStep(3)}
-                      disabled={!isStep2Valid}
+                      onClick={() => handleNextStep(2)}
                       className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground"
                       size="lg"
                     >
@@ -438,7 +587,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                       </Label>
                       
                       <div className="flex justify-center mb-6">
-                        <Popover>
+                        <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
                           <PopoverTrigger asChild>
                             <Button
                               variant="outline"
@@ -520,18 +669,18 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                           ))}
                         </div>
 
-                        <div className="text-center mt-4">
-                          <p className="text-sm text-muted-foreground">
-                            Saat diliminde gösterilen saatler:{' '}
+                        <div className="text-center mt-4 space-y-2">
+                          <div className="text-sm text-muted-foreground">
+                            <span>Saat diliminde gösterilen saatler: </span>
                             <Badge variant="outline" className="text-xs">
                               (UTC +03:00) Europe/Istanbul
                             </Badge>
-                          </p>
-                          <p className="text-xs text-muted-foreground mt-2">
+                          </div>
+                          <p className="text-xs text-muted-foreground">
                             Saat diliminde gösterilen saatler, geçerli saat{' '}
                             <strong>{new Date().toLocaleTimeString('tr-TR')}</strong>
                           </p>
-                          <p className="text-xs text-muted-foreground mt-1">
+                          <p className="text-xs text-muted-foreground">
                             Deneme dersi için başlangıç için ebeveyn olarak eşlik etmeniz gerektiğini lütfen unutmayın, aksi takdirde deneme dersi yapılamayacaktır
                           </p>
                         </div>
