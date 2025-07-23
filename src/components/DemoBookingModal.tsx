@@ -13,6 +13,7 @@ import { tr } from 'date-fns/locale';
 import { cn } from '@/lib/utils';
 import { db } from '@/lib/firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { emailService } from '@/services/emailService';
 
 interface DemoBookingModalProps {
   isOpen: boolean;
@@ -245,6 +246,34 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
       
       console.log('Reservation saved with ID: ', docRef.id);
       console.log('Booking data:', docData);
+
+      // E-posta bildirimi gönder
+      try {
+        const emailData = {
+          parentName: bookingData.parentName,
+          parentPhone: bookingData.phone,
+          parentEmail: bookingData.email,
+          childName: bookingData.childName,
+          childAge: bookingData.childAge,
+          selectedDate: bookingData.selectedDate ? format(bookingData.selectedDate, 'dd MMMM yyyy', { locale: tr }) : '',
+          selectedTime: bookingData.selectedTime,
+          timeZone: 'Europe/Istanbul',
+          dayOfWeek: bookingData.selectedDate ? format(bookingData.selectedDate, 'EEEE', { locale: tr }) : '',
+          status: 'pending',
+          createdAt: new Date().toLocaleString('tr-TR'),
+          bookingId: docRef.id
+        };
+
+        const emailSent = await emailService.sendDemoBookingNotification(emailData);
+        if (emailSent) {
+          console.log('✅ E-posta bildirimi başarıyla gönderildi!');
+        } else {
+          console.warn('⚠️ E-posta gönderilirken sorun oluştu, ancak rezervasyon kaydedildi.');
+        }
+      } catch (emailError) {
+        console.error('E-posta gönderme hatası:', emailError);
+        // E-posta hatası rezervasyon işlemini engellemez
+      }
       
       setIsSubmitting(false);
       setIsSuccess(true);
