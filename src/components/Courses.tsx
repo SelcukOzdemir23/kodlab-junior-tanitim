@@ -25,7 +25,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       level: 'Başlangıç',
       features: ['Drag & Drop Kodlama', 'Oyun Tasarımı', 'Animasyon', 'Sanat Projeleri'],
       color: 'bg-accent/10 border-accent/20',
-      badge: 'En Popüler'
+      //badge: 'En Popüler'
     },
     {
       title: 'Python ile Kodlama',
@@ -35,7 +35,8 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       duration: '16 hafta',
       level: 'Orta',
       features: ['Metin Kodlama', 'Problem Çözme', 'Matematik Uygulamaları', 'Mini Projeler'],
-      color: 'bg-primary/10 border-primary/20'
+      color: 'bg-primary/10 border-primary/20',
+      badge:"Ahmet bey'in Favorisi"
     },
     {
       title: 'Web Geliştirme',
@@ -48,7 +49,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       color: 'bg-secondary/10 border-secondary/20'
     },
     {
-      title: 'Mobil Uygulama',
+      title: 'Kodu',
       slug: 'mobil-uygulama',
       description: 'MIT App Inventor ile basit mobil uygulamalar geliştirme.',
       ageRange: '13-17 yaş',
@@ -58,7 +59,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       color: 'bg-accent/10 border-accent/20'
     },
     {
-      title: 'Oyun Geliştirme',
+      title: 'GIMP',
       slug: 'oyun-gelistirme',
       description: 'Unity ile 2D oyun tasarımı. Oyun mekaniği ve karakter tasarımı.',
       ageRange: '14-17 yaş',
@@ -66,10 +67,10 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       level: 'İleri',
       features: ['Unity Engine', '2D Oyunlar', 'Karakter Tasarımı', 'Oyun Mekaniği'],
       color: 'bg-primary/10 border-primary/20',
-      badge: 'Yeni'
+      //badge: 'Yeni'
     },
     {
-      title: 'Robotik & Arduino',
+      title: 'Thinkercad',
       slug: 'robotik-arduino',
       description: 'Fiziksel bilgi işlem. Sensörler ve robotik projeler.',
       ageRange: '11-16 yaş',
@@ -191,11 +192,11 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
           className="text-center mt-16 bg-gradient-primary rounded-3xl p-12"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-            Hangi kurs çocuğunuz için uygun?
+            Hangi kursun çocuğunuz için uygun olduğundan emin değil misiniz?
           </h3>
           <p className="text-primary-foreground/80 text-lg mb-8">
-            Ücretsiz danışmanlık görüşmesinde çocuğunuzun yaşına ve ilgi alanına 
-            en uygun programı birlikte belirleyelim
+            Hiç sorun değil. Ücretsiz danışmanlık görüşmesinde çocuğunuzun yaşına ve ilgi alanına 
+            en uygun programı birlikte belirleyelim!
           </p>
           <Button 
             size="lg"
