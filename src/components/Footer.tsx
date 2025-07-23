@@ -65,7 +65,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
             className="text-center max-w-2xl mx-auto"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Buna benzer bir şey yapmak istiyor musunuz?
+              Hakkımızda daha fazla bilgi edinin
             </h3>
             <p className="text-primary-foreground/80 mb-8 text-lg">
               Kodlama eğitimi hakkında güncel bilgiler ve özel fırsatlar için bültenimize abone olun
@@ -121,7 +121,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
             </div>
             
             <p className="text-primary-foreground/80 leading-relaxed">
-              6-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimi. 
+              10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimi. 
               Geleceğin teknolojisini bugünden öğrenmeye başlayın!
             </p>
 
@@ -183,7 +183,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                 <MapPin className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-primary-foreground/80">
-                    Ataşehir, İstanbul<br />
+                    Antalya,<br />
                     Türkiye
                   </p>
                 </div>
@@ -199,14 +199,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                 <span className="text-primary-foreground/80">info@kodlabjunior.com</span>
               </div>
 
-              <div className="flex items-start space-x-3">
-                <Clock className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
-                <div className="text-primary-foreground/80">
-                  <p>Pazartesi - Cuma: 09:00 - 18:00</p>
-                  <p>Cumartesi: 10:00 - 16:00</p>
-                  <p>Pazar: Kapalı</p>
-                </div>
-              </div>
+            
             </div>
           </motion.div>
 
@@ -219,12 +212,12 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
           >
             <h4 className="text-xl font-bold mb-6">Kurslarımız</h4>
             <ul className="space-y-3 text-primary-foreground/80">
-              <li>Scratch ile Başlangıç (6-9 yaş)</li>
-              <li>Python ile Kodlama (10-13 yaş)</li>
-              <li>Web Geliştirme (12-15 yaş)</li>
-              <li>Mobil Uygulama (13-17 yaş)</li>
-              <li>Oyun Geliştirme (14-17 yaş)</li>
-              <li>Robotik & Arduino (11-16 yaş)</li>
+              <li>Scratch ile Başlangıç </li>
+              <li>Python ile Kodlama </li>
+              <li>Tinkercad </li>
+              <li>Kodu </li>
+              <li>GIMP </li>
+              <li>Web Geliştirme</li>
             </ul>
           </motion.div>
         </div>

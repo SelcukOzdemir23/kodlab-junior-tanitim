@@ -5,32 +5,32 @@ export const Features = () => {
   const features = [
     {
       icon: Code,
-      title: 'Aktif Yazılımcı Eğitmenler',
-      description: 'Sadece öğretmen değil, günlük kod yazan yazılım mühendisleri. Çocuğunuz sektörün gerçeklerini öğreniyor.',
+      title: 'Güncel Eğitmenler',
+      description: 'Sektörün en güncel bilgilerini, deneyimlerimizle öğretiyoruz.',
       color: 'accent'
     },
     {
       icon: Home,
-      title: 'Evden Güvenli Eğitim',
-      description: 'Modern online platformlarla evinin konforunda öğreniyor. COVID endişesi yok, ulaşım yorgunluğu yok.',
+      title: 'Çevrimiçi Eğitim',
+      description: 'Modern çevrimiçi platformumuz ile rahat, konforlu, güncel ve erişilebilir eğitim deneyimi sunuyoruz.',
       color: 'primary'
     },
     {
       icon: Users,
-      title: 'Mini Gruplar (Max 4 Kişi)',
-      description: 'Gerçekten küçük gruplarla birebir ilgi. Her çocuğun kodunu tek tek kontrol ediyoruz.',
+      title: 'Premium Gruplar (En Fazla 5 Kişi)',
+      description: 'Daha küçük gruplarla daha fazla etkileşim. Her öğrenciye özel ilgi ve destek.',
       color: 'secondary'
     },
     {
       icon: Monitor,
-      title: 'Interaktif Online Deneyim',
-      description: 'Screen sharing, canlı kod yazma, anlık geri bildirim. Sanki yanında oturuyormuş gibi öğreniyor.',
+      title: 'Etkin Çevrimiçi Deneyim',
+      description: 'Ekran paylaşımı, canlı kod yazımı ve geri bildirimler.Yüz yüze eğitimin tüm faydalarını sağlamaya çalışıyoruz.',
       color: 'accent'
     },
     {
       icon: MessageCircle,
-      title: '7/24 Aile İletişimi',
-      description: 'WhatsApp üzerinden her soru anında cevaplanıyor. Ders sonrası detaylı veli raporu.',
+      title: 'Aile İletişimi',
+      description: 'Veli ile aktif iletişim sunuyoruz. Çocukların gelişimi hakkında detaylı geri bildirimler sağlıyoruz.',
       color: 'primary'
     },
     {
