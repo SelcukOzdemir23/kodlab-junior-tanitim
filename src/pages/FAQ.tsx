@@ -180,24 +180,17 @@ const FAQ = () => {
     }
   ];
 
-  // const quickStats = [
-  //   { icon: Users, value: "1000+", label: "Mutlu Öğrenci", color: "text-blue-500" },
-  //   { icon: Star, value: "4.9", label: "Ortalama Puan", color: "text-yellow-500" },
-  //   { icon: CheckCircle, value: "%98", label: "Memnuniyet", color: "text-green-500" },
-  //   { icon: Shield, value: "7/24", label: "Destek", color: "text-purple-500" }
-  // ];
-
   return (
     <div className="min-h-screen bg-background">
       <Header onBookDemo={handleBookDemo} />
       
-      {/* Hero Section */}
-      <section className="pt-20 py-24 relative overflow-hidden" style={{
+      {/* Hero Section - Mobile Responsive */}
+      <section className="pt-20 py-16 md:py-24 relative overflow-hidden" style={{
         background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%)'
       }}>
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-purple-600/10 to-purple-400/20"></div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -208,12 +201,12 @@ const FAQ = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-3 mb-6"
+              className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-3 mb-6"
             >
-              <div className="w-16 h-16 bg-yellow-400 rounded-3xl flex items-center justify-center">
-                <HelpCircle className="w-8 h-8 text-yellow-900" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-400 rounded-2xl sm:rounded-3xl flex items-center justify-center">
+                <HelpCircle className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-900" />
               </div>
-              <Badge className="bg-yellow-400 text-yellow-900 px-4 py-2 text-lg">
+              <Badge className="bg-yellow-400 text-yellow-900 px-3 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-lg">
                 Sık Sorulan Sorular
               </Badge>
             </motion.div>
@@ -222,10 +215,10 @@ const FAQ = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6"
               style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.3)' }}
             >
-              Merak ettiklerinizi <br />
+              Merak ettiklerinizi<br className="hidden sm:block" />{' '}
               <span className="text-yellow-300">yanıtladık!</span>
             </motion.h1>
             
@@ -233,19 +226,19 @@ const FAQ = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl text-white/90 mb-8 leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 leading-relaxed px-4 sm:px-0"
               style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.3)' }}
             >
-              Çocuğunuzun kodlama yolculuğu hakkında en çok sorulan soruların <br />
+              Çocuğunuzun kodlama yolculuğu hakkında en çok sorulan soruların<br className="hidden sm:block" />
               detaylı cevaplarını burada bulabilirsiniz
             </motion.p>
 
-            {/* Quick Stats */}
+            {/* Quick Stats - Commented out for mobile optimization */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto"
+              className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 max-w-2xl mx-auto"
             >
             {/*
               {quickStats.map((stat, index) => (
@@ -261,24 +254,24 @@ const FAQ = () => {
         </div>
       </section>
 
-      {/* FAQ Categories */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
+      {/* FAQ Categories - Mobile Responsive */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
               Kategoriler <span className="text-primary">halinde</span> yanıtlar
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 sm:px-0">
               Sorularınızı kategorilere ayırarak daha kolay bulmanızı sağladık
             </p>
           </motion.div>
 
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {faqCategories.map((category, categoryIndex) => (
               <motion.div
                 key={category.id}
@@ -288,15 +281,17 @@ const FAQ = () => {
                 transition={{ delay: categoryIndex * 0.1 }}
                 className="max-w-4xl mx-auto"
               >
-                <Card className={`border-2 ${category.borderColor} ${category.bgColor} mb-6`}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center space-x-4">
-                      <div className={`w-12 h-12 ${category.bgColor} rounded-2xl flex items-center justify-center border ${category.borderColor}`}>
-                        <category.icon className={`w-6 h-6 ${category.color}`} />
+                <Card className={`border-2 ${category.borderColor} ${category.bgColor} mb-4 md:mb-6`}>
+                  <CardHeader className="p-4 sm:p-6">
+                    <CardTitle className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                      <div className="flex items-center space-x-3 sm:space-x-4">
+                        <div className={`w-10 h-10 sm:w-12 sm:h-12 ${category.bgColor} rounded-xl sm:rounded-2xl flex items-center justify-center border ${category.borderColor}`}>
+                          <category.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${category.color}`} />
+                        </div>
+                        <span className={`text-lg sm:text-xl md:text-2xl ${category.color} font-bold`}>
+                          {category.title}
+                        </span>
                       </div>
-                      <span className={`text-2xl ${category.color} font-bold`}>
-                        {category.title}
-                      </span>
                       <Badge variant="secondary" className="ml-auto">
                         {category.questions.length} soru
                       </Badge>
@@ -304,28 +299,28 @@ const FAQ = () => {
                   </CardHeader>
                 </Card>
 
-                <Accordion type="single" collapsible className="space-y-4">
+                <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
                   {category.questions.map((faq, faqIndex) => (
                     <AccordionItem 
                       key={faqIndex} 
                       value={`${category.id}-${faqIndex}`}
-                      className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-brand transition-all duration-300"
+                      className="bg-card rounded-xl md:rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-brand transition-all duration-300"
                     >
-                      <AccordionTrigger className="px-8 py-6 hover:no-underline group text-left">
-                        <div className="flex items-center space-x-4 w-full">
-                          <div className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                            <span className="font-bold text-sm">
+                      <AccordionTrigger className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 hover:no-underline group text-left">
+                        <div className="flex items-start sm:items-center space-x-3 sm:space-x-4 w-full">
+                          <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors mt-0.5 sm:mt-0">
+                            <span className="font-bold text-xs sm:text-sm">
                               {faqIndex + 1}
                             </span>
                           </div>
-                          <span className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                          <span className="text-sm sm:text-base md:text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                             {faq.question}
                           </span>
                         </div>
                       </AccordionTrigger>
-                      <AccordionContent className="px-8 pb-6">
-                        <div className="pt-4 pl-12">
-                          <p className="text-muted-foreground leading-relaxed text-lg">
+                      <AccordionContent className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-5 md:pb-6">
+                        <div className="pt-2 sm:pt-3 md:pt-4 pl-9 sm:pl-12">
+                          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base md:text-lg">
                             {faq.answer}
                           </p>
                         </div>
@@ -339,31 +334,31 @@ const FAQ = () => {
         </div>
       </section>
 
-      {/* Hala Sorunuz Var mı? */}
-      <section className="py-24 bg-background-secondary">
-        <div className="container mx-auto px-4">
+      {/* Hala Sorunuz Var mı? - Mobile Responsive */}
+      <section className="py-16 md:py-24 bg-background-secondary">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center max-w-4xl mx-auto"
           >
-            <div className="bg-gradient-primary rounded-3xl p-12">
+            <div className="bg-gradient-primary rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="mb-8"
+                className="mb-6 sm:mb-8"
               >
-                <div className="w-20 h-20 bg-yellow-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
-                  <MessageCircle className="w-10 h-10 text-yellow-900" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-yellow-400 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                  <MessageCircle className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-900" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground mb-3 sm:mb-4">
                   Hâlâ sorunuz mu var?
                 </h2>
-                <p className="text-primary-foreground/90 text-xl leading-relaxed mb-8">
-                  Yukarıdaki sorular arasında aradığınızı bulamadınız mı? <br />
+                <p className="text-primary-foreground/90 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
+                  Yukarıdaki sorular arasında aradığınızı bulamadınız mı?<br className="hidden sm:block" />
                   Bizimle iletişime geçin, size yardımcı olmaktan memnuniyet duyarız!
                 </p>
               </motion.div>
@@ -373,7 +368,7 @@ const FAQ = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="grid md:grid-cols-3 gap-6 mb-8"
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8"
               >
                 {[
                   { icon: MessageCircle, title: "WhatsApp", desc: "0535 123 45 67", action: "Hemen Yaz" },
@@ -386,12 +381,12 @@ const FAQ = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 + index * 0.1 }}
-                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 hover:bg-white/20 transition-colors group cursor-pointer"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 sm:p-6 text-center border border-white/20 hover:bg-white/20 transition-colors group cursor-pointer"
                   >
-                    <contact.icon className="w-8 h-8 text-yellow-300 mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                    <div className="font-semibold text-primary-foreground mb-1">{contact.title}</div>
-                    <div className="text-primary-foreground/80 text-sm mb-3">{contact.desc}</div>
-                    <div className="text-yellow-300 text-sm font-medium group-hover:text-yellow-200 transition-colors">
+                    <contact.icon className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-300 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
+                    <div className="font-semibold text-primary-foreground mb-1 text-sm sm:text-base">{contact.title}</div>
+                    <div className="text-primary-foreground/80 text-xs sm:text-sm mb-2 sm:mb-3">{contact.desc}</div>
+                    <div className="text-yellow-300 text-xs sm:text-sm font-medium group-hover:text-yellow-200 transition-colors">
                       {contact.action} →
                     </div>
                   </motion.div>
@@ -403,16 +398,16 @@ const FAQ = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
-                className="space-y-4"
+                className="space-y-3 sm:space-y-4"
               >
                 <Button 
                   size="lg"
                   onClick={handleBookDemo}
-                  className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-lg px-12 py-4 mr-4"
+                  className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4"
                 >
                   Ücretsiz Deneme Dersi Al 🎯
                 </Button>
-                <p className="text-primary-foreground/70 text-sm">
+                <p className="text-primary-foreground/70 text-xs sm:text-sm">
                   İlk ders tamamen ücretsiz! Hiçbir taahhüt gerektirmez.
                 </p>
               </motion.div>
