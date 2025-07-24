@@ -29,10 +29,9 @@ const RefundPolicy = () => {
       bgColor: "bg-green-50",
       borderColor: "border-green-200",
       content: [
-        "İlk ders tamamen ücretsiz ve iade şartı bulunmamaktadır",
+        "Deneme derslerimiz  tamamen ücretsiz ve iade şartı bulunmamaktadır",
         "Deneme dersi sonrası kurs kaydı yapmak zorunda değilsiniz",
         "Deneme dersi sırasında herhangi bir ödeme alınmaz",
-        "Memnun kalmazsanız, kursa devam etmek zorunda değilsiniz"
       ]
     },
     {
@@ -69,31 +68,14 @@ const RefundPolicy = () => {
       borderColor: "border-red-200", 
       content: [
         "4. haftadan sonra para iadesi yapılmamaktadır",
-        "Ancak özel durumlar (sağlık sorunu vs.) değerlendirilir",
+        "Bakiyeniz hesabınızda saklı durmaktadır",
         "Kurs ertelemeleri mümkündür (6 aya kadar)",
-        "Kurs değişikliği (farklı seviyeye geçiş) yapılabilir"
+        "Bakiyenizi farklı kursta değerlendirebilirsiniz."
       ]
     }
   ];
 
-  const specialCases = [
-    {
-      title: "Teknik Problemler",
-      description: "Bizden kaynaklanan teknik sorunlar nedeniyle derslerin aksatılması durumunda telafi dersi veya iade hakkınız bulunur."
-    },
-    {
-      title: "Eğitmen Değişikliği", 
-      description: "Eğitmen değişikliği durumunda ilk 2 ders sonunda memnun kalmazsanız %100 iade hakkınız vardır."
-    },
-    {
-      title: "Sağlık Durumu",
-      description: "Çocuğun uzun süreli sağlık problemi yaşaması durumunda doktor raporu ile kurs ertelenebilir."
-    },
-    {
-      title: "Aile Acil Durumları",
-      description: "Aile içi acil durumlar (taşınma, işsizlik vb.) için esnek çözümler sunuyoruz."
-    }
-  ];
+  
 
   return (
     <div className="min-h-screen bg-background">
@@ -205,47 +187,10 @@ const RefundPolicy = () => {
         </div>
       </section>
 
-      {/* Özel Durumlar */}
-      <section className="py-24 bg-background-secondary">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Özel <span className="text-secondary">Durumlar</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Beklenmedik durumlar için esnek çözümlerimiz
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {specialCases.map((specialCase, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-card rounded-2xl p-6 border border-border hover:shadow-brand transition-all duration-300"
-              >
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  {specialCase.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {specialCase.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* İade Süreci */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-background-secondary">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

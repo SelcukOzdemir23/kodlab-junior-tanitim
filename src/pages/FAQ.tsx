@@ -46,7 +46,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Hangi yaş grubundaki çocuklar kursa katılabilir?",
-          answer: "Kurslarımız 6-17 yaş arası çocuklar için tasarlanmıştır. Python ile Kodlama kursu özellikle 10-13 yaş arası çocuklar için idealdir. Scratch ile Başlangıç kursu 6-9 yaş, Oyun Geliştirme kursu ise 13-17 yaş grubu için uygundur."
+          answer: "Kurslarımız 10-17 yaş arası çocuklar için tasarlanmıştır. Kurslarımız özelinde yaş aralığı daralabilmektedir."
         },
         {
           question: "Hiç programlama bilmeyen çocuklar katılabilir mi?",
@@ -54,15 +54,15 @@ const FAQ = () => {
         },
         {
           question: "Kurs ne kadar sürer?",
-          answer: "Python ile Kodlama kursu 16 hafta (4 ay) sürmektedir. Haftada 1 kez 90 dakikalık dersler yapılır. Diğer kurslarımızın süreleri 8-12 hafta arasında değişmektedir."
+          answer: "Python ile Kodlama kursu 32 hafta (6 ay) sürmektedir. Haftada 1 kez 90 dakikalık dersler yapılır. Detaylı bilgiyi kurs detay sayfasında edinebilirsiniz."
         },
         {
           question: "Dersler hangi günlerde ve saatlerde?",
-          answer: "Derslerimiz hafta içi 17:00-20:00 ve hafta sonu 09:00-17:00 saatleri arasında planlanmaktadır. Kayıt sırasında size uygun zaman dilimini seçebilirsiniz. Her grup için sabit gün ve saat belirlenir."
+          answer: "Derslerimiz talebe uygun olacak şekilde gün sonlarında planlanır. Kayıt sırasında size uygun zaman dilimini seçebilirsiniz. Her grup için sabit gün ve saat belirlenir."
         },
         {
           question: "Sınıf mevcudu kaç kişi?",
-          answer: "Kaliteli eğitim için gruplarımız maksimum 4 kişiliktir. Bu sayede her çocuğa bireysel ilgi gösterebiliyor ve sorularını anında yanıtlayabiliyoruz."
+          answer: "Standart ve Premium olmak üzere 2 farklı sınıfımız bulunmaktadır. Standart gruplarımız 10, premium gruplarımız 5 kişi olarak planlanır."
         }
       ]
     },
@@ -76,7 +76,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Hangi bilgisayar ve işletim sistemi gerekli?",
-          answer: "Windows 10/11, macOS 10.14+ veya Ubuntu 18.04+ işletim sistemli herhangi bir bilgisayar yeterlidir. Minimum 4GB RAM ve 2GB boş disk alanı önerilir. Tablet veya telefon ile ders katılımı mümkün değildir."
+          answer: "Windows 10/11, macOS 10.14+ veya Ubuntu 18.04+ işletim sistemli herhangi bir bilgisayar yeterlidir. Minimum 4GB RAM ve 2GB boş disk alanı önerilir. En iyi deneyim için bilgisiyar kullanımı tavsiye edilir."
         },
         {
           question: "İnternet hızı ne kadar olmalı?",
@@ -84,7 +84,7 @@ const FAQ = () => {
         },
         {
           question: "Özel bir program yüklemek gerekiyor mu?",
-          answer: "Evet, kurs için gerekli programları (Python, Visual Studio Code, Zoom) kurulum rehberimiz eşliğinde birlikte yükleyeceğiz. Tüm programlar ücretsizdir ve kurulum desteği sağlanır."
+          answer: "Evet, kurlarımız için gerekli programları (Python, Visual Studio Code, Zoom) yükleme konusunda yardımcı olunacaktır."
         },
         {
           question: "Web kamerası ve mikrofon zorunlu mu?",
@@ -92,7 +92,7 @@ const FAQ = () => {
         },
         {
           question: "Teknik sorun yaşarsak ne yapmalıyız?",
-          answer: "7/24 teknik destek WhatsApp hattımız bulunmaktadır. Ders öncesi bağlantı testi yapıyoruz. Ders sırasında sorun yaşanırsa anında müdahale ediyoruz."
+          answer: "Herhangi bir sorunda teknik destek WhatsApp hattımız bulunmaktadır. İstediğiniz zaman bize ulaşabilirsiniz."
         }
       ]
     },
@@ -106,7 +106,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Müfredat nasıl ilerliyor?",
-          answer: "16 haftalık müfredat proje tabanlı olarak ilerler. Her hafta yeni konular öğrenip, o konuyla ilgili küçük bir proje yaparız. Son 4 haftada büyük bir final projesi geliştirilir."
+          answer: "24 haftalık müfredat proje tabanlı olarak ilerler. Her hafta yeni konular öğrenip, o konuyla ilgili küçük bir proje yaparız. Son 4 haftada büyük bir final projesi geliştirilir."
         },
         {
           question: "Ödev veriliyor mu?",
@@ -114,15 +114,15 @@ const FAQ = () => {
         },
         {
           question: "Veliler ders takibi yapabilir mi?",
-          answer: "Kesinlikle! Haftalık ilerleme raporları, proje gösterimleri ve aylık veli toplantıları düzenlenir. Çocuğunuzun gelişimini yakından takip edebilirsiniz."
+          answer: "Kesinlikle! Platformumuz üzerinden ders kayıtlarına erişebilir, ödevleri takip edebilir ve çocuğun ilerlemesini görebilirsiniz. Ayrıca detaylı geri bildirim için öğretmenlerimiz ile iletişime geçebilirsiniz."
         },
         {
           question: "Derse katılamazsa telafi var mı?",
-          answer: "Evet, kaçırılan dersler için 1 hafta içinde telafi dersi planlanır. Ayrıca ders kayıtları 48 saat boyunca izlenebilir. Hastalık durumunda esnek telafi imkanı sunulur."
+          answer: "Derslerimiz kayıt alınmaktadır. Çocuğunuz derse katılamazsa, ders kaydını izleyebilir. Ayrıca telafi dersi talep edebilirsiniz."
         },
         {
           question: "Sertifika veriliyor mu?",
-          answer: "Kurs sonunda katılım sertifikası ve proje portfolyosu verilir. GitHub hesabında projeler sergilenir. Bu sertifika çocuğun CV'sine eklenebilir."
+          answer: "Kurs sonunda katılım sertifikası verilir."
         }
       ]
     },
@@ -136,15 +136,11 @@ const FAQ = () => {
       questions: [
         {
           question: "Kurs ücretleri nedir?",
-          answer: "Python ile Kodlama kursu 16 hafta için 2.400 TL'dir (haftalık 150 TL). İlk ders ücretsizdir. Erken kayıt indirimlerimiz ve kardeş indirimi (%15) mevcuttur."
+          answer: "Kurs detay sayfamızda kursların ücretlerini bulabilirsiniz. İlk ders ücretsizdir."
         },
         {
           question: "Hangi ödeme yöntemleri kabul ediliyor?",
-          answer: "Kredi kartı, banka kartı, havale/EFT ve taksitli ödeme seçenekleri mevcuttur. Kredi kartı ile 6 ay vadeye kadar taksit yapılabilir."
-        },
-        {
-          question: "Peşin ödeme indirimi var mı?",
-          answer: "Evet! Peşin ödemede %10 indirim uygulanır. Bu durumda 16 haftalık kurs 2.160 TL olmaktadır. İlk ders yine ücretsiz deneme hakkı geçerlidir."
+          answer: "Kredi kartı, banka kartı, havale/EFT ve taksitli ödeme seçenekleri mevcuttur."
         },
         {
           question: "İade politikanız nasıl?",
@@ -166,34 +162,30 @@ const FAQ = () => {
       questions: [
         {
           question: "Eğitmenlerle nasıl iletişim kurabiliriz?",
-          answer: "Her grup için WhatsApp grubu oluşturulur. Eğitmenler hafta içi 09:00-18:00 saatleri arasında sorularınızı yanıtlar. Acil durumlar için 7/24 iletişim hattı bulunur."
+          answer: "Her grup için WhatsApp grubu oluşturulur. Eğitmenler 24 saat içinde sorularınızı yanıtlar."
         },
         {
           question: "Ders saatlerini değiştirebilir miyiz?",
-          answer: "Kayıt sonrası grup değişikliği mümkündür ancak yer durumuna bağlıdır. En az 1 hafta önceden bildirim yapılmalıdır. Grup doluluk durumuna göre alternatif saatler sunulur."
-        },
-        {
-          question: "Tatil dönemlerinde ders var mı?",
-          answer: "Resmi tatillerde ders yapılmaz. Yaz tatili döneminde özel yaz kampları düzenlenir. Ara tatillerde normal ders programı devam eder."
+          answer: "Gruplar belli talebe göre açılır. Kayıt sonrası grup değişikliği mümkündür ancak yer durumuna bağlıdır. En az 1 hafta önceden bildirim yapılmalıdır. Grup doluluk durumuna göre alternatif saatler sunulur."
         },
         {
           question: "Çocuğum derste sıkılırsa ne yaparız?",
-          answer: "Eğitmenlerimiz çocuk pedagojisi konusunda deneyimlidir. Dersleri eğlenceli tutmak için oyunlar, yarışmalar ve grup aktiviteleri düzenleriz. Her çocuğun ilgi alanına uygun projeler geliştiririz."
+          answer: "Dersleri eğlenceli tutmak için oyunlar, yarışmalar ve grup aktiviteleri düzenleriz. Her çocuğun ilgi alanına uygun projeler geliştiririz."
         },
         {
           question: "Şikayet ve önerilerimizi nasıl iletebiliriz?",
-          answer: "Müdür yardımcımız ile doğrudan görüşebilir, email gönderebilir veya WhatsApp üzerinden mesaj atabilirsiniz. Tüm geri bildirimler 24 saat içinde yanıtlanır."
+          answer: "E-posta gönderebilir veya WhatsApp üzerinden mesaj atabilirsiniz. Tüm geri bildirimler 24 saat içinde yanıtlanır."
         }
       ]
     }
   ];
 
-  const quickStats = [
-    { icon: Users, value: "1000+", label: "Mutlu Öğrenci", color: "text-blue-500" },
-    { icon: Star, value: "4.9", label: "Ortalama Puan", color: "text-yellow-500" },
-    { icon: CheckCircle, value: "%98", label: "Memnuniyet", color: "text-green-500" },
-    { icon: Shield, value: "7/24", label: "Destek", color: "text-purple-500" }
-  ];
+  // const quickStats = [
+  //   { icon: Users, value: "1000+", label: "Mutlu Öğrenci", color: "text-blue-500" },
+  //   { icon: Star, value: "4.9", label: "Ortalama Puan", color: "text-yellow-500" },
+  //   { icon: CheckCircle, value: "%98", label: "Memnuniyet", color: "text-green-500" },
+  //   { icon: Shield, value: "7/24", label: "Destek", color: "text-purple-500" }
+  // ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -255,6 +247,7 @@ const FAQ = () => {
               transition={{ delay: 0.6 }}
               className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto"
             >
+            {/*
               {quickStats.map((stat, index) => (
                 <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
                   <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-2`} />
@@ -262,6 +255,7 @@ const FAQ = () => {
                   <div className="text-white/80 text-sm">{stat.label}</div>
                 </div>
               ))}
+                */}
             </motion.div>
           </motion.div>
         </div>
