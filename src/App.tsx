@@ -19,7 +19,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/kurslar/:courseSlug" element={<CourseDetail />} />
+          <Route path="/course/:courseSlug" element={<CourseDetail />} />
           <Route path="/iade-politikasi" element={<RefundPolicy />} />
           <Route path="/sss" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

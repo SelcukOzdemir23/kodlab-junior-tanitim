@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Clock, Users, Award, ChevronRight, Puzzle, Code2, Globe, Smartphone, Gamepad2, Bot } from 'lucide-react';
+import { Clock, Users, Award, ChevronRight, Puzzle, Code2, Globe, Box, Play, Palette } from 'lucide-react';
 
 interface CoursesProps {
   onBookDemo: () => void;
@@ -12,7 +12,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
   const navigate = useNavigate();
 
   const handleCourseClick = (slug: string) => {
-    navigate(`/kurslar/${slug}`);
+    navigate(`/course/${slug}`);
   };
 
   const courses = [
@@ -58,42 +58,42 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       iconBg: 'bg-green-50'
     },
     {
-      title: 'Mobil Uygulama',
-      slug: 'mobil-uygulama',
-      description: 'MIT App Inventor ile basit mobil uygulamalar geliştirme.',
-      ageRange: '13-17 yaş',
-      duration: '18 hafta',
-      level: 'İleri',
-      features: ['App Inventor', 'Mobil Tasarım', 'Database', 'Play Store Yayını'],
+      title: 'Tinkercad',
+      slug: 'tinkercad',
+      description: '3D tasarım ve modelleme. Yaratıcı projeler ve 3D baskı hazırlığı.',
+      ageRange: '8-14 yaş',
+      duration: '12 hafta',
+      level: 'Başlangıç-Orta',
+      features: ['3D Modelleme', 'Yaratıcı Tasarım', '3D Baskı Hazırlığı', 'Geometri Uygulamaları'],
       color: 'bg-accent/10 border-accent/20',
-      icon: Smartphone,
+      icon: Box,
       iconColor: 'text-purple-600',
       iconBg: 'bg-purple-50'
     },
     {
-      title: 'Oyun Geliştirme',
-      slug: 'oyun-gelistirme',
-      description: 'Unity ile 2D oyun tasarımı. Oyun mekaniği ve karakter tasarımı.',
-      ageRange: '14-17 yaş',
-      duration: '24 hafta',
-      level: 'İleri',
-      features: ['Unity Engine', '2D Oyunlar', 'Karakter Tasarımı', 'Oyun Mekaniği'],
+      title: 'Kodu',
+      slug: 'kodu',
+      description: 'Görsel programlama ile oyun tasarımı. Karakter kontrolü ve dünya yaratma.',
+      ageRange: '9-15 yaş',
+      duration: '14 hafta',
+      level: 'Orta',
+      features: ['Görsel Programlama', 'Oyun Tasarımı', 'Karakter Kontrolü', '3D Dünyalar'],
       color: 'bg-primary/10 border-primary/20',
-      icon: Gamepad2,
+      icon: Play,
       iconColor: 'text-red-600',
       iconBg: 'bg-red-50',
-      //badge: 'Yeni'
+      badge: 'Eğlenceli'
     },
     {
-      title: 'Robotik & Arduino',
-      slug: 'robotik-arduino',
-      description: 'Fiziksel bilgi işlem. Sensörler ve robotik projeler.',
-      ageRange: '11-16 yaş',
-      duration: '16 hafta',
-      level: 'Orta-İleri',
-      features: ['Arduino', 'Sensörler', 'Motor Kontrolü', 'IoT Projeleri'],
+      title: 'GIMP',
+      slug: 'gimp',
+      description: 'Dijital sanat ve fotoğraf düzenleme. Yaratıcı projeler ve grafik tasarım.',
+      ageRange: '10-16 yaş',
+      duration: '10 hafta',
+      level: 'Başlangıç-Orta',
+      features: ['Fotoğraf Düzenleme', 'Dijital Sanat', 'Grafik Tasarım', 'Yaratıcı Projeler'],
       color: 'bg-secondary/10 border-secondary/20',
-      icon: Bot,
+      icon: Palette,
       iconColor: 'text-indigo-600',
       iconBg: 'bg-indigo-50'
     }
