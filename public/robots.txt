@@ -1,8 +1,17 @@
+# Robots.txt for KodLab Junior Connect
+# Website: https://kodlab-junior-connect.com
+
+User-agent: *
+Allow: /
+
+# Special crawlers
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +19,27 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Disallow admin or private areas (if any in the future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /src/
+
+# Allow important resources
+Allow: /assets/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Sitemap location
+Sitemap: https://kodlab-junior-connect.com/sitemap.xml
+
+# Host (when deployed)
+Host: https://kodlab-junior-connect.com

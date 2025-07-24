@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { DemoBookingModal } from '@/components/DemoBookingModal';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { useState, useEffect } from 'react';
+import { useSEO, pageSEOConfigs } from '@/lib/seo';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
@@ -11,11 +12,14 @@ import { CheckCircle, AlertTriangle, Clock, Phone, Mail, MessageCircle } from 'l
 
 const RefundPolicy = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const { updateSEO } = useSEO();
 
-  // Sayfa yüklendiğinde en üste scroll yap
+  // Sayfa yüklendiğinde en üste scroll yap ve SEO ayarları
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    // İade politikası sayfası için SEO ayarları
+    updateSEO(pageSEOConfigs.refund);
+  }, [updateSEO]);
 
   const handleBookDemo = () => {
     setIsBookingModalOpen(true);

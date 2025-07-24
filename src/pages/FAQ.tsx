@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { DemoBookingModal } from '@/components/DemoBookingModal';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { useState, useEffect } from 'react';
+import { useSEO, pageSEOConfigs } from '@/lib/seo';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -25,11 +26,42 @@ import {
 
 const FAQ = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const { updateSEO, addStructuredData, generateFAQStructuredData } = useSEO();
 
-  // Sayfa yüklendiğinde en üste scroll yap
+  // Sayfa yüklendiğinde en üste scroll yap ve SEO ayarları
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    
+    // FAQ sayfası için SEO ayarları
+    updateSEO(pageSEOConfigs.faq);
+
+    // FAQ structured data
+    const faqs = [
+      {
+        question: "Kodlama eğitimleriniz hangi yaş grupları için uygun?",
+        answer: "Kodlama eğitimlerimiz 10-17 yaş arası çocuklar için özel olarak tasarlanmıştır. Her yaş grubuna uygun kurs seviyeleri mevcuttur."
+      },
+      {
+        question: "Herhangi bir ön bilgi gerekli mi?",
+        answer: "Hayır, hiçbir ön bilgi gerekmez. Tamamen sıfırdan başlayarak, adım adım öğretim metodumuzla çocuklar kolayca öğrenebilir."
+      },
+      {
+        question: "Kurslar online mı yoksa yüz yüze mi?",
+        answer: "Hem online hem de yüz yüze eğitim seçeneklerimiz bulunmaktadır. İhtiyaçlarınıza göre en uygun formatı seçebilirsiniz."
+      },
+      {
+        question: "Kurslarda hangi programlama dilleri öğretiliyor?",
+        answer: "Python, Scratch, HTML/CSS, JavaScript gibi güncel programlama dilleri ve teknolojileri öğretiyoruz."
+      },
+      {
+        question: "Kurs süreleri ne kadar?",
+        answer: "Kurslarımız genellikle 8-12 hafta sürmektedir. Her ders 60-90 dakika arasında değişmektedir."
+      }
+    ];
+
+    const faqStructuredData = generateFAQStructuredData(faqs);
+    addStructuredData(faqStructuredData);
+  }, [updateSEO, addStructuredData, generateFAQStructuredData]);
 
   const handleBookDemo = () => {
     setIsBookingModalOpen(true);

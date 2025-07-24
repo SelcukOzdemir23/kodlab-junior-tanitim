@@ -135,6 +135,8 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 muted
                 playsInline
                 className="w-full h-auto object-cover"
+                aria-label="KodLab Junior Connect tanıtım videosu - çocuklar kodlama öğreniyor"
+                title="Çocuklar için eğlenceli kodlama eğitimi"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
             </div>
