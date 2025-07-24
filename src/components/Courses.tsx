@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Clock, Users, Award, ChevronRight } from 'lucide-react';
+import { Clock, Users, Award, ChevronRight, Puzzle, Code2, Globe, Smartphone, Gamepad2, Bot } from 'lucide-react';
 
 interface CoursesProps {
   onBookDemo: () => void;
@@ -25,6 +25,9 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       level: 'Başlangıç',
       features: ['Drag & Drop Kodlama', 'Oyun Tasarımı', 'Animasyon', 'Sanat Projeleri'],
       color: 'bg-accent/10 border-accent/20',
+      icon: Puzzle,
+      iconColor: 'text-orange-500',
+      iconBg: 'bg-orange-50',
       //badge: 'En Popüler'
     },
     {
@@ -36,6 +39,9 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       level: 'Orta',
       features: ['Metin Kodlama', 'Problem Çözme', 'Matematik Uygulamaları', 'Mini Projeler'],
       color: 'bg-primary/10 border-primary/20',
+      icon: Code2,
+      iconColor: 'text-blue-600',
+      iconBg: 'bg-blue-50',
       badge:"Ahmet bey'in Favorisi"
     },
     {
@@ -46,20 +52,26 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       duration: '20 hafta',
       level: 'İleri',
       features: ['HTML & CSS', 'JavaScript', 'Responsive Tasarım', 'Portfolio Oluşturma'],
-      color: 'bg-secondary/10 border-secondary/20'
+      color: 'bg-secondary/10 border-secondary/20',
+      icon: Globe,
+      iconColor: 'text-green-600',
+      iconBg: 'bg-green-50'
     },
     {
-      title: 'Kodu',
+      title: 'Mobil Uygulama',
       slug: 'mobil-uygulama',
       description: 'MIT App Inventor ile basit mobil uygulamalar geliştirme.',
       ageRange: '13-17 yaş',
       duration: '18 hafta',
       level: 'İleri',
       features: ['App Inventor', 'Mobil Tasarım', 'Database', 'Play Store Yayını'],
-      color: 'bg-accent/10 border-accent/20'
+      color: 'bg-accent/10 border-accent/20',
+      icon: Smartphone,
+      iconColor: 'text-purple-600',
+      iconBg: 'bg-purple-50'
     },
     {
-      title: 'GIMP',
+      title: 'Oyun Geliştirme',
       slug: 'oyun-gelistirme',
       description: 'Unity ile 2D oyun tasarımı. Oyun mekaniği ve karakter tasarımı.',
       ageRange: '14-17 yaş',
@@ -67,17 +79,23 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       level: 'İleri',
       features: ['Unity Engine', '2D Oyunlar', 'Karakter Tasarımı', 'Oyun Mekaniği'],
       color: 'bg-primary/10 border-primary/20',
+      icon: Gamepad2,
+      iconColor: 'text-red-600',
+      iconBg: 'bg-red-50',
       //badge: 'Yeni'
     },
     {
-      title: 'Thinkercad',
+      title: 'Robotik & Arduino',
       slug: 'robotik-arduino',
       description: 'Fiziksel bilgi işlem. Sensörler ve robotik projeler.',
       ageRange: '11-16 yaş',
       duration: '16 hafta',
       level: 'Orta-İleri',
       features: ['Arduino', 'Sensörler', 'Motor Kontrolü', 'IoT Projeleri'],
-      color: 'bg-secondary/10 border-secondary/20'
+      color: 'bg-secondary/10 border-secondary/20',
+      icon: Bot,
+      iconColor: 'text-indigo-600',
+      iconBg: 'bg-indigo-50'
     }
   ];
 
@@ -119,7 +137,12 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
                   </Badge>
                 )}
 
+                {/* Course Icon */}
                 <div className="mb-6">
+                  <div className={`w-16 h-16 ${course.iconBg} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <course.icon className={`w-8 h-8 ${course.iconColor}`} />
+                  </div>
+                  
                   <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">
                     {course.title}
                   </h3>

@@ -400,12 +400,29 @@ const FAQ = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8"
               >
                 {[
-                  { icon: MessageCircle, title: "WhatsApp", desc: "0535 123 45 67", action: "Hemen Yaz" },
-                  { icon: Clock, title: "Telefon", desc: "0850 123 45 67", action: "Şimdi Ara" },
-                  { icon: Monitor, title: "Ücretsiz Danışmanlık", desc: "Online görüşme", action: "Randevu Al" }
+                  { 
+                    icon: MessageCircle, 
+                    title: "WhatsApp", 
+                    desc: "Hemen mesaj gönderin", 
+                    action: "Hemen Yaz",
+                    onClick: () => {
+                      const phoneNumber = "905523877207";
+                      const message = "Merhaba! KodLab Junior hakkında bilgi almak istiyorum.";
+                      const encodedMessage = encodeURIComponent(message);
+                      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                      window.open(whatsappUrl, '_blank');
+                    }
+                  },
+                  { 
+                    icon: Monitor, 
+                    title: "Ücretsiz Danışmanlık", 
+                    desc: "Online görüşme", 
+                    action: "Randevu Al",
+                    onClick: handleBookDemo
+                  }
                 ].map((contact, index) => (
                   <motion.div
                     key={index}
@@ -414,6 +431,7 @@ const FAQ = () => {
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 + index * 0.1 }}
                     className="bg-white/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 sm:p-6 text-center border border-white/20 hover:bg-white/20 transition-colors group cursor-pointer"
+                    onClick={contact.onClick}
                   >
                     <contact.icon className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-300 mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform" />
                     <div className="font-semibold text-primary-foreground mb-1 text-sm sm:text-base">{contact.title}</div>

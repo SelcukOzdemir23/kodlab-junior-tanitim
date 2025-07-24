@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -67,6 +67,48 @@ const ageOptions = [
 ];
 
 export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => {
+  // Scroll pozisyonunu kaydet ve geri yükle
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    if (isOpen) {
+      // Modal açıldığında scroll pozisyonunu kaydet
+      const currentScrollY = window.pageYOffset;
+      setScrollPosition(currentScrollY);
+      
+      // Body scroll'u engelle ama pozisyonu koru
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${currentScrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+    } else if (scrollPosition !== 0) {
+      // Modal kapandığında scroll pozisyonunu geri yükle
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      
+      // Scroll pozisyonunu geri yükle
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollPosition);
+      });
+    }
+
+    return () => {
+      // Component unmount olursa da temizle
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+    };
+  }, [isOpen]);
+
   const [step, setStep] = useState(1);
   const [bookingData, setBookingData] = useState<BookingData>({
     parentName: '',
@@ -342,8 +384,10 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   };
 
   const handleClose = () => {
-    resetModal();
-    onClose();
+    if (!isSubmitting) {
+      resetModal();
+      onClose();
+    }
   };
 
   const isStep1Valid = bookingData.parentName && bookingData.phone && bookingData.email && Object.keys(validationErrors).length === 0;
@@ -352,7 +396,15 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent 
+        className="max-w-2xl max-h-[90vh] overflow-y-auto" 
+        onPointerDownOutside={(e) => e.preventDefault()}
+        onEscapeKeyDown={(e) => {
+          if (isSubmitting) {
+            e.preventDefault();
+          }
+        }}
+      >
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center text-primary">
             {isSuccess ? 'Ders Hakkında Bilgi' : 'Deneme Dersi Planla'}
