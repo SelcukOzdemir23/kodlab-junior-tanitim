@@ -738,7 +738,18 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                           {getTimeSlots(bookingData.selectedDate).map((time) => (
                             <button
                               key={time}
-                              onClick={() => handleInputChange('selectedTime', time)}
+                              onClick={() => {
+                                handleInputChange('selectedTime', time);
+                                // Mobilde saat seçildikten sonra butona kaydır
+                                if (window.innerWidth < 768) {
+                                  setTimeout(() => {
+                                    const submitButton = document.querySelector('[data-submit-button]');
+                                    if (submitButton) {
+                                      submitButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                    }
+                                  }, 300);
+                                }
+                              }}
                               className={cn(
                                 "h-10 md:h-12 rounded-lg border-2 font-medium transition-all flex items-center justify-center text-sm md:text-base",
                                 bookingData.selectedTime === time
@@ -784,6 +795,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                       disabled={!isStep3Valid || isSubmitting}
                       className="flex-1 bg-accent text-accent-foreground hover:bg-accent-hover"
                       size="lg"
+                      data-submit-button
                     >
                       {isSubmitting ? (
                         <div className="flex items-center">
