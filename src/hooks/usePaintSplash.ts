@@ -18,7 +18,7 @@ export const usePaintSplash = () => {
       cursorDot.style.top = `${e.clientY - 6}px`;
     };
 
-    const createSplash = (e: MouseEvent) => {
+    const createSplash = (e: { clientX: number; clientY: number }) => {
       const splash = document.createElement('div');
       splash.className = 'paint-splash';
       splash.style.left = `${e.clientX - 10}px`;
@@ -35,7 +35,7 @@ export const usePaintSplash = () => {
         if (splash.parentNode) {
           splash.parentNode.removeChild(splash);
         }
-      }, 2500);
+      }, 2000);
     };
 
     const handleMouseDown = (e: MouseEvent) => {

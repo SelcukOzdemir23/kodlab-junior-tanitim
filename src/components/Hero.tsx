@@ -15,14 +15,14 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
   ];*/
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16 relative overflow-hidden" style={{
+    <section id="home" className="min-h-screen flex items-center pt-16 md:pt-16 pt-24 relative overflow-hidden" style={{
       background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)'
     }}>
       {/* Background decorations */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-600/10 to-blue-400/20"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-8 md:mb-0">
           {/* Content */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}

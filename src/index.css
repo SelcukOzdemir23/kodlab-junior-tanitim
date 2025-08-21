@@ -144,6 +144,13 @@
     z-index: 10000;
     box-shadow: 0 0 8px rgba(255, 140, 0, 0.6);
     transition: transform 0.1s ease-out;
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .cursor-dot {
+      display: block;
+    }
   }
   
   .paint-splash {
@@ -153,7 +160,7 @@
     height: 20px;
     background: radial-gradient(ellipse, rgba(255, 140, 0, 0.9) 0%, rgba(255, 140, 0, 0.7) 30%, rgba(255, 140, 0, 0.4) 60%, rgba(255, 140, 0, 0.1) 80%, transparent 100%);
     border-radius: 60% 40% 40% 60%;
-    animation: paintDrip 2.5s ease-out forwards;
+    animation: paintDrip 2s ease-out forwards;
     z-index: 9999;
     box-shadow: 0 0 12px rgba(255, 140, 0, 0.5), inset 0 1px 3px rgba(255, 255, 255, 0.4);
   }
