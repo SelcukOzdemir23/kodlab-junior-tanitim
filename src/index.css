@@ -123,6 +123,11 @@
     @apply border-border;
   }
 
+  html {
+    /* CSS smooth scroll'u kapat, custom JS kullan */
+    scroll-behavior: auto;
+  }
+
   body {
     @apply bg-background text-foreground;
   }

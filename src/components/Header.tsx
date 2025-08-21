@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { smoothScrollTo } from '@/utils/smoothScroll';
 
 interface HeaderProps {
   onBookDemo: () => void;
@@ -17,6 +18,7 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
     { label: 'Ana Sayfa', href: '#home', section: 'home' },
     { label: 'Hakkımızda', href: '#about', section: 'about' },
     { label: 'Kurslar', href: '#courses', section: 'courses' },
+    { label: 'Fiyatlandırma', href: '#pricing', section: 'pricing' },
     { label: 'İletişim', href: '#contact', section: 'contact' },
     { label: 'İade Politikası', href: '/iade-politikasi', section: 'refund-policy', isPage: true },
     { label: 'SSS', href: '/sss', section: 'faq', isPage: true },
@@ -26,55 +28,19 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
     // Eğer ayrı bir sayfa ise (İade Politikası, SSS)
     if (item.isPage) {
       navigate(item.href);
-      // Sayfanın en üstüne scroll yap
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 100);
       return;
     }
     
-    // Ana sayfa bölümleri için (home, about, courses, contact) - her zaman ana sayfaya yönlendir
-    if (item.section === 'home' || item.section === 'about' || item.section === 'courses' || item.section === 'contact') {
-      // Eğer ana sayfada değilsek, önce ana sayfaya git
-      if (location.pathname !== '/') {
-        navigate('/');
-        // Ana sayfaya gittikten sonra scroll yapmak için kısa bir delay
-        setTimeout(() => {
-          const element = document.getElementById(item.section);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
-      } else {
-        // Ana sayfadaysak direkt scroll yap
-        const element = document.getElementById(item.section);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-      return;
-    }
-    
-    // Diğer durumlar için eski logic
-    if (location.pathname.startsWith('/kurslar/')) {
-      let targetSection = item.section;
-      
-      const element = document.getElementById(targetSection);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-    }
-    
-    // Default: ana sayfaya git
+    // Ana sayfa bölümleri için
     if (location.pathname !== '/') {
+      // Farklı sayfadaysak önce ana sayfaya git
       navigate('/');
       setTimeout(() => {
-        const element = document.getElementById(item.section);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+        smoothScrollTo(item.section);
+      }, 300);
+    } else {
+      // Ana sayfadaysak direkt scroll yap
+      smoothScrollTo(item.section);
     }
   };
 
@@ -93,10 +59,11 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
             transition={{ delay: 0.2 }}
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => {
-              navigate('/');
-              setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }, 100);
+              if (location.pathname !== '/') {
+                navigate('/');
+              } else {
+                smoothScrollTo('home');
+              }
             }}
           >
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">

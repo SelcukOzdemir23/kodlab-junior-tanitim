@@ -4,6 +4,7 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Features } from '@/components/Features';
 import { Courses } from '@/components/Courses';
+import { Pricing } from '@/components/Pricing';
 import { Testimonials } from '@/components/Testimonials';
 import { Footer } from '@/components/Footer';
 import { DemoBookingModal } from '@/components/DemoBookingModal';
@@ -79,7 +80,9 @@ const Index = () => {
         <section id="courses" aria-label="Kurslar ve eğitim programları">
           <Courses onBookDemo={handleBookDemo} />
         </section>
-        {/* <Testimonials /> */}
+        <section id="pricing" aria-label="Fiyatlandırma planları">
+          <Pricing onBookDemo={handleBookDemo} />
+        </section>
         <section id="contact" aria-label="İletişim bilgileri">
           <Footer onBookDemo={handleBookDemo} />
         </section>
@@ -90,7 +93,6 @@ const Index = () => {
         onClose={() => setIsBookingModalOpen(false)}
       />
       
-      {/* WhatsApp Float Button */}
       <WhatsAppFloat />
     </motion.div>
   );
