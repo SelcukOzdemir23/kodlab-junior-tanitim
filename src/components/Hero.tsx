@@ -145,22 +145,22 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -top-16 -right-8 bg-accent text-accent-foreground p-4 rounded-2xl shadow-glow"
+              className="absolute -top-8 md:-top-16 -right-2 md:-right-8 bg-accent text-accent-foreground p-3 md:p-4 rounded-2xl shadow-glow"
             >
               <div className="text-center">
-                <div className="text-2xl font-bold">10-17</div>
-                <div className="text-sm">yaş arası</div>
+                <div className="text-xl md:text-2xl font-bold">10-17</div>
+                <div className="text-xs md:text-sm">yaş arası</div>
               </div>
             </motion.div>
             
             <motion.div 
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute -bottom-4 -left-4 bg-secondary text-secondary-foreground p-4 rounded-2xl shadow-glow"
+              className="absolute -bottom-2 md:-bottom-4 -left-2 md:-left-4 bg-secondary text-secondary-foreground p-3 md:p-4 rounded-2xl shadow-glow"
             >
               <div className="text-center">
-                <div className="text-2xl font-bold">%100</div>
-                <div className="text-sm">Eğlenceli🤣</div>
+                <div className="text-xl md:text-2xl font-bold">%100</div>
+                <div className="text-xs md:text-sm">Eğlenceli🤣</div>
               </div>
             </motion.div>
           </motion.div>
