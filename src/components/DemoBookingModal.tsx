@@ -397,7 +397,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent 
-        className="max-w-2xl max-h-[90vh] overflow-y-auto" 
+        className="w-[95vw] max-w-2xl max-h-[95vh] overflow-y-auto" 
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => {
           if (isSubmitting) {
@@ -606,14 +606,14 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                         <Baby className="w-4 h-4 mr-2 text-primary" />
                         Çocuğunuzun yaşını seçin
                       </Label>
-                      <div className="grid grid-cols-4 gap-3">
+                      <div className="grid grid-cols-3 md:grid-cols-4 gap-2 md:gap-3">
                         {ageOptions.map((age) => (
                           <button
                             key={age.value}
                             disabled={age.disabled}
                             onClick={() => !age.disabled && handleInputChange('childAge', age.value)}
                             className={cn(
-                              "h-12 rounded-lg border-2 font-medium transition-all",
+                              "h-10 md:h-12 rounded-lg border-2 font-medium transition-all text-sm md:text-base",
                               age.disabled 
                                 ? "border-muted bg-muted text-muted-foreground cursor-not-allowed"
                                 : bookingData.childAge === age.value
@@ -731,15 +731,15 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                         </div>
                         
                         <div className={cn(
-                          "grid gap-3",
-                          getTimeSlots(bookingData.selectedDate).length > 8 ? "grid-cols-6" : "grid-cols-4"
+                          "grid gap-2 md:gap-3",
+                          getTimeSlots(bookingData.selectedDate).length > 8 ? "grid-cols-3 md:grid-cols-6" : "grid-cols-2 md:grid-cols-4"
                         )}>
                           {getTimeSlots(bookingData.selectedDate).map((time) => (
                             <button
                               key={time}
                               onClick={() => handleInputChange('selectedTime', time)}
                               className={cn(
-                                "h-12 rounded-lg border-2 font-medium transition-all flex items-center justify-center",
+                                "h-10 md:h-12 rounded-lg border-2 font-medium transition-all flex items-center justify-center text-sm md:text-base",
                                 bookingData.selectedTime === time
                                   ? "border-secondary bg-secondary text-secondary-foreground"
                                   : "border-border hover:border-secondary hover:bg-secondary/10"
