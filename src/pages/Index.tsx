@@ -11,8 +11,9 @@ import { DemoBookingModal } from '@/components/DemoBookingModal';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { useSEO, pageSEOConfigs } from '@/lib/seo';
 import { usePaintSplash } from '@/hooks/usePaintSplash';
+import { memo } from 'react';
 
-const Index = () => {
+const Index = memo(() => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const { updateSEO, addStructuredData } = useSEO();
   usePaintSplash();
@@ -98,6 +99,6 @@ const Index = () => {
       <WhatsAppFloat />
     </motion.div>
   );
-};
+});
 
 export default Index;

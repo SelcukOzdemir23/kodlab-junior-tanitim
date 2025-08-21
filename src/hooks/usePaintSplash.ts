@@ -35,7 +35,7 @@ export const usePaintSplash = () => {
         if (splash.parentNode) {
           splash.parentNode.removeChild(splash);
         }
-      }, 2000);
+      }, 1500);
     };
 
     const handleStart = (e: MouseEvent | TouchEvent) => {
@@ -48,7 +48,7 @@ export const usePaintSplash = () => {
         if (isMouseDown) {
           createSplash({ clientX: lastMouseX, clientY: lastMouseY });
         }
-      }, 50);
+      }, 100);
     };
 
     const handleMove = (e: MouseEvent | TouchEvent) => {
