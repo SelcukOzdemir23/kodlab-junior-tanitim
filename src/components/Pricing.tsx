@@ -175,12 +175,12 @@ export const Pricing = ({ onBookDemo }: PricingProps) => {
           {currentPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                delay: index * 0.1,
-                duration: 0.5,
+                delay: index * 0.15,
+                duration: 0.4,
                 ease: "easeOut"
               }}
               whileHover={{
