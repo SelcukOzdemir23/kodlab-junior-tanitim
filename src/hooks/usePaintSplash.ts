@@ -7,7 +7,7 @@ export const usePaintSplash = () => {
     let lastMouseX = 0;
     let lastMouseY = 0;
     
-    // Cursor dot oluştur
+    // Cursor dot oluştur (sadece desktop)
     const cursorDot = document.createElement('div');
     cursorDot.className = 'cursor-dot';
     document.body.appendChild(cursorDot);
@@ -38,52 +38,62 @@ export const usePaintSplash = () => {
       }, 2000);
     };
 
-    const handleMouseDown = (e: MouseEvent) => {
+    const handleStart = (e: MouseEvent | TouchEvent) => {
       isMouseDown = true;
-      createSplash(e);
-      
-      document.addEventListener('mousemove', handleMouseMove);
+      const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+      const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+      createSplash({ clientX, clientY });
       
       paintInterval = setInterval(() => {
         if (isMouseDown) {
-          const mouseEvent = new MouseEvent('mousemove', {
-            clientX: lastMouseX,
-            clientY: lastMouseY
-          });
-          createSplash(mouseEvent);
+          createSplash({ clientX: lastMouseX, clientY: lastMouseY });
         }
       }, 50);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      updateCursorPosition(e);
-      lastMouseX = e.clientX;
-      lastMouseY = e.clientY;
+    const handleMove = (e: MouseEvent | TouchEvent) => {
+      const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+      const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+      
+      if (!('touches' in e)) {
+        updateCursorPosition(e as MouseEvent);
+      }
+      
+      lastMouseX = clientX;
+      lastMouseY = clientY;
       if (isMouseDown) {
-        createSplash(e);
+        createSplash({ clientX, clientY });
       }
     };
 
-    const handleMouseUp = () => {
+    const handleEnd = () => {
       isMouseDown = false;
       if (paintInterval) {
         clearInterval(paintInterval);
         paintInterval = null;
       }
-      document.removeEventListener('mousemove', handleMouseMove);
     };
 
     document.addEventListener('mousemove', updateCursorPosition);
-    document.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('mouseup', handleMouseUp);
-    document.addEventListener('mouseleave', handleMouseUp);
+    document.addEventListener('mousedown', handleStart);
+    document.addEventListener('mouseup', handleEnd);
+    document.addEventListener('mouseleave', handleEnd);
+    document.addEventListener('mousemove', handleMove);
+    
+    // Touch events (passive to avoid console errors)
+    document.addEventListener('touchstart', handleStart, { passive: true });
+    document.addEventListener('touchmove', handleMove, { passive: true });
+    document.addEventListener('touchend', handleEnd, { passive: true });
     
     return () => {
       document.removeEventListener('mousemove', updateCursorPosition);
-      document.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mouseup', handleMouseUp);
-      document.removeEventListener('mouseleave', handleMouseUp);
-      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mousedown', handleStart);
+      document.removeEventListener('mouseup', handleEnd);
+      document.removeEventListener('mouseleave', handleEnd);
+      document.removeEventListener('mousemove', handleMove);
+      document.removeEventListener('touchstart', handleStart);
+      document.removeEventListener('touchmove', handleMove);
+      document.removeEventListener('touchend', handleEnd);
       if (paintInterval) {
         clearInterval(paintInterval);
       }

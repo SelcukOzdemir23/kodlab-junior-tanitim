@@ -116,7 +116,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {courses.map((course, index) => (
             <motion.div
               key={index}
@@ -128,7 +128,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
               className="group"
             >
               <div 
-                className={`bg-card rounded-2xl p-8 shadow-brand hover:shadow-glow transition-all duration-300 h-full border-2 ${course.color} relative overflow-hidden cursor-pointer`}
+                className={`bg-card rounded-2xl p-6 md:p-8 shadow-brand hover:shadow-glow transition-all duration-300 h-full border-2 ${course.color} relative overflow-hidden cursor-pointer`}
                 onClick={() => handleCourseClick(course.slug)}
               >
                 {course.badge && (
@@ -139,14 +139,14 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
 
                 {/* Course Icon */}
                 <div className="mb-6">
-                  <div className={`w-16 h-16 ${course.iconBg} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <course.icon className={`w-8 h-8 ${course.iconColor}`} />
+                  <div className={`w-12 h-12 md:w-16 md:h-16 ${course.iconBg} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <course.icon className={`w-6 h-6 md:w-8 md:h-8 ${course.iconColor}`} />
                   </div>
                   
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">
+                  <h3 className="text-lg md:text-xl font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">
                     {course.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                  <p className="text-sm md:text-base text-muted-foreground mb-4 leading-relaxed">
                     {course.description}
                   </p>
                 </div>
@@ -181,14 +181,14 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex space-x-3">
+                <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                   <Button 
                     variant="outline"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleCourseClick(course.slug);
                     }}
-                    className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold transition-all duration-300"
+                    className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold transition-all duration-300 text-sm md:text-base"
                   >
                     📖 Kursu İncele
                   </Button>
@@ -197,7 +197,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
                       e.stopPropagation();
                       onBookDemo();
                     }}
-                    className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground font-semibold group-hover:bg-secondary group-hover:text-secondary-foreground transition-all duration-300"
+                    className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground font-semibold group-hover:bg-secondary group-hover:text-secondary-foreground transition-all duration-300 text-sm md:text-base"
                   >
                     Deneme Dersi Al
                   </Button>
