@@ -397,7 +397,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent 
-        className="w-[95vw] max-w-2xl max-h-[95vh] overflow-y-auto" 
+        className="w-[95vw] max-w-2xl h-[90vh] flex flex-col" 
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => {
           if (isSubmitting) {
@@ -405,13 +405,14 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
           }
         }}
       >
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center text-primary">
+        <DialogHeader className="flex-shrink-0 pb-4">
+          <DialogTitle className="text-xl md:text-2xl font-bold text-center text-primary">
             {isSuccess ? 'Ders Hakkında Bilgi' : 'Deneme Dersi Planla'}
           </DialogTitle>
         </DialogHeader>
 
-        <AnimatePresence mode="wait">
+        <div className="flex-1 overflow-y-auto px-1">
+          <AnimatePresence mode="wait">
           {isSuccess ? (
             <motion.div
               key="success"
@@ -798,7 +799,8 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
               )}
             </motion.div>
           )}
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
       </DialogContent>
     </Dialog>
   );
