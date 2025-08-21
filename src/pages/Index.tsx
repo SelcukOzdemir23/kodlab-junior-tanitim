@@ -10,10 +10,12 @@ import { Footer } from '@/components/Footer';
 import { DemoBookingModal } from '@/components/DemoBookingModal';
 import { WhatsAppFloat } from '@/components/WhatsAppFloat';
 import { useSEO, pageSEOConfigs } from '@/lib/seo';
+import { usePaintSplash } from '@/hooks/usePaintSplash';
 
 const Index = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const { updateSEO, addStructuredData } = useSEO();
+  usePaintSplash();
 
   useEffect(() => {
     // Ana sayfa için SEO ayarları

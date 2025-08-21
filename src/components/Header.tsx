@@ -97,13 +97,33 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
             transition={{ delay: 0.4 }}
             className="hidden md:block"
           >
-            <Button 
-              onClick={onBookDemo}
-              size="sm" 
-              className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold shadow-brand"
+            <motion.div
+              animate={{
+                boxShadow: [
+                  '0 0 5px rgba(255, 165, 0, 0.1), 0 0 10px rgba(255, 165, 0, 0.05)',
+                  '0 0 60px rgba(255, 165, 0, 0.9), 0 0 120px rgba(255, 165, 0, 0.6)',
+                  '0 0 20px rgba(255, 165, 0, 0.3), 0 0 40px rgba(255, 165, 0, 0.2)',
+                  '0 0 80px rgba(255, 165, 0, 1), 0 0 150px rgba(255, 165, 0, 0.8)',
+                  '0 0 5px rgba(255, 165, 0, 0.1), 0 0 10px rgba(255, 165, 0, 0.05)'
+                ],
+                scale: [1, 1.02, 1, 1.03, 1]
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                times: [0, 0.2, 0.4, 0.6, 1]
+              }}
+              className="rounded-lg"
             >
-              Tanışma Dersi
-            </Button>
+              <Button 
+                onClick={onBookDemo}
+                size="default" 
+                className="bg-orange-500 text-white hover:bg-orange-600 font-bold shadow-lg border border-orange-400 px-6 py-3 text-base"
+              >
+                Tanışma Dersi
+              </Button>
+            </motion.div>
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -137,15 +157,35 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
                 </button>
               ))}
               <div className="px-4 pt-2">
-                <Button 
-                  onClick={() => {
-                    onBookDemo();
-                    setIsMenuOpen(false);
+                <motion.div
+                  animate={{
+                    boxShadow: [
+                      '0 0 3px rgba(255, 165, 0, 0.1), 0 0 8px rgba(255, 165, 0, 0.05)',
+                      '0 0 50px rgba(255, 165, 0, 0.9), 0 0 100px rgba(255, 165, 0, 0.6)',
+                      '0 0 15px rgba(255, 165, 0, 0.3), 0 0 30px rgba(255, 165, 0, 0.2)',
+                      '0 0 70px rgba(255, 165, 0, 1), 0 0 130px rgba(255, 165, 0, 0.7)',
+                      '0 0 3px rgba(255, 165, 0, 0.1), 0 0 8px rgba(255, 165, 0, 0.05)'
+                    ],
+                    scale: [1, 1.02, 1, 1.03, 1]
                   }}
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent-hover"
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    times: [0, 0.2, 0.4, 0.6, 1]
+                  }}
+                  className="rounded-lg"
                 >
-                  Tanışma Dersi
-                </Button>
+                  <Button 
+                    onClick={() => {
+                      onBookDemo();
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full bg-orange-500 text-white hover:bg-orange-600 font-bold py-3 text-base"
+                  >
+                    Tanışma Dersi
+                  </Button>
+                </motion.div>
               </div>
             </nav>
           </motion.div>

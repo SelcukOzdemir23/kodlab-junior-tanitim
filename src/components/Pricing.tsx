@@ -40,7 +40,7 @@ export const Pricing = ({ onBookDemo }: PricingProps) => {
       pricePerLesson: 430,
       duration: '120 ders',
       discount: 25040,
-      description: 'Dört büyük kursu tamamlayın ve Kodlab\'detlaki 2 yıllık eğitim tecrübesinden sonra profesyonel bir uzmanlık kazanın',
+      description: 'Dört büyük kursu tamamlayın ve Kodlab\'deki 2 yıllık eğitim tecrübesinden sonra profesyonel bir uzmanlık kazanın',
       popular: false
     },
     {
