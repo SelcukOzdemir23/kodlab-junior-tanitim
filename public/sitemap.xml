@@ -6,7 +6,7 @@
 
   <!-- Ana Sayfa -->
   <url>
-    <loc>https://kodlab-junior-connect.com/</loc>
+    <loc>https://kodlab-junior.com/</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Kurslar Sayfası -->
   <url>
-    <loc>https://kodlab-junior-connect.com/kurslar</loc>
+    <loc>https://kodlab-junior.com/kurslar</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
 
   <!-- Python Kursu -->
   <url>
-    <loc>https://kodlab-junior-connect.com/kurslar/python-programlama</loc>
+    <loc>https://kodlab-junior.com/kurslar/python-programlama</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -30,7 +30,7 @@
 
   <!-- Scratch Kursu -->
   <url>
-    <loc>https://kodlab-junior-connect.com/kurslar/scratch-programlama</loc>
+    <loc>https://kodlab-junior.com/kurslar/scratch-programlama</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
 
   <!-- Web Geliştirme Kursu -->
   <url>
-    <loc>https://kodlab-junior-connect.com/kurslar/web-gelistirme</loc>
+    <loc>https://kodlab-junior.com/kurslar/web-gelistirme</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -46,7 +46,7 @@
 
   <!-- Robotik Kursu -->
   <url>
-    <loc>https://kodlab-junior-connect.com/kurslar/robotik-programlama</loc>
+    <loc>https://kodlab-junior.com/kurslar/robotik-programlama</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -54,7 +54,7 @@
 
   <!-- Oyun Geliştirme Kursu -->
   <url>
-    <loc>https://kodlab-junior-connect.com/kurslar/oyun-gelistirme</loc>
+    <loc>https://kodlab-junior.com/kurslar/oyun-gelistirme</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -62,7 +62,7 @@
 
   <!-- Mobil Uygulama Geliştirme Kursu -->
   <url>
-    <loc>https://kodlab-junior-connect.com/kurslar/mobil-uygulama-gelistirme</loc>
+    <loc>https://kodlab-junior.com/kurslar/mobil-uygulama-gelistirme</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -70,7 +70,7 @@
 
   <!-- Sıkça Sorulan Sorular -->
   <url>
-    <loc>https://kodlab-junior-connect.com/sss</loc>
+    <loc>https://kodlab-junior.com/sss</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -78,7 +78,7 @@
 
   <!-- İade Politikası -->
   <url>
-    <loc>https://kodlab-junior-connect.com/iade-politikasi</loc>
+    <loc>https://kodlab-junior.com/iade-politikasi</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -86,7 +86,7 @@
 
   <!-- Hakkımızda -->
   <url>
-    <loc>https://kodlab-junior-connect.com/hakkimizda</loc>
+    <loc>https://kodlab-junior.com/hakkimizda</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -94,7 +94,7 @@
 
   <!-- İletişim -->
   <url>
-    <loc>https://kodlab-junior-connect.com/iletisim</loc>
+    <loc>https://kodlab-junior.com/iletisim</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -102,7 +102,7 @@
 
   <!-- Blog (gelecekte eklenebilir) -->
   <url>
-    <loc>https://kodlab-junior-connect.com/blog</loc>
+    <loc>https://kodlab-junior.com/blog</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

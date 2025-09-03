@@ -66,11 +66,13 @@ export const Header = ({ onBookDemo }: HeaderProps) => {
               }
             }}
           >
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">K</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">
-              KodLab <span className="text-secondary">Junior</span>
+            <img 
+              src="/logo.png" 
+              alt="KodLab Junior Logo" 
+              className="w-8 h-8"
+            />
+            <span className="text-xl font-bold">
+              <span className="text-orange-500">KodLab</span> <span className="text-blue-600">Junior</span>
             </span>
           </motion.div>
 

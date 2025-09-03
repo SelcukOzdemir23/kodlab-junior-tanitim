@@ -137,21 +137,19 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
             <div className="bg-white/20 rounded-full p-1 border border-white/30">
               <button
                 onClick={() => setSelectedFormat('standard')}
-                className={`px-6 py-2 rounded-full transition-all duration-200 font-semibold ${
-                  selectedFormat === 'standard'
-                    ? 'bg-white text-blue-600 shadow-lg'
-                    : 'text-white hover:bg-white/20'
-                }`}
+                className={`px-6 py-2 rounded-full transition-all duration-200 font-semibold ${selectedFormat === 'standard'
+                  ? 'bg-white text-blue-600 shadow-lg'
+                  : 'text-white hover:bg-white/20'
+                  }`}
               >
                 Standart (8-14 kişi)
               </button>
               <button
                 onClick={() => setSelectedFormat('premium')}
-                className={`px-6 py-2 rounded-full transition-all duration-200 font-semibold ${
-                  selectedFormat === 'premium'
-                    ? 'bg-white text-blue-600 shadow-lg'
-                    : 'text-white hover:bg-white/20'
-                }`}
+                className={`px-6 py-2 rounded-full transition-all duration-200 font-semibold ${selectedFormat === 'premium'
+                  ? 'bg-white text-blue-600 shadow-lg'
+                  : 'text-white hover:bg-white/20'
+                  }`}
               >
                 Premium (2-5 kişi)
               </button>
@@ -159,7 +157,7 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
           </div>
         </div>
 
-        <div 
+        <div
           key={selectedFormat}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto"
         >
@@ -172,7 +170,7 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
               {plan.popular && (
                 <div className="absolute -top-3 -right-3 z-20">
                   <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
-                    EN İYİSİ !!!
+                    En Popüler!
                   </div>
                 </div>
               )}
@@ -180,9 +178,7 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
               <div className="bg-white/10 border border-white/20 rounded-3xl p-6 h-full shadow-xl group-hover:bg-white/15 transition-colors duration-200 flex flex-col">
                 {plan.popular && (
                   <div className="text-center mb-4">
-                    <span className="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      En Popüler
-                    </span>
+
                   </div>
                 )}
 
@@ -205,18 +201,17 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                    <span>30 gün para iade garantisi</span>
+                    <span>Detaylar ile ilgili bilgi almak için ⬇️</span>
                   </div>
                 </div>
 
                 <div className="mt-auto">
                   <button
                     onClick={onBookDemo}
-                    className={`w-full py-3 rounded-2xl font-semibold transition-all duration-200 hover:scale-105 active:scale-95 ${
-                      plan.popular
-                        ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg hover:shadow-xl'
-                        : 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
-                    }`}
+                    className={`w-full py-3 rounded-2xl font-semibold transition-all duration-200 hover:scale-105 active:scale-95 ${plan.popular
+                      ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg hover:shadow-xl'
+                      : 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
+                      }`}
                   >
                     ₺{plan.price.toLocaleString()} - Satın Al
                   </button>
@@ -228,7 +223,7 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
 
         <div className="text-center mt-12">
           <p className="text-white/80 mb-4">
-            Tüm planlar 30 gün para iade garantisi ile gelir
+            Detaylar ile ilgili bilgi almak için ⬇️
           </p>
           <Button
             onClick={onBookDemo}

@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube } from 'lucide-react';
+import { FaTiktok } from 'react-icons/fa';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { LegalModal } from './LegalModal';
 
 interface FooterProps {
   onBookDemo: () => void;
@@ -10,6 +13,7 @@ interface FooterProps {
 
 export const Footer = ({ onBookDemo }: FooterProps) => {
   const navigate = useNavigate();
+  const [legalModal, setLegalModal] = useState<{ isOpen: boolean; type: 'privacy' | 'terms' | 'kvkk' | null }>({ isOpen: false, type: null });
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "905523877207"; // WhatsApp numarası
@@ -20,10 +24,9 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
-    { icon: Twitter, href: '#', label: 'Twitter' }
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61579792173289', label: 'Facebook' },
+    { icon: Instagram, href: 'https://www.instagram.com/kodlab_junior/', label: 'Instagram' },
+    { icon: FaTiktok, href: 'https://www.tiktok.com/@kodlab_junior', label: 'TikTok' }
   ];
 
   const quickLinks = [
@@ -34,6 +37,20 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
     { label: 'SSS', href: '/sss', isScroll: false },
     { label: 'İade Politikası', href: '/iade-politikasi', isScroll: false }
   ];
+
+  const legalLinks = [
+    { label: 'Gizlilik Politikası', type: 'privacy' as const },
+    { label: 'Kullanım Şartları', type: 'terms' as const },
+    { label: 'KVKK Bilgileri', type: 'kvkk' as const }
+  ];
+
+  const handleLegalClick = (type: 'privacy' | 'terms' | 'kvkk') => {
+    setLegalModal({ isOpen: true, type });
+  };
+
+  const closeLegalModal = () => {
+    setLegalModal({ isOpen: false, type: null });
+  };
 
   const handleQuickLinkClick = (link: { label: string; href: string; isScroll: boolean }) => {
     if (link.isScroll) {
@@ -66,7 +83,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
       {/* WhatsApp Contact Section */}
       <div className="border-b border-primary-foreground/10">
         <div className="container mx-auto px-4 py-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -78,9 +95,9 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
             <p className="text-primary-foreground/80 mb-8 text-lg">
               Sorularınız için WhatsApp üzerinden hemen ulaşabilirsiniz
             </p>
-            
+
             <div className="flex flex-col items-center space-y-4">
-              <Button 
+              <Button
                 onClick={handleWhatsAppClick}
                 size="lg"
                 className="w-full max-w-sm bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
@@ -88,15 +105,15 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                 <FaWhatsapp className="w-6 h-6 mr-3" />
                 Bizimle İletişime Geçin
               </Button>
-              
-              <Button 
+
+              <Button
                 onClick={onBookDemo}
                 size="lg"
                 className="w-full max-w-sm bg-secondary text-secondary-foreground hover:bg-secondary-hover font-semibold text-lg px-8 py-6 shadow-glow"
               >
                 Hemen Tanışma Dersi Al
               </Button>
-              
+
               <p className="text-sm text-primary-foreground/60 mt-4">
                 Ücretsiz deneme dersi için hemen kaydolun
               </p>
@@ -109,7 +126,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
           {/* Company Info */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -123,9 +140,9 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                 KodLab <span className="text-secondary">Junior</span>
               </span>
             </div>
-            
+
             <p className="text-primary-foreground/80 leading-relaxed">
-              10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimi. 
+              10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimi.
               Geleceğin teknolojisini bugünden öğrenmeye başlayın!
             </p>
 
@@ -134,6 +151,8 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                 <motion.a
                   key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ y: -2 }}
                   className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors"
                   aria-label={social.label}
@@ -145,7 +164,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -155,7 +174,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
             <ul className="space-y-4">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <button 
+                  <button
                     onClick={() => handleQuickLinkClick(link)}
                     className="text-primary-foreground/80 hover:text-secondary transition-colors text-left"
                   >
@@ -164,7 +183,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                 </li>
               ))}
               <li>
-                <button 
+                <button
                   onClick={onBookDemo}
                   className="text-primary-foreground/80 hover:text-secondary transition-colors"
                 >
@@ -175,7 +194,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
           </motion.div>
 
           {/* Contact Info */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -195,20 +214,20 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
 
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                <span className="text-primary-foreground/80">+90 (212) 345 67 89</span>
+                <span className="text-primary-foreground/80">+90 552 387 72 07</span>
               </div>
 
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
-                <span className="text-primary-foreground/80">info@kodlabjunior.com</span>
+                <span className="text-primary-foreground/80">kodlabjuniorofficial@gmail.com</span>
               </div>
 
-            
+
             </div>
           </motion.div>
 
           {/* Kurslar */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -231,23 +250,32 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-primary-foreground/60 text-sm">
-              © 2024 KodLab Junior. Tüm hakları saklıdır.
-            </p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-primary-foreground/60 hover:text-secondary text-sm transition-colors">
-                Gizlilik Politikası
-              </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-secondary text-sm transition-colors">
-                Kullanım Şartları
-              </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-secondary text-sm transition-colors">
-                KVKK
-              </a>
+            <div className="text-center md:text-left">
+              <p className="text-primary-foreground/60 text-sm">
+                © 2025 KodLab Junior. Tüm hakları saklıdır.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center md:justify-end gap-6">
+              {legalLinks.map((link, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleLegalClick(link.type)}
+                  className="text-primary-foreground/60 hover:text-secondary transition-colors text-sm"
+                >
+                  {link.label}
+                </button>
+              ))}
             </div>
           </div>
         </div>
       </div>
+
+      <LegalModal
+        isOpen={legalModal.isOpen}
+        onClose={closeLegalModal}
+        type={legalModal.type!}
+      />
     </footer>
   );
 };

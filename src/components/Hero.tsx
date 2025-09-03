@@ -20,18 +20,18 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
     }}>
       {/* Background decorations */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-600/10 to-blue-400/20"></div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-8 md:mb-0">
           {/* Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
             <div className="space-y-4">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -46,28 +46,28 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                   EDİYORUZ
                 </span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
                 className="text-lg md:text-xl max-w-xl text-white font-medium"
                 style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.3)' }}
               >
-                10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri. 
+                10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri.
                 Geleceğin teknolojisini bugünden öğrenmeye başlayın!
               </motion.p>
             </div>
 
             {/* CTA Buttons */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 onClick={onBookDemo}
                 className="font-semibold text-lg px-8 py-6 transform transition-all duration-300 hover:scale-105"
                 style={{
@@ -81,10 +81,10 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
               >
                 Ücretsiz Deneme Dersi Al
               </Button>
-              
-              <Button 
-                variant="outline" 
-                size="lg" 
+
+              <Button
+                variant="outline"
+                size="lg"
                 className="font-semibold text-lg px-8 py-6 group transform transition-all duration-300 hover:scale-105"
                 style={{
                   borderColor: '#fbbf24',
@@ -95,12 +95,12 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 }}
               >
                 <Play className="w-5 h-5 mr-2 group-hover:animate-pulse" />
-                Tanıtım Videosu(eklenecek)
+                Tanıtım Videosu
               </Button>
             </motion.div>
 
             {/* Stats */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
@@ -121,15 +121,15 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
           </motion.div>
 
           {/* Hero Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-brand">
-              <video 
-                src={heroVideo} 
+              <video
+                src={heroVideo}
                 autoPlay
                 loop
                 muted
@@ -140,9 +140,9 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
             </div>
-            
+
             {/* Floating elements */}
-            <motion.div 
+            <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
               className="absolute -top-8 md:-top-16 -right-2 md:-right-8 bg-accent text-accent-foreground p-3 md:p-4 rounded-2xl shadow-glow"
@@ -152,8 +152,8 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 <div className="text-xs md:text-sm">yaş arası</div>
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
               className="absolute -bottom-2 md:-bottom-4 -left-2 md:-left-4 bg-secondary text-secondary-foreground p-3 md:p-4 rounded-2xl shadow-glow"

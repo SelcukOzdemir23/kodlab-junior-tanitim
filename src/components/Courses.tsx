@@ -42,7 +42,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       icon: Code2,
       iconColor: 'text-blue-600',
       iconBg: 'bg-blue-50',
-      badge:"Ahmet bey'in Favorisi"
+      badge: "Favorimiz"
     },
     {
       title: 'Web Geliştirme',
@@ -82,7 +82,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
       icon: Play,
       iconColor: 'text-red-600',
       iconBg: 'bg-red-50',
-      badge: 'Eğlenceli'
+      badge: ''
     },
     {
       title: 'GIMP',
@@ -102,17 +102,17 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
   return (
     <section id="courses" className="py-24 bg-background">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Kodlama <span className="text-secondary">Kurslarımız</span>
+            Tüm <span className="text-secondary">Kurslarımız</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Her yaş grubuna uygun, seviye seviye ilerleyen kapsamlı kodlama eğitim programları
+            Her yaş grubuna uygun, seviye seviye ilerleyen kapsamlı eğitim programlarımız
           </p>
         </motion.div>
 
@@ -127,7 +127,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
               whileHover={{ y: -10 }}
               className="group"
             >
-              <div 
+              <div
                 className={`bg-card rounded-2xl p-6 md:p-8 shadow-brand hover:shadow-glow transition-all duration-300 h-full border-2 ${course.color} relative overflow-hidden cursor-pointer`}
                 onClick={() => handleCourseClick(course.slug)}
               >
@@ -142,7 +142,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
                   <div className={`w-12 h-12 md:w-16 md:h-16 ${course.iconBg} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <course.icon className={`w-6 h-6 md:w-8 md:h-8 ${course.iconColor}`} />
                   </div>
-                  
+
                   <h3 className="text-lg md:text-xl font-bold text-foreground mb-3 group-hover:text-secondary transition-colors">
                     {course.title}
                   </h3>
@@ -182,7 +182,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
-                  <Button 
+                  <Button
                     variant="outline"
                     onClick={(e) => {
                       e.stopPropagation();
@@ -192,7 +192,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
                   >
                     📖 Kursu İncele
                   </Button>
-                  <Button 
+                  <Button
                     onClick={(e) => {
                       e.stopPropagation();
                       onBookDemo();
@@ -208,7 +208,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
         </div>
 
         {/* Bottom Info */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -218,10 +218,10 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
             Hangi kursun çocuğunuz için uygun olduğundan emin değil misiniz?
           </h3>
           <p className="text-primary-foreground/80 text-lg mb-8">
-            Hiç sorun değil. Ücretsiz danışmanlık görüşmesinde çocuğunuzun yaşına ve ilgi alanına 
+            Hiç sorun değil. Ücretsiz danışmanlık görüşmesinde çocuğunuzun yaşına ve ilgi alanına
             en uygun programı birlikte belirleyelim!
           </p>
-          <Button 
+          <Button
             size="lg"
             onClick={onBookDemo}
             className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-lg px-8 py-6"

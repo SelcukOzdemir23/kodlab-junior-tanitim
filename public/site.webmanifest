@@ -1,5 +1,5 @@
 {
-  "name": "KodLab Junior Connect",
+  "name": "KodLab Junior",
   "short_name": "KodLab",
   "description": "10-17 yaş arası çocuklar için kodlama eğitimi platformu",
   "start_url": "/",
@@ -9,7 +9,11 @@
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "tr",
-  "categories": ["education", "coding", "children"],
+  "categories": [
+    "education",
+    "coding",
+    "children"
+  ],
   "icons": [
     {
       "src": "/favicon-16x16.png",
@@ -38,4 +42,4 @@
       "purpose": "maskable"
     }
   ]
-} 
+}
