@@ -1,18 +1,26 @@
 import { CourseData, Course } from '@/types/course';
 import { scratchIleBaslangic } from './scratch-ile-baslangic';
 import { pythonIleKodlama } from './python-ile-kodlama';
+import { pythonBasic } from './python-basic';
+import { pythonPro } from './python-pro';
 import { webGelistirme } from './web-gelistirme';
 import { tinkercad } from './tinkercad';
 import { kodu } from './kodu';
 import { gimp } from './gimp';
+import { dijitalTasarimGiris } from './dijital-tasarim-giris';
+import { dijitalTasarimPro } from './dijital-tasarim-pro';
 
 export const courses: CourseData = {
   'scratch-ile-baslangic': scratchIleBaslangic,
   'python-ile-kodlama': pythonIleKodlama,
+  'python-basic': pythonBasic,
+  'python-pro': pythonPro,
   'web-gelistirme': webGelistirme,
   'tinkercad': tinkercad,
   'kodu': kodu,
   'gimp': gimp,
+  'dijital-tasarim-giris': dijitalTasarimGiris,
+  'dijital-tasarim-pro': dijitalTasarimPro,
 };
 
 export const getCourseBySlug = (slug: string): Course | undefined => {
@@ -32,12 +40,27 @@ export const getCourseSlugs = () => {
   return [
     'scratch-ile-baslangic',
     'python-ile-kodlama',
+    'python-basic',
+    'python-pro',
     'tinkercad',
     'kodu',
     'gimp',
-    'web-gelistirme'
+    'web-gelistirme',
+    'dijital-tasarim-giris',
+    'dijital-tasarim-pro'
   ];
 };
 
 // Export individual courses for easy access
-export { scratchIleBaslangic, pythonIleKodlama, webGelistirme, tinkercad, kodu, gimp }; 
+export { 
+  scratchIleBaslangic, 
+  pythonIleKodlama, 
+  pythonBasic, 
+  pythonPro, 
+  webGelistirme, 
+  tinkercad, 
+  kodu, 
+  gimp, 
+  dijitalTasarimGiris, 
+  dijitalTasarimPro 
+}; 

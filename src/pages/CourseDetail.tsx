@@ -102,7 +102,7 @@ const CourseDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-600/10 to-blue-400/20"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Sol Taraf - Kurs Bilgileri */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -111,22 +111,30 @@ const CourseDetail = () => {
               className="space-y-8"
             >
               <div className="space-y-4">
-                <div className="flex items-center space-x-2 mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-2 mb-4">
                   <div className="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center">
                     <span className="text-2xl">
                       {courseSlug === 'scratch-ile-baslangic' ? '🧩' : 
                        courseSlug === 'web-gelistirme' ? '🌐' :
                        courseSlug === 'tinkercad' ? '🛠️' :
                        courseSlug === 'kodu' ? '🎮' :
-                       courseSlug === 'gimp' ? '🎨' : '🐍'}
+                       courseSlug === 'gimp' ? '🎨' :
+                       courseSlug === 'python-basic' ? '🐍' :
+                       courseSlug === 'python-pro' ? '🐍' :
+                       courseSlug === 'dijital-tasarim-giris' ? '🎨' :
+                       courseSlug === 'dijital-tasarim-pro' ? '🎨' : '🐍'}
                     </span>
                   </div>
-                  <Badge className="bg-orange-500 text-white">
+                  <Badge className="bg-orange-500 text-white w-fit">
                     {courseSlug === 'scratch-ile-baslangic' ? 'Çocuklar İçin İdeal' : 
                      courseSlug === 'web-gelistirme' ? 'Geleceğin Teknolojisi' :
                      courseSlug === 'tinkercad' ? 'Yaratıcılık Odaklı' :
                      courseSlug === 'kodu' ? 'Eğlenceli' :
-                     courseSlug === 'gimp' ? 'Sanat Odaklı' : 'En Çok Tercih Edilen'}
+                     courseSlug === 'gimp' ? 'Sanat Odaklı' :
+                     courseSlug === 'python-basic' ? 'Başlangıç Dostu' :
+                     courseSlug === 'python-pro' ? 'İleri Seviye' :
+                     courseSlug === 'dijital-tasarim-giris' ? 'Yaratıcılık Odaklı' :
+                     courseSlug === 'dijital-tasarim-pro' ? 'Profesyonel' : 'En Çok Tercih Edilen'}
                   </Badge>
                 </div>
                 
@@ -134,7 +142,7 @@ const CourseDetail = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="text-4xl md:text-5xl font-bold text-white leading-tight"
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight"
                   style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.3)' }}
                 >
                   {course.title}
@@ -144,7 +152,7 @@ const CourseDetail = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="text-lg text-white/90 leading-relaxed"
+                  className="text-base sm:text-lg text-white/90 leading-relaxed"
                   style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.3)' }}
                 >
                   {course.description}
@@ -156,38 +164,38 @@ const CourseDetail = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="grid grid-cols-2 gap-4"
+                className="grid grid-cols-2 gap-3 sm:gap-4"
               >
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
                   <div className="flex items-center text-yellow-300 mb-2">
-                    <Users className="w-5 h-5 mr-2" />
-                    <span className="text-sm font-medium">YAŞ</span>
+                    <Users className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+                    <span className="text-xs sm:text-sm font-medium">YAŞ</span>
                   </div>
-                  <div className="text-xl font-bold text-white">{course.ageRange}</div>
+                  <div className="text-lg sm:text-xl font-bold text-white">{course.ageRange}</div>
                 </div>
                 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
                   <div className="flex items-center text-yellow-300 mb-2">
-                    <Clock className="w-5 h-5 mr-2" />
-                    <span className="text-sm font-medium">SÜRE</span>
+                    <Clock className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+                    <span className="text-xs sm:text-sm font-medium">SÜRE</span>
                   </div>
-                  <div className="text-xl font-bold text-white">{course.duration}</div>
+                  <div className="text-lg sm:text-xl font-bold text-white">{course.duration}</div>
                 </div>
                 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
                   <div className="flex items-center text-yellow-300 mb-2">
-                    <Award className="w-5 h-5 mr-2" />
-                    <span className="text-sm font-medium">SEVİYE</span>
+                    <Award className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+                    <span className="text-xs sm:text-sm font-medium">SEVİYE</span>
                   </div>
-                  <div className="text-xl font-bold text-white">{course.level}</div>
+                  <div className="text-lg sm:text-xl font-bold text-white">{course.level}</div>
                 </div>
                 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-white/20">
                   <div className="flex items-center text-yellow-300 mb-2">
-                    <Users className="w-5 h-5 mr-2" />
-                    <span className="text-sm font-medium">GRUP</span>
+                    <Users className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+                    <span className="text-xs sm:text-sm font-medium">GRUP</span>
                   </div>
-                  <div className="text-xl font-bold text-white">{course.maxStudents}</div>
+                  <div className="text-lg sm:text-xl font-bold text-white">{course.maxStudents}</div>
                 </div>
               </motion.div>
 
@@ -196,12 +204,12 @@ const CourseDetail = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4"
               >
                 <Button
                   size="lg"
                   onClick={handleBookDemo}
-                  className="font-semibold text-lg px-8 py-6 transform transition-all duration-300 hover:scale-105"
+                  className="font-semibold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 transform transition-all duration-300 hover:scale-105"
                   style={{
                     background: 'linear-gradient(135deg, #f59e0b, #ea580c)',
                     color: 'white',
@@ -218,7 +226,7 @@ const CourseDetail = () => {
                   variant="outline"
                   size="lg"
                   onClick={scrollToCourseInfo}
-                  className="font-semibold text-lg px-8 py-6 transform transition-all duration-300 hover:scale-105"
+                  className="font-semibold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 transform transition-all duration-300 hover:scale-105"
                   style={{
                     borderColor: '#fbbf24',
                     color: '#fbbf24',
@@ -242,17 +250,17 @@ const CourseDetail = () => {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src={codingFunImage}
-                  alt="Python Kodlama Dersi"
+                  alt={`${course.title} Dersi`}
                   className="w-full h-auto object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
                 
                 {/* Rating Badge */}
-                <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-3 shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <Star className="w-5 h-5 text-yellow-500 fill-current" />
-                    <span className="font-bold text-gray-900">{course.rating}</span>
-                    <span className="text-gray-600">({course.reviewCount})</span>
+                <div className="absolute top-4 sm:top-6 left-4 sm:left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-2 sm:p-3 shadow-lg">
+                  <div className="flex items-center space-x-1 sm:space-x-2">
+                    <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 fill-current" />
+                    <span className="font-bold text-gray-900 text-sm sm:text-base">{course.rating}</span>
+                    <span className="text-gray-600 text-xs sm:text-sm">({course.reviewCount})</span>
                   </div>
                 </div>
               </div>
@@ -264,7 +272,7 @@ const CourseDetail = () => {
       {/* Kurs Açıklaması ve Öğrenecekleri */}
       <section id="course-info" className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             {/* Sol Taraf - Kurs Açıklaması */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -274,10 +282,10 @@ const CourseDetail = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-6">
                   <span className="text-primary">{course.title}</span> kursu hakkında
                 </h2>
-                <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
                   {courseSlug === 'scratch-ile-baslangic' ? (
                     <>
                       <p>
@@ -442,18 +450,22 @@ const CourseDetail = () => {
               transition={{ duration: 0.8 }}
               className="lg:pl-8"
             >
-              <div className="bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-3xl p-8 border border-border">
-                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <div className="w-10 h-10 bg-secondary rounded-2xl flex items-center justify-center mr-4">
-                    <span className="text-xl">
+              <div className="bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-3xl p-6 sm:p-8 border border-border">
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6 flex items-center">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-secondary rounded-2xl flex items-center justify-center mr-3 sm:mr-4">
+                    <span className="text-lg sm:text-xl">
                       {courseSlug === 'scratch-ile-baslangic' ? '🧩' : 
                        courseSlug === 'web-gelistirme' ? '🌐' :
                        courseSlug === 'tinkercad' ? '🛠️' :
                        courseSlug === 'kodu' ? '🎮' :
-                       courseSlug === 'gimp' ? '🎨' : '🐍'}
+                       courseSlug === 'gimp' ? '🎨' :
+                       courseSlug === 'python-basic' ? '🐍' :
+                       courseSlug === 'python-pro' ? '🐍' :
+                       courseSlug === 'dijital-tasarim-giris' ? '🎨' :
+                       courseSlug === 'dijital-tasarim-pro' ? '🎨' : '🐍'}
                     </span>
                   </div>
-                  NE ÖĞRENECEKLERİ
+                  <span className="text-base sm:text-xl">NE ÖĞRENECEKLERİ</span>
                 </h3>
 
                 <div className="space-y-4">
@@ -479,7 +491,7 @@ const CourseDetail = () => {
                 </div>
 
                 {/* Alt Bilgi */}
-                <div className="mt-8 p-6 bg-accent/10 rounded-2xl border border-accent/20">
+                <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-accent/10 rounded-2xl border border-accent/20">
                   <div className="flex items-center space-x-3 mb-3">
                     <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
                       <Award className="w-5 h-5 text-accent-foreground" />
@@ -508,7 +520,7 @@ const CourseDetail = () => {
       </section>
 
       {/* Detaylı Müfredat */}
-      <section id="curriculum" className="py-24 bg-background-secondary">
+      {/* <section id="curriculum" className="py-24 bg-background-secondary">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -568,7 +580,6 @@ const CourseDetail = () => {
                   </AccordionTrigger>
                   <AccordionContent className="px-8 pb-6">
                     <div className="pt-4 space-y-6">
-                      {/* Konular */}
                       <div>
                         <h4 className="font-semibold text-foreground mb-3 flex items-center">
                           <Code className="w-5 h-5 mr-2 text-primary" />
@@ -584,7 +595,6 @@ const CourseDetail = () => {
                         </div>
                       </div>
 
-                      {/* Proje */}
                       <div className="bg-accent/10 rounded-xl p-4 border border-accent/20">
                         <h4 className="font-semibold text-foreground mb-2 flex items-center">
                           <Award className="w-5 h-5 mr-2 text-accent" />
@@ -601,7 +611,6 @@ const CourseDetail = () => {
               ))}
             </Accordion>
 
-            {/* Alt Bilgi */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -732,7 +741,7 @@ const CourseDetail = () => {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Öğrenci Projeleri Galerisi */}
       <section id="projects" className="py-24 bg-background">
@@ -745,14 +754,12 @@ const CourseDetail = () => {
             className="mb-20"
           >
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
                 <span className="text-secondary">
-                  {courseSlug === 'scratch-ile-baslangic' || courseSlug === 'tinkercad' ? '12 Hafta Sonunda' : 
-                   courseSlug === 'kodu' ? '14 Hafta Sonunda' :
-                   courseSlug === 'gimp' ? '10 Hafta Sonunda' : '16 Hafta Sonunda'}
+                  32 Hafta Sonunda
                 </span> Neler Yapabilecek?
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
                 {courseSlug === 'scratch-ile-baslangic' 
                   ? 'Scratch ile Başlangıç kursu sonunda çocuğunuzun kazanacağı beceriler'
                   : courseSlug === 'tinkercad'
@@ -763,6 +770,14 @@ const CourseDetail = () => {
                   ? 'GIMP kursu sonunda gencin kazanacağı beceriler'
                   : courseSlug === 'web-gelistirme'
                   ? 'Web Geliştirme kursu sonunda gencin kazanacağı beceriler'
+                  : courseSlug === 'python-basic'
+                  ? 'Python Basic kursu sonunda çocuğunuzun kazanacağı beceriler'
+                  : courseSlug === 'python-pro'
+                  ? 'Python Pro kursu sonunda gencin kazanacağı beceriler'
+                  : courseSlug === 'dijital-tasarim-giris'
+                  ? 'Dijital Tasarım Giriş kursu sonunda çocuğunuzun kazanacağı beceriler'
+                  : courseSlug === 'dijital-tasarim-pro'
+                  ? 'Dijital Tasarım Pro kursu sonunda gencin kazanacağı beceriler'
                   : 'Python ile Kodlama kursu sonunda çocuğunuzun kazanacağı beceriler'
                 }
               </p>
@@ -819,11 +834,11 @@ const CourseDetail = () => {
             transition={{ delay: 0.2 }}
           >
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
                 <span className="text-primary">Öğrenci</span> Projeleri
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Kursumuzdan mezun olan öğrencilerimizin geliştirdiği gerçek Python projeleri
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+                Kursumuzdan mezun olan öğrencilerimizin geliştirdiği gerçek projeler
               </p>
             </div>
 
@@ -831,7 +846,7 @@ const CourseDetail = () => {
               <div className="embla overflow-hidden" ref={projectsEmblaRef}>
                 <div className="embla__container flex">
                   {course.studentProjects.map((project, index) => (
-                    <div key={project.id} className="embla__slide flex-none w-full md:w-1/2 px-4">
+                    <div key={project.id} className="embla__slide flex-none w-full md:w-1/2 px-2 sm:px-4">
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -864,11 +879,11 @@ const CourseDetail = () => {
                         </div>
 
                         {/* Project Info */}
-                        <div className="p-6">
-                          <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                        <div className="p-4 sm:p-6">
+                          <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                             {project.title}
                           </h3>
-                          <p className="text-muted-foreground mb-4 leading-relaxed">
+                          <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
                             {project.description}
                           </p>
 
@@ -885,21 +900,21 @@ const CourseDetail = () => {
                           </div>
 
                           {/* Action Buttons */}
-                          <div className="flex space-x-3">
+                          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                             <Button
                               size="sm"
-                              className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground"
+                              className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground text-xs sm:text-sm"
                               onClick={() => window.open(project.githubUrl, '_blank')}
                             >
-                              <Github className="w-4 h-4 mr-2" />
+                              <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                               Kodu Gör
                             </Button>
                             <Button
                               size="sm"
                               variant="outline"
-                              className="flex-1 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+                              className="flex-1 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground text-xs sm:text-sm"
                             >
-                              <Eye className="w-4 h-4 mr-2" />
+                              <Eye className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                               Demo
                             </Button>
                           </div>
@@ -934,11 +949,11 @@ const CourseDetail = () => {
             transition={{ delay: 0.4 }}
             className="text-center mt-16"
           >
-            <div className="bg-gradient-primary rounded-3xl p-8">
-              <h3 className="text-2xl font-bold text-primary-foreground mb-4">
+            <div className="bg-gradient-primary rounded-3xl p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-primary-foreground mb-4">
                 🚀 Çocuğunuz da bu projeleri yapabilir!
               </h3>
-              <p className="text-primary-foreground/90 text-lg mb-6">
+              <p className="text-primary-foreground/90 text-base sm:text-lg mb-6">
                 {courseSlug === 'scratch-ile-baslangic' 
                   ? 'Tüm projeler Scratch topluluk sitesinde paylaşılıyor. Diğer öğrencilerimizin oyunlarını oynayabilir, ilham alabilirsiniz.'
                   : courseSlug === 'tinkercad'
@@ -955,7 +970,7 @@ const CourseDetail = () => {
               <Button 
                 size="lg"
                 onClick={handleBookDemo}
-                className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-lg px-8 py-4 transform hover:scale-105 transition-all duration-300"
+                className="bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 transform hover:scale-105 transition-all duration-300"
                 style={{
                   animation: 'gentleBounce 3s ease-in-out infinite'
                 }}

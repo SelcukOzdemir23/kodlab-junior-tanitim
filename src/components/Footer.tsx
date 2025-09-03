@@ -133,11 +133,13 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
             className="space-y-6"
           >
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-secondary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold">K</span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="KodLab Junior Logo"
+                className="w-10 h-10"
+              />
               <span className="text-2xl font-bold">
-                KodLab <span className="text-secondary">Junior</span>
+                <span className="text-orange-500">KodLab</span> <span className="text-blue-600">Junior</span>
               </span>
             </div>
 
@@ -206,8 +208,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                 <MapPin className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-primary-foreground/80">
-                    Antalya,<br />
-                    Türkiye
+                    Antalya,Türkiye
                   </p>
                 </div>
               </div>

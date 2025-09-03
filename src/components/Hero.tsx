@@ -54,7 +54,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 className="text-lg md:text-xl max-w-xl text-white font-medium"
                 style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.3)' }}
               >
-                10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri.
+                7-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri.
                 Geleceğin teknolojisini bugünden öğrenmeye başlayın!
               </motion.p>
             </div>
@@ -148,7 +148,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
               className="absolute -top-8 md:-top-16 -right-2 md:-right-8 bg-accent text-accent-foreground p-3 md:p-4 rounded-2xl shadow-glow"
             >
               <div className="text-center">
-                <div className="text-xl md:text-2xl font-bold">10-17</div>
+                <div className="text-xl md:text-2xl font-bold">7-17</div>
                 <div className="text-xs md:text-sm">yaş arası</div>
               </div>
             </motion.div>

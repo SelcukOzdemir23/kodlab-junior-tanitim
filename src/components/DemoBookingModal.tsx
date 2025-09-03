@@ -54,7 +54,9 @@ const getTimeSlots = (date: Date | null) => {
 };
 
 const ageOptions = [
-  { value: 9, label: '< 10', disabled: true },
+  { value: 7, label: '7' },
+  { value: 8, label: '8' },
+  { value: 9, label: '9' },
   { value: 10, label: '10' },
   { value: 11, label: '11' },
   { value: 12, label: '12' },
@@ -63,7 +65,7 @@ const ageOptions = [
   { value: 15, label: '15' },
   { value: 16, label: '16' },
   { value: 17, label: '17' },
-  { value: 18, label: '> 17', disabled: true }
+  { value: 18, label: '17>' }
 ];
 
 export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => {
@@ -112,7 +114,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   const [step, setStep] = useState(1);
   const [bookingData, setBookingData] = useState<BookingData>({
     parentName: '',
-    phone: '',
+    phone: '+90 ',
     email: '',
     childName: '',
     childAge: 0,
@@ -128,6 +130,8 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   const validateParentName = (name: string): string => {
     if (!name.trim()) return 'Ad ve soyad gereklidir';
     
+    if (name.trim().length > 30) return 'En fazla 30 karakter girebilirsiniz';
+    
     const nameParts = name.trim().split(/\s+/);
     if (nameParts.length < 2) return 'Lütfen ad ve soyadınızı giriniz';
     
@@ -142,9 +146,14 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   const validatePhone = (phone: string): string => {
     if (!phone.trim()) return 'Telefon numarası gereklidir';
     
-    // +90 5xx xxx xx xx formatını kontrol et
-    const phoneRegex = /^\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}$/;
-    if (!phoneRegex.test(phone)) return 'Lütfen +90 5xx xxx xx xx formatında giriniz';
+    // Türk numarası kontrolü
+    if (phone.startsWith('+90 ')) {
+      const phoneRegex = /^\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}$/;
+      if (!phoneRegex.test(phone)) return 'Lütfen +90 5xx xxx xx xx formatında giriniz';
+    } else {
+      // Diğer ülke kodları için basit kontrol
+      if (phone.length < 8) return 'Geçerli bir telefon numarası giriniz';
+    }
     
     return '';
   };
@@ -161,6 +170,8 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   const validateChildName = (name: string): string => {
     if (!name.trim()) return 'Çocuğun adı gereklidir';
     
+    if (name.trim().length > 30) return 'En fazla 30 karakter girebilirsiniz';
+    
     const nameParts = name.trim().split(/\s+/);
     for (const part of nameParts) {
       if (part.length < 2) return 'İsim en az 2 harften oluşmalıdır';
@@ -172,31 +183,31 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
 
   // Telefon formatlaması
   const formatPhoneNumber = (value: string): string => {
-    // Sadece rakamları al
-    const numbers = value.replace(/\D/g, '');
+    // Eğer tamamen silinmişse +90 ile başlat
+    if (value === '') return '+90 ';
     
-    // Eğer 90 ile başlıyorsa veya 0 ile başlıyorsa düzenle
-    let cleanNumbers = numbers;
-    if (cleanNumbers.startsWith('90')) {
-      cleanNumbers = cleanNumbers.substring(2);
-    } else if (cleanNumbers.startsWith('0')) {
-      cleanNumbers = cleanNumbers.substring(1);
+    // Eğer +90 ile başlamıyorsa ve sadece rakam girildiyse +90 ekle
+    if (!value.startsWith('+') && /^\d/.test(value)) {
+      value = '+90 ' + value;
     }
     
-    // 5 ile başlamazsa ve boş değilse hata
-    if (cleanNumbers.length > 0 && !cleanNumbers.startsWith('5')) {
-      return value; // Geçersiz format, değiştirme
+    // +90 kısmını koruyarak sadece sonrasını formatla
+    if (value.startsWith('+90 ')) {
+      const afterCode = value.substring(4).replace(/\D/g, '');
+      
+      // Türk numarası formatlaması (5xx xxx xx xx)
+      if (afterCode.length === 0) return '+90 ';
+      if (afterCode.length <= 3) return `+90 ${afterCode}`;
+      if (afterCode.length <= 6) return `+90 ${afterCode.slice(0, 3)} ${afterCode.slice(3)}`;
+      if (afterCode.length <= 8) return `+90 ${afterCode.slice(0, 3)} ${afterCode.slice(3, 6)} ${afterCode.slice(6)}`;
+      if (afterCode.length <= 10) return `+90 ${afterCode.slice(0, 3)} ${afterCode.slice(3, 6)} ${afterCode.slice(6, 8)} ${afterCode.slice(8)}`;
+      
+      // Maksimum 10 haneli
+      return `+90 ${afterCode.slice(0, 3)} ${afterCode.slice(3, 6)} ${afterCode.slice(6, 8)} ${afterCode.slice(8, 10)}`;
     }
     
-    // Formatla: +90 5xx xxx xx xx
-    if (cleanNumbers.length === 0) return '';
-    if (cleanNumbers.length <= 3) return `+90 ${cleanNumbers}`;
-    if (cleanNumbers.length <= 6) return `+90 ${cleanNumbers.slice(0, 3)} ${cleanNumbers.slice(3)}`;
-    if (cleanNumbers.length <= 8) return `+90 ${cleanNumbers.slice(0, 3)} ${cleanNumbers.slice(3, 6)} ${cleanNumbers.slice(6)}`;
-    if (cleanNumbers.length <= 10) return `+90 ${cleanNumbers.slice(0, 3)} ${cleanNumbers.slice(3, 6)} ${cleanNumbers.slice(6, 8)} ${cleanNumbers.slice(8)}`;
-    
-    // Maksimum 10 haneli
-    return `+90 ${cleanNumbers.slice(0, 3)} ${cleanNumbers.slice(3, 6)} ${cleanNumbers.slice(6, 8)} ${cleanNumbers.slice(8, 10)}`;
+    // Diğer ülke kodları için formatlamasız döndür
+    return value;
   };
 
   const handleInputChange = (field: keyof BookingData, value: any) => {
@@ -351,7 +362,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
     if (childNameError) errors.childName = childNameError;
     
     setValidationErrors(errors);
-    return Object.keys(errors).length === 0 && bookingData.childAge >= 10 && bookingData.childAge <= 17;
+    return Object.keys(errors).length === 0 && bookingData.childAge >= 7 && bookingData.childAge <= 18;
   };
 
   const handleNextStep = (currentStep: number) => {
@@ -370,7 +381,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
     setStep(1);
     setBookingData({
       parentName: '',
-      phone: '',
+      phone: '+90 ',
       email: '',
       childName: '',
       childAge: 0,
@@ -391,7 +402,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   };
 
   const isStep1Valid = bookingData.parentName && bookingData.phone && bookingData.email && Object.keys(validationErrors).length === 0;
-  const isStep2Valid = bookingData.childName && bookingData.childAge >= 10 && bookingData.childAge <= 17;
+  const isStep2Valid = bookingData.childName && bookingData.childAge >= 7 && bookingData.childAge <= 18;
   const isStep3Valid = bookingData.selectedDate && bookingData.selectedTime;
 
   return (
@@ -515,7 +526,14 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                         id="parentName"
                         value={bookingData.parentName}
                         onChange={(e) => handleInputChange('parentName', e.target.value)}
+                        onKeyPress={(e) => {
+                          // Sadece harfler ve boşluk karakterine izin ver
+                          if (!/[a-zA-ZğĞıİöÖüÜşŞçÇ\s]/.test(e.key)) {
+                            e.preventDefault();
+                          }
+                        }}
                         placeholder="Adınız ve soyadınız"
+                        maxLength={30}
                         className={cn("h-12", validationErrors.parentName && "border-destructive")}
                       />
                       {validationErrors.parentName && (
@@ -591,7 +609,14 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                         id="childName"
                         value={bookingData.childName}
                         onChange={(e) => handleInputChange('childName', e.target.value)}
+                        onKeyPress={(e) => {
+                          // Sadece harfler ve boşluk karakterine izin ver
+                          if (!/[a-zA-ZğĞıİöÖüÜşŞçÇ\s]/.test(e.key)) {
+                            e.preventDefault();
+                          }
+                        }}
                         placeholder="Çocuğunuzun adı"
+                        maxLength={30}
                         className={cn("h-12", validationErrors.childName && "border-destructive")}
                       />
                       {validationErrors.childName && (
