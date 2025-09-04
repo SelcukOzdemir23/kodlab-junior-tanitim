@@ -9,12 +9,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Users, 
-  Clock, 
-  Monitor, 
-  CreditCard, 
-  MessageCircle, 
+import {
+  Users,
+  Clock,
+  Monitor,
+  CreditCard,
+  MessageCircle,
   HelpCircle,
   BookOpen,
   Laptop,
@@ -31,7 +31,7 @@ const FAQ = () => {
   // Sayfa yüklendiğinde en üste scroll yap ve SEO ayarları
   useEffect(() => {
     window.scrollTo(0, 0);
-    
+
     // FAQ sayfası için SEO ayarları
     updateSEO(pageSEOConfigs.faq);
 
@@ -39,7 +39,7 @@ const FAQ = () => {
     const faqs = [
       {
         question: "Kodlama eğitimleriniz hangi yaş grupları için uygun?",
-        answer: "Kodlama eğitimlerimiz 10-17 yaş arası çocuklar için özel olarak tasarlanmıştır. Her yaş grubuna uygun kurs seviyeleri mevcuttur."
+        answer: "Kodlama eğitimlerimiz 7-17 yaş arası çocuklar için özel olarak tasarlanmıştır. Her yaş grubuna uygun kurs seviyeleri mevcuttur."
       },
       {
         question: "Herhangi bir ön bilgi gerekli mi?",
@@ -78,7 +78,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Hangi yaş grubundaki çocuklar kursa katılabilir?",
-          answer: "Kurslarımız 10-17 yaş arası çocuklar için tasarlanmıştır. Kurslarımız özelinde yaş aralığı daralabilmektedir."
+          answer: "Kurslarımız 7-17 yaş arası çocuklar için tasarlanmıştır. Kurslarımız özelinde yaş aralığı daralabilmektedir."
         },
         {
           question: "Hiç programlama bilmeyen çocuklar katılabilir mi?",
@@ -103,7 +103,7 @@ const FAQ = () => {
       title: "Teknik Gereksinimler",
       icon: Laptop,
       color: "text-green-600",
-      bgColor: "bg-green-50", 
+      bgColor: "bg-green-50",
       borderColor: "border-green-200",
       questions: [
         {
@@ -134,11 +134,11 @@ const FAQ = () => {
       icon: GraduationCap,
       color: "text-purple-600",
       bgColor: "bg-purple-50",
-      borderColor: "border-purple-200", 
+      borderColor: "border-purple-200",
       questions: [
         {
           question: "Müfredat nasıl ilerliyor?",
-          answer: "24 haftalık müfredat proje tabanlı olarak ilerler. Her hafta yeni konular öğrenip, o konuyla ilgili küçük bir proje yaparız. Son 4 haftada büyük bir final projesi geliştirilir."
+          answer: "32 haftalık müfredat proje tabanlı olarak ilerler. Her hafta yeni konular öğrenip, o konuyla ilgili küçük bir proje yaparız. Son 4 haftada büyük bir final projesi geliştirilir."
         },
         {
           question: "Ödev veriliyor mu?",
@@ -162,7 +162,7 @@ const FAQ = () => {
       id: "odeme",
       title: "Ödeme ve Fiyatlandırma",
       icon: CreditCard,
-      color: "text-orange-600", 
+      color: "text-orange-600",
       bgColor: "bg-orange-50",
       borderColor: "border-orange-200",
       questions: [
@@ -176,7 +176,22 @@ const FAQ = () => {
         },
         {
           question: "İade politikanız nasıl?",
-          answer: "İlk 2 hafta içinde %100, 2-4. hafta arası %75 iade yapılır. Detaylı iade koşulları için İade Politikası sayfamızı inceleyebilirsiniz."
+          answer: (
+            <>
+              İlk 2 hafta içinde %100 iade, 2-4 hafta arası alınan derslerin ücreti düşülür ve %25 kesinti uygulanır.
+              <br /><br />
+              <a
+                href="/iade-politikasi"
+                className="text-primary hover:text-primary-hover underline font-semibold"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = '/iade-politikasi';
+                }}
+              >
+                Detaylı iade koşulları için İade Politikası sayfamızı ziyaret edin →
+              </a>
+            </>
+          )
         },
         {
           question: "Ekstra materyal ücreti var mı?",
@@ -189,7 +204,7 @@ const FAQ = () => {
       title: "İletişim ve Destek",
       icon: MessageCircle,
       color: "text-red-600",
-      bgColor: "bg-red-50", 
+      bgColor: "bg-red-50",
       borderColor: "border-red-200",
       questions: [
         {
@@ -206,7 +221,25 @@ const FAQ = () => {
         },
         {
           question: "Şikayet ve önerilerimizi nasıl iletebiliriz?",
-          answer: "E-posta gönderebilir veya WhatsApp üzerinden mesaj atabilirsiniz. Tüm geri bildirimler 24 saat içinde yanıtlanır."
+          answer: (
+            <>
+              E-posta gönderebilir veya WhatsApp üzerinden mesaj atabilirsiniz. Tüm geri bildirimler 24 saat içinde yanıtlanır.
+              <br /><br />
+              <a 
+                href="#contact" 
+                className="text-primary hover:text-primary-hover underline font-semibold"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                İletişim bilgilerimiz için sayfanın altındaki iletişim bölümüne göz atın →
+              </a>
+            </>
+          )
         }
       ]
     }
@@ -215,13 +248,13 @@ const FAQ = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header onBookDemo={handleBookDemo} />
-      
+
       {/* Hero Section - Mobile Responsive */}
       <section className="pt-20 py-16 md:py-24 relative overflow-hidden" style={{
         background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%)'
       }}>
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-purple-600/10 to-purple-400/20"></div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -242,7 +275,7 @@ const FAQ = () => {
                 Sık Sorulan Sorular
               </Badge>
             </motion.div>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -253,7 +286,7 @@ const FAQ = () => {
               Merak ettiklerinizi<br className="hidden sm:block" />{' '}
               <span className="text-yellow-300">yanıtladık!</span>
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -272,7 +305,7 @@ const FAQ = () => {
               transition={{ delay: 0.6 }}
               className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 max-w-2xl mx-auto"
             >
-            {/*
+              {/*
               {quickStats.map((stat, index) => (
                 <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
                   <stat.icon className={`w-8 h-8 ${stat.color} mx-auto mb-2`} />
@@ -333,8 +366,8 @@ const FAQ = () => {
 
                 <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
                   {category.questions.map((faq, faqIndex) => (
-                    <AccordionItem 
-                      key={faqIndex} 
+                    <AccordionItem
+                      key={faqIndex}
                       value={`${category.id}-${faqIndex}`}
                       className="bg-card rounded-xl md:rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-brand transition-all duration-300"
                     >
@@ -403,10 +436,10 @@ const FAQ = () => {
                 className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8"
               >
                 {[
-                  { 
-                    icon: MessageCircle, 
-                    title: "WhatsApp", 
-                    desc: "Hemen mesaj gönderin", 
+                  {
+                    icon: MessageCircle,
+                    title: "WhatsApp",
+                    desc: "Hemen mesaj gönderin",
                     action: "Hemen Yaz",
                     onClick: () => {
                       const phoneNumber = "905523877207";
@@ -416,10 +449,10 @@ const FAQ = () => {
                       window.open(whatsappUrl, '_blank');
                     }
                   },
-                  { 
-                    icon: Monitor, 
-                    title: "Ücretsiz Danışmanlık", 
-                    desc: "Online görüşme", 
+                  {
+                    icon: Monitor,
+                    title: "Ücretsiz Danışmanlık",
+                    desc: "Online görüşme",
                     action: "Randevu Al",
                     onClick: handleBookDemo
                   }
@@ -450,7 +483,7 @@ const FAQ = () => {
                 transition={{ delay: 0.7 }}
                 className="space-y-3 sm:space-y-4"
               >
-                <Button 
+                <Button
                   size="lg"
                   onClick={handleBookDemo}
                   className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent-hover font-semibold text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4"
@@ -467,12 +500,12 @@ const FAQ = () => {
       </section>
 
       <Footer onBookDemo={handleBookDemo} />
-      
+
       <DemoBookingModal
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
       />
-      
+
       {/* WhatsApp Float Button */}
       <WhatsAppFloat />
     </div>

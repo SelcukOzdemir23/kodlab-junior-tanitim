@@ -131,10 +131,10 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
               <section>
                 <h3 className="text-lg font-semibold mb-3">4. İptal ve İade</h3>
                 <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
-                  <li>İlk dersten önce %100 iade</li>
-                  <li>İlk 2 ders sonrası %75 iade</li>
-                  <li>İlk 4 ders sonrası %50 iade</li>
-                  <li>4 dersten sonra iade yapılmaz</li>
+                  <li>İlk 2 hafta içinde %100 iade</li>
+                  <li>2-4 hafta arası: Alınan derslerin ücreti düşülür, %25 kesinti ve komisyon uygulanır</li>
+                  <li>4 haftadan sonra iade yapılmaz, bakiye hesapta saklanır</li>
+                  <li>Kurs erteleme 6 aya kadar mümkündür</li>
                 </ul>
               </section>
 

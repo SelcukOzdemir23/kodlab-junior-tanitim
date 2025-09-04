@@ -144,7 +144,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
             </div>
 
             <p className="text-primary-foreground/80 leading-relaxed">
-              10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimi.
+              7-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimi.
               Geleceğin teknolojisini bugünden öğrenmeye başlayın!
             </p>
 
@@ -208,22 +208,30 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                 <MapPin className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-primary-foreground/80">
-                    Antalya,Türkiye
+                    Antalya, Türkiye
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                <span className="text-primary-foreground/80">+90 552 387 72 07</span>
+                <a 
+                  href="tel:+905523877207"
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors"
+                >
+                  +90 552 387 72 07
+                </a>
               </div>
 
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
-                <span className="text-primary-foreground/80">kodlabjuniorofficial@gmail.com</span>
+                <a 
+                  href="mailto:kodlabjuniorofficial@gmail.com"
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors break-all"
+                >
+                  kodlabjuniorofficial@gmail.com
+                </a>
               </div>
-
-
             </div>
           </motion.div>
 
@@ -235,13 +243,63 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
             transition={{ delay: 0.3 }}
           >
             <h4 className="text-xl font-bold mb-6">Kurslarımız</h4>
-            <ul className="space-y-3 text-primary-foreground/80">
-              <li>Scratch ile Başlangıç </li>
-              <li>Python ile Kodlama </li>
-              <li>Tinkercad </li>
-              <li>Kodu </li>
-              <li>GIMP </li>
-              <li>Web Geliştirme</li>
+            <ul className="space-y-3">
+              <li>
+                <button
+                  onClick={() => navigate('/course/scratch-ile-baslangic')}
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
+                >
+                  Scratch (7-17 yaş)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/course/kodu')}
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
+                >
+                  Kodu (7-17 yaş)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/course/python-basic')}
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
+                >
+                  Python Basic (9-12 yaş)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/course/python-pro')}
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
+                >
+                  Python Pro (13-17 yaş)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/course/web-gelistirme')}
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
+                >
+                  Web Geliştirme (12-17 yaş)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/course/dijital-tasarim-giris')}
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
+                >
+                  Dijital Tasarım Giriş (9-12 yaş)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => navigate('/course/dijital-tasarim-pro')}
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
+                >
+                  Dijital Tasarım Pro (13-17 yaş)
+                </button>
+              </li>
             </ul>
           </motion.div>
         </div>

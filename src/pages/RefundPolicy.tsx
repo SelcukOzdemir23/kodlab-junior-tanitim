@@ -58,9 +58,9 @@ const RefundPolicy = () => {
       bgColor: "bg-orange-50", 
       borderColor: "border-orange-200",
       content: [
-        "Kursun 2-4. haftaları arasında %75 para iadesi",
+        "Alınan derslerin ücreti düşülür ve %25 kesinti yapılır",
+        "Komisyon ücreti ayrıca uygulanır",
         "Geçerli bir sebep (sağlık, aile, ekonomik durum) belirtilmeli",
-        "Gerekli belgelendirme yapıldıktan sonra iade onaylanır",
         "İade işlemi 7-10 iş günü içinde tamamlanır"
       ]
     },
@@ -86,7 +86,7 @@ const RefundPolicy = () => {
       <Header onBookDemo={handleBookDemo} />
       
       {/* Hero Section */}
-      <section className="pt-20 py-24 relative overflow-hidden" style={{
+      <section className="pt-32 py-24 relative overflow-hidden" style={{
         background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)'
       }}>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-600/10 to-blue-400/20"></div>

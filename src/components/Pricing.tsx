@@ -14,86 +14,86 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
 
   const standardPlans = [
     {
-      name: 'Optimal',
-      price: 14720,
-      originalPrice: 20020,
-      pricePerLesson: 460,
-      duration: '30 ders',
-      discount: 5300,
-      description: 'Kendi seçtiğin bir kursu altı ay boyunca maksimum faydayla ve ders başına düşük fiyat ödeyerek tamamlayın',
+      name: 'Tek Kurs',
+      price: 18000,
+      originalPrice: 18432,
+      pricePerLesson: 576,
+      duration: '32 ders',
+      discount: 432,
+      description: 'Bir kursu tamamlayın ve temel kodlama becerilerini öğrenin',
       popular: false
     },
     {
-      name: 'Klasik',
-      price: 28800,
-      originalPrice: 40040,
-      pricePerLesson: 450,
-      duration: '60 ders',
-      discount: 11240,
-      description: 'Çocuğunuzun geleceğine yatırım yapın ve ona iki büyük projeyi tamamlama ve üst düzey projeler başlatma fırsatını verin',
+      name: 'İkili Paket',
+      price: 32500,
+      originalPrice: 36000,
+      pricePerLesson: 508,
+      duration: '64 ders',
+      discount: 3500,
+      description: 'İki kursu tamamlayın ve daha kapsamlı beceriler kazanın',
       popular: true
     },
     {
-      name: 'Profesyonel',
-      price: 55040,
-      originalPrice: 80080,
-      pricePerLesson: 430,
-      duration: '120 ders',
-      discount: 25040,
-      description: 'Dört büyük kursu tamamlayın ve Kodlab\'deki 2 yıllık eğitim tecrübesinden sonra profesyonel bir uzmanlık kazanın',
+      name: 'Üçlü Paket',
+      price: 48000,
+      originalPrice: 54000,
+      pricePerLesson: 500,
+      duration: '96 ders',
+      discount: 6000,
+      description: 'Üç kursu tamamlayın ve ileri seviye projeler geliştirin',
       popular: false
     },
     {
-      name: 'Temel',
-      price: 7440,
-      originalPrice: 10010,
-      pricePerLesson: 465,
-      duration: '16 ders',
-      discount: 2570,
-      description: 'Kursun yarısını en iyi fiyata satın al, böylece kursu aylık yenilemek zorunda kalmazsınız',
+      name: 'Dörtlü Paket',
+      price: 62000,
+      originalPrice: 72000,
+      pricePerLesson: 486,
+      duration: '128 ders',
+      discount: 10000,
+      description: 'Dört kursu tamamlayın ve profesyonel seviyeye ulaşın',
       popular: false
     }
   ];
 
   const premiumPlans = [
     {
-      name: 'Optimal Premium',
-      price: 22080,
-      originalPrice: 30030,
-      pricePerLesson: 690,
-      duration: '30 ders',
-      discount: 7950,
-      description: '2-5 kişilik özel gruplarda kendi seçtiğin kursu maksimum faydayla tamamla',
+      name: 'Tek Kurs Premium',
+      price: 24000,
+      originalPrice: 24576,
+      pricePerLesson: 750,
+      duration: '32 ders',
+      discount: 576,
+      description: 'Maksimum 4 kişilik özel grupta bir kursu tamamlayın',
       popular: false
     },
     {
-      name: 'Klasik Premium',
+      name: 'İkili Paket Premium',
       price: 43200,
-      originalPrice: 60060,
+      originalPrice: 48000,
       pricePerLesson: 675,
-      duration: '60 ders',
-      discount: 16860,
-      description: '2-5 kişilik özel gruplarda iki büyük projeyi tamamlama ve üst düzey projeler başlatma fırsatı',
+      duration: '64 ders',
+      discount: 4800,
+      description: 'Maksimum 4 kişilik özel grupta iki kursu tamamlayın',
       popular: true
     },
     {
-      name: 'Profesyonel Premium',
-      price: 82560,
-      originalPrice: 120120,
-      pricePerLesson: 645,
-      duration: '120 ders',
-      discount: 37560,
-      description: '2-5 kişilik özel gruplarda dört büyük kursu tamamlayın ve profesyonel uzmanlık kazanın',
+      name: 'Üçlü Paket Premium',
+      price: 64000,
+      originalPrice: 72000,
+      pricePerLesson: 667,
+      duration: '96 ders',
+      discount: 8000,
+      description: 'Maksimum 4 kişilik özel grupta üç kursu tamamlayın',
       popular: false
     },
     {
-      name: 'Temel Premium',
-      price: 11160,
-      originalPrice: 15015,
-      pricePerLesson: 697,
-      duration: '16 ders',
-      discount: 3855,
-      description: '2-5 kişilik özel gruplarda kursun yarısını en iyi fiyata satın al',
+      name: 'Dörtlü Paket Premium',
+      price: 83200,
+      originalPrice: 96000,
+      pricePerLesson: 650,
+      duration: '128 ders',
+      discount: 12800,
+      description: 'Maksimum 4 kişilik özel grupta dört kursu tamamlayın',
       popular: false
     }
   ];
@@ -142,7 +142,7 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
                   : 'text-white hover:bg-white/20'
                   }`}
               >
-                Standart (8-14 kişi)
+                Standart Grup
               </button>
               <button
                 onClick={() => setSelectedFormat('premium')}
@@ -151,7 +151,7 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
                   : 'text-white hover:bg-white/20'
                   }`}
               >
-                Premium (2-5 kişi)
+                Premium (Max 4 kişi)
               </button>
             </div>
           </div>
@@ -197,8 +197,14 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
-                    <span>İndirim ₺{plan.discount.toLocaleString()}</span>
+                    <span>Her ders 80 dakika</span>
                   </div>
+                  {plan.discount > 0 && (
+                    <div className="flex items-center bg-red-500/20 rounded-lg p-2 border border-red-400/30">
+                      <div className="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
+                      <span className="text-red-200 font-bold">🔥 ₺{plan.discount.toLocaleString()} İNDİRİM!</span>
+                    </div>
+                  )}
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
                     <span>Detaylar ile ilgili bilgi almak için ⬇️</span>

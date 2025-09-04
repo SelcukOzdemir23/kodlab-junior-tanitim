@@ -27,10 +27,10 @@ const Index = memo(() => {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "KodLab Junior Connect",
-      "description": "10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri",
-      "url": "https://kodlab-junior-connect.com",
-      "logo": "https://kodlab-junior-connect.com/logo.png",
-      "image": "https://kodlab-junior-connect.com/og-image.jpg",
+      "description": "7-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri",
+      "url": "https://kodlabjunior.com",
+      "logo": "https://kodlabjunior.com/logo.png",
+      "image": "https://kodlabjunior.com/og-image.jpg",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer service",
@@ -67,7 +67,7 @@ const Index = memo(() => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="min-h-screen bg-background"
@@ -90,12 +90,12 @@ const Index = memo(() => {
           <Footer onBookDemo={handleBookDemo} />
         </section>
       </main>
-      
-      <DemoBookingModal 
+
+      <DemoBookingModal
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
       />
-      
+
       <WhatsAppFloat />
     </motion.div>
   );

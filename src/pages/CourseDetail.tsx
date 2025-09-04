@@ -357,7 +357,7 @@ const CourseDetail = () => {
                   ) : courseSlug === 'web-gelistirme' ? (
                     <>
                       <p>
-                        Web Geliştirme kursu, 12-16 yaş arası gençler için tasarlanmış modern bir teknoloji eğitimidir. 
+                        Web Geliştirme kursu, 12-17 yaş arası gençler için tasarlanmış modern bir teknoloji eğitimidir. 
                         Bu kursta öğrenciler, HTML5, CSS3 ve JavaScript ile gerçek web siteleri ve uygulamaları geliştirirler.
                       </p>
                       <p>
@@ -369,6 +369,40 @@ const CourseDetail = () => {
                         <strong className="text-foreground">Sektör deneyimli yazılım mühendisleri</strong> tarafından geliştirilen güncel müfredat ile 
                         gençler, web geliştirme dünyasına adım atarlar. Kurs sonunda kendi web sitelerini yapabilecek ve 
                         internete yayınlayabilecek seviyeye ulaşırlar.
+                      </p>
+                    </>
+                  ) : courseSlug === 'dijital-tasarim-giris' ? (
+                    <>
+                      <p>
+                        Dijital Tasarım - Giriş kursu, 9-12 yaş arası çocuklar için tasarlanmış kapsamlı bir dijital tasarım ve yaratıcılık eğitimidir. 
+                        Bu kursta çocuklar, bilgisayar kullanımı temellerinden başlayarak Figma, Canva ve Piskel App ile yaratıcı projeler geliştirir.
+                      </p>
+                      <p>
+                        Kurs boyunca öğrenciler, <strong className="text-foreground">kullanıcı dostu tasarım araçları</strong> ile 
+                        logo tasarımı, poster oluşturma, pixel art ve animasyon becerilerini geliştirirler. Her ders, yaratıcı 
+                        projeler ve eğlenceli aktivitelerle desteklenir.
+                      </p>
+                      <p>
+                        <strong className="text-foreground">Dijital tasarım uzmanları ve çocuk pedagojisti</strong> tarafından geliştirilen 
+                        yaş grupuna uygun müfredat ile çocuğunuz, teknoloji ile yaratıcılığını birleştirirken renk teorisi ve 
+                        kompozisyon becerilerini de geliştirir. Kurs sonunda kendi dijital tasarım portfolyosunu oluşturabilecek seviyeye ulaşır.
+                      </p>
+                    </>
+                  ) : courseSlug === 'dijital-tasarim-pro' ? (
+                    <>
+                      <p>
+                        Dijital Tasarım - Pro kursu, 13-17 yaş arası gençler için tasarlanmış ileri seviye dijital tasarım eğitimidir. 
+                        Bu kursta gençler, Tinkercad ile 3D modelleme ve GIMP ile profesyonel grafik tasarım becerilerini öğrenirler.
+                      </p>
+                      <p>
+                        Kurs boyunca öğrenciler, <strong className="text-foreground">profesyonel tasarım araçları</strong> kullanarak, 
+                        3D baskıya hazır modeller, marka kimliği tasarımları ve dijital sanat eserleri oluştururlar. Her ders, sektörel 
+                        projeler ve profesyonel uygulamalarla desteklenir.
+                      </p>
+                      <p>
+                        <strong className="text-foreground">Sektör deneyimli tasarımcılar ve 3D uzmanları</strong> tarafından geliştirilen güncel müfredat ile 
+                        gençler, dijital tasarım dünyasına profesyonel bir giriş yaparlar. Kurs sonunda hem 3D modelleme hem de 
+                        grafik tasarım alanlarında portfolyo oluşturabilecek seviyeye ulaşırlar.
                       </p>
                     </>
                   ) : (
@@ -420,6 +454,16 @@ const CourseDetail = () => {
                         { icon: Code, text: 'Modern web teknolojileri' },
                         { icon: Brain, text: 'Proje odaklı öğrenme' },
                         { icon: Gamepad2, text: 'Gerçek web uygulamaları' },
+                        { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
+                      ] : courseSlug === 'dijital-tasarim-giris' ? [
+                        { icon: Code, text: 'Bilgisayar kullanımı temelleri' },
+                        { icon: Brain, text: 'Yaratıcılık odaklı öğrenme' },
+                        { icon: Gamepad2, text: 'Figma, Canva ve Piskel App' },
+                        { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
+                      ] : courseSlug === 'dijital-tasarim-pro' ? [
+                        { icon: Code, text: 'Tinkercad ve GIMP uzmanlığı' },
+                        { icon: Brain, text: 'Profesyonel tasarım becerileri' },
+                        { icon: Gamepad2, text: '3D modelleme ve grafik tasarım' },
                         { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
                       ] : [
                         { icon: Code, text: 'Gerçek Python programlama dili' },
@@ -509,7 +553,13 @@ const CourseDetail = () => {
                       ? <>Gencin kendi <strong className="text-foreground">dijital sanat eserlerini</strong> yapabilecek, <strong className="text-foreground">profesyonel portfolyo</strong> oluşturabilecek seviyeye ulaşacak.</>
                       : courseSlug === 'web-gelistirme'
                       ? <>Gencin kendi <strong className="text-foreground">web sitesini</strong> yapabilecek, <strong className="text-foreground">internete yayınlayabilecek</strong> seviyeye ulaşacak.</>
-                      : <>Çocuğunuz kendi <strong className="text-foreground">Python projesini</strong> yapabilecek, <strong className="text-foreground"> GitHub'da portfolio</strong> oluşturabilecek seviyeye ulaşacak.</>
+                      : courseSlug === 'dijital-tasarim-giris'
+                      ? <>Çocuğunuz kendi <strong className="text-foreground">dijital tasarımlarını</strong> yapabilecek, <strong className="text-foreground">yaratıcı portfolyo</strong> oluşturabilecek seviyeye ulaşacak.</>
+                      : courseSlug === 'dijital-tasarim-pro'
+                      ? <>Gencin kendi <strong className="text-foreground">3D modellerini ve grafik tasarımlarını</strong> yapabilecek, <strong className="text-foreground">profesyonel portfolyo</strong> oluşturabilecek seviyeye ulaşacak.</>
+                      : courseSlug === 'python-basic' || courseSlug === 'python-pro' || courseSlug === 'python-ile-kodlama'
+                      ? <>Çocuğunuz kendi <strong className="text-foreground">Python projesini</strong> yapabilecek, <strong className="text-foreground"> GitHub'da portfolio</strong> oluşturabilecek seviyeye ulaşacak.</>
+                      : <>Çocuğunuz bu kursta <strong className="text-foreground">yaratıcı projeler</strong> yapabilecek, <strong className="text-foreground">kendi portfolyosunu</strong> oluşturabilecek seviyeye ulaşacak.</>
                     }
                   </p>
                 </div>
@@ -907,7 +957,9 @@ const CourseDetail = () => {
                               onClick={() => window.open(project.githubUrl, '_blank')}
                             >
                               <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                              Kodu Gör
+                              {courseSlug?.includes('dijital-tasarim') ? 'Tasarımı Gör' : 
+                               courseSlug === 'scratch-ile-baslangic' ? 'Projeyi Gör' :
+                               courseSlug === 'kodu' ? 'Oyunu Gör' : 'Kodu Gör'}
                             </Button>
                             <Button
                               size="sm"
@@ -915,7 +967,9 @@ const CourseDetail = () => {
                               className="flex-1 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground text-xs sm:text-sm"
                             >
                               <Eye className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                              Demo
+                              {courseSlug?.includes('dijital-tasarim') ? 'Galeri' :
+                               courseSlug === 'scratch-ile-baslangic' ? 'Oyna' :
+                               courseSlug === 'kodu' ? 'Oyna' : 'Demo'}
                             </Button>
                           </div>
                         </div>
@@ -964,6 +1018,10 @@ const CourseDetail = () => {
                   ? 'Tüm projeler dijital sanat galerisinde paylaşılıyor. Diğer öğrencilerimizin sanat eserlerini inceleyebilir, ilham alabilirsiniz.'
                   : courseSlug === 'web-gelistirme'
                   ? 'Tüm projeler GitHub\'da açık kaynak olarak paylaşılıyor. Diğer öğrencilerimizin web sitelerini inceleyebilir, ilham alabilirsiniz.'
+                  : courseSlug === 'dijital-tasarim-giris'
+                  ? 'Tüm projeler dijital tasarım galerisinde paylaşılıyor. Diğer öğrencilerimizin yaratıcı çalışmalarını inceleyebilir, ilham alabilirsiniz.'
+                  : courseSlug === 'dijital-tasarim-pro'
+                  ? 'Tüm projeler dijital portfolyo galerisinde paylaşılıyor. Diğer öğrencilerimizin profesyonel tasarımlarını inceleyebilir, ilham alabilirsiniz.'
                   : 'Tüm projeler GitHub\'da açık kaynak olarak paylaşılıyor. Diğer öğrencilerimizin kodlarını inceleyebilir, ilham alabilirsiniz.'
                 }
               </p>

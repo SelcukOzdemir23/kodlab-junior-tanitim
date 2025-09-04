@@ -99,25 +99,25 @@ class SEOManager {
     }
 
     let metaTag = document.querySelector(selector) as HTMLMetaElement;
-    
+
     if (!metaTag) {
       metaTag = document.createElement('meta');
       metaTag.setAttribute(attribute, name);
       document.head.appendChild(metaTag);
     }
-    
+
     metaTag.setAttribute('content', content);
   }
 
   private updateCanonical(url: string): void {
     let canonicalTag = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    
+
     if (!canonicalTag) {
       canonicalTag = document.createElement('link');
       canonicalTag.setAttribute('rel', 'canonical');
       document.head.appendChild(canonicalTag);
     }
-    
+
     canonicalTag.setAttribute('href', url);
   }
 
