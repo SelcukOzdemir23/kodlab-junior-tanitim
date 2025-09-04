@@ -12,10 +12,12 @@ import { useState, useCallback, useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import codingFunImage from '@/assets/coding-fun.jpg';
 import { getCourseBySlug } from '@/data/courses';
+import { usePaintSplash } from '@/hooks/usePaintSplash';
 
 const CourseDetail = () => {
   const { courseSlug } = useParams();
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  usePaintSplash();
 
   // Sayfa yüklendiğinde en üste scroll yap
   useEffect(() => {

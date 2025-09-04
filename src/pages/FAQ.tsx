@@ -23,10 +23,12 @@ import {
   Star,
   CheckCircle
 } from 'lucide-react';
+import { usePaintSplash } from '@/hooks/usePaintSplash';
 
 const FAQ = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const { updateSEO, addStructuredData, generateFAQStructuredData } = useSEO();
+  usePaintSplash();
 
   // Sayfa yüklendiğinde en üste scroll yap ve SEO ayarları
   useEffect(() => {

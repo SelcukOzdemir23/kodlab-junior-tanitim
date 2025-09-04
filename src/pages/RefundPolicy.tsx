@@ -9,10 +9,12 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, AlertTriangle, Clock, Phone, Mail, MessageCircle } from 'lucide-react';
+import { usePaintSplash } from '@/hooks/usePaintSplash';
 
 const RefundPolicy = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const { updateSEO } = useSEO();
+  usePaintSplash();
 
   // Sayfa yüklendiğinde en üste scroll yap ve SEO ayarları
   useEffect(() => {

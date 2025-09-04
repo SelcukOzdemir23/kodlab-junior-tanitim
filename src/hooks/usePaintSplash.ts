@@ -7,9 +7,6 @@ export const usePaintSplash = () => {
     let lastMouseX = 0;
     let lastMouseY = 0;
     
-    // Body'ye paint-enabled class ekle
-    document.body.classList.add('paint-enabled');
-    
     // Cursor dot oluştur (sadece desktop)
     const cursorDot = document.createElement('div');
     cursorDot.className = 'cursor-dot';
@@ -100,8 +97,6 @@ export const usePaintSplash = () => {
       if (paintInterval) {
         clearInterval(paintInterval);
       }
-      // Body'den paint-enabled class kaldır
-      document.body.classList.remove('paint-enabled');
       if (cursorDot.parentNode) {
         cursorDot.parentNode.removeChild(cursorDot);
       }

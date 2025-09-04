@@ -1,5 +1,5 @@
 # Robots.txt for KodLab Junior
-# Website: https://kodlab-junior.com
+# Website: https://kodlabjunior.com
 
 User-agent: *
 Allow: /
@@ -39,7 +39,7 @@ Allow: /css/
 Allow: /js/
 
 # Sitemap location
-Sitemap: https://kodlab-junior.com/sitemap.xml
+Sitemap: https://kodlabjunior.com/sitemap.xml
 
 # Host (when deployed)
-Host: https://kodlab-junior.com
+Host: https://kodlabjunior.com
