@@ -128,7 +128,7 @@ const RefundPolicy = () => {
                 <CheckCircle className="w-8 h-8 text-green-300" />
                 <div className="text-left">
                   <div className="font-bold text-lg">Güvenceli Öğrenme</div>
-                  <div className="text-white/80">İlk 2 hafta %100 iade garantisi</div>
+                  <div className="text-white/80">İlk 2 hafta banka giderleri hariç iade garantisi</div>
                 </div>
               </div>
             </motion.div>
