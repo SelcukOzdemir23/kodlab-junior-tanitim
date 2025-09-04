@@ -41,11 +41,11 @@ const RefundPolicy = () => {
     {
       title: "İlk 2 Hafta Koşulsuz İade",
       icon: CheckCircle,
-      color: "text-blue-600", 
+      color: "text-blue-600",
       bgColor: "bg-blue-50",
       borderColor: "border-blue-200",
       content: [
-        "Kursa başladıktan sonraki ilk 2 hafta içinde %100 para iadesi",
+        "Kursa başladıktan sonraki ilk 2 hafta içinde banka kesintileri hariç paranız iade.",
         "Herhangi bir sebep belirtmenize gerek yoktur",
         "İade talebi en geç 3 iş günü içinde işleme alınır",
         "Para iadesi 5-7 iş günü içinde hesabınıza geçer"
@@ -55,11 +55,10 @@ const RefundPolicy = () => {
       title: "2-4. Hafta Arası",
       icon: Clock,
       color: "text-orange-600",
-      bgColor: "bg-orange-50", 
+      bgColor: "bg-orange-50",
       borderColor: "border-orange-200",
       content: [
-        "Alınan derslerin ücreti düşülür ve %25 kesinti yapılır",
-        "Komisyon ücreti ayrıca uygulanır",
+        "Alınan derslerin ücreti düşülür, %25 kesinti ve banka komisyon ücreti kesintisi uygulanır",
         "Geçerli bir sebep (sağlık, aile, ekonomik durum) belirtilmeli",
         "İade işlemi 7-10 iş günü içinde tamamlanır"
       ]
@@ -69,7 +68,7 @@ const RefundPolicy = () => {
       icon: AlertTriangle,
       color: "text-red-600",
       bgColor: "bg-red-50",
-      borderColor: "border-red-200", 
+      borderColor: "border-red-200",
       content: [
         "4. haftadan sonra para iadesi yapılmamaktadır",
         "Bakiyeniz hesabınızda saklı durmaktadır",
@@ -79,18 +78,18 @@ const RefundPolicy = () => {
     }
   ];
 
-  
+
 
   return (
     <div className="min-h-screen bg-background">
       <Header onBookDemo={handleBookDemo} />
-      
+
       {/* Hero Section */}
       <section className="pt-32 py-24 relative overflow-hidden" style={{
         background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)'
       }}>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-blue-600/10 to-blue-400/20"></div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -107,7 +106,7 @@ const RefundPolicy = () => {
             >
               İade <span className="text-yellow-300">Politikamız</span>
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -191,7 +190,7 @@ const RefundPolicy = () => {
         </div>
       </section>
 
-      
+
 
       {/* İade Süreci */}
       <section className="py-24 bg-background-secondary">
@@ -221,7 +220,7 @@ const RefundPolicy = () => {
                   color: "bg-blue-500"
                 },
                 {
-                  step: "2", 
+                  step: "2",
                   title: "Değerlendirme",
                   description: "Talebinizi 24 saat içinde değerlendirip size dönüş yaparız",
                   icon: Clock,
@@ -303,10 +302,10 @@ const RefundPolicy = () => {
               <Alert className="bg-amber-50 border-amber-200">
                 <AlertTriangle className="h-4 w-4 text-amber-600" />
                 <AlertDescription className="text-amber-800">
-                  <strong className="font-semibold">Önemli Uyarı:</strong> Bu iade politikası, 
-                  Türkiye Cumhuriyeti Tüketici Haklarını Koruma Kanunu kapsamında hazırlanmıştır. 
-                  İade koşulları değiştirildiğinde tüm velilerimiz bilgilendirilecektir. 
-                  Son güncelleme: Aralık 2024.
+                  <strong className="font-semibold">Önemli Uyarı:</strong> Bu iade politikası,
+                  Türkiye Cumhuriyeti Tüketici Haklarını Koruma Kanunu kapsamında hazırlanmıştır.
+                  İade koşulları değiştirildiğinde tüm velilerimiz bilgilendirilecektir.
+                  Son güncelleme: Şubat 2025.
                 </AlertDescription>
               </Alert>
             </motion.div>
@@ -322,7 +321,7 @@ const RefundPolicy = () => {
               <p className="text-lg text-muted-foreground mb-6">
                 Sorularınız mı var? Ücretsiz danışmanlık alın!
               </p>
-              <Button 
+              <Button
                 size="lg"
                 onClick={handleBookDemo}
                 className="bg-secondary text-secondary-foreground hover:bg-secondary-hover font-semibold text-lg px-8 py-4"
@@ -335,12 +334,12 @@ const RefundPolicy = () => {
       </section>
 
       <Footer onBookDemo={handleBookDemo} />
-      
+
       <DemoBookingModal
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
       />
-      
+
       {/* WhatsApp Float Button */}
       <WhatsAppFloat />
     </div>

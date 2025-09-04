@@ -175,9 +175,6 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
             Tüm <span className="text-secondary">Kurslarımız</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Her yaş grubuna uygun, seviye seviye ilerleyen kapsamlı eğitim programlarımız
-          </p>
         </motion.div>
 
         <div className="space-y-16">
@@ -200,13 +197,12 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
               </div>
 
               {/* Category Courses */}
-              <div className={`grid gap-6 md:gap-8 ${
-                category.courses.length === 1 
-                  ? 'grid-cols-1 justify-items-center' 
-                  : category.courses.length === 2 
-                  ? 'grid-cols-1 md:grid-cols-2 justify-items-center' 
-                  : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-              }`}>
+              <div className={`grid gap-6 md:gap-8 ${category.courses.length === 1
+                  ? 'grid-cols-1 justify-items-center'
+                  : category.courses.length === 2
+                    ? 'grid-cols-1 md:grid-cols-2 justify-items-center'
+                    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                }`}>
                 {category.courses.map((course, courseIndex) => (
                   <motion.div
                     key={courseIndex}
@@ -218,11 +214,10 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
                     className="group w-full max-w-md mx-auto"
                   >
                     <div
-                      className={`bg-card rounded-2xl p-6 md:p-8 shadow-brand transition-all duration-300 h-full border-2 ${course.color} relative overflow-hidden ${
-                        course.disabled 
-                          ? 'cursor-not-allowed opacity-60' 
+                      className={`bg-card rounded-2xl p-6 md:p-8 shadow-brand transition-all duration-300 h-full border-2 ${course.color} relative overflow-hidden ${course.disabled
+                          ? 'cursor-not-allowed opacity-60'
                           : 'cursor-pointer hover:shadow-glow'
-                      }`}
+                        }`}
                       onClick={() => !course.disabled && handleCourseClick(course.slug)}
                     >
                       {course.disabled && (
@@ -230,7 +225,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
                           <Lock className="w-5 h-5 text-gray-500" />
                         </div>
                       )}
-                      
+
                       {course.badge && !course.disabled && (
                         <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground">
                           {course.badge}
@@ -243,61 +238,50 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
                           <course.icon className={`w-6 h-6 md:w-8 md:h-8 ${course.iconColor}`} />
                         </div>
 
-                        <h3 className={`text-lg md:text-xl font-bold mb-3 transition-colors ${
-                          course.disabled 
-                            ? 'text-gray-500' 
+                        <h3 className={`text-lg md:text-xl font-bold mb-3 transition-colors ${course.disabled
+                            ? 'text-gray-500'
                             : 'text-foreground group-hover:text-secondary'
-                        }`}>
+                          }`}>
                           {course.title}
                         </h3>
-                        <p className={`text-sm md:text-base mb-4 leading-relaxed ${
-                          course.disabled ? 'text-gray-400' : 'text-muted-foreground'
-                        }`}>
+                        <p className={`text-sm md:text-base mb-4 leading-relaxed ${course.disabled ? 'text-gray-400' : 'text-muted-foreground'
+                          }`}>
                           {course.description}
                         </p>
                       </div>
 
                       {/* Course Info */}
                       <div className="space-y-3 mb-6">
-                        <div className={`flex items-center text-sm ${
-                          course.disabled ? 'text-gray-400' : 'text-muted-foreground'
-                        }`}>
-                          <Users className={`w-4 h-4 mr-2 ${
-                            course.disabled ? 'text-gray-400' : 'text-secondary'
-                          }`} />
+                        <div className={`flex items-center text-sm ${course.disabled ? 'text-gray-400' : 'text-muted-foreground'
+                          }`}>
+                          <Users className={`w-4 h-4 mr-2 ${course.disabled ? 'text-gray-400' : 'text-secondary'
+                            }`} />
                           <span>{course.ageRange}</span>
                         </div>
-                        <div className={`flex items-center text-sm ${
-                          course.disabled ? 'text-gray-400' : 'text-muted-foreground'
-                        }`}>
-                          <Clock className={`w-4 h-4 mr-2 ${
-                            course.disabled ? 'text-gray-400' : 'text-secondary'
-                          }`} />
+                        <div className={`flex items-center text-sm ${course.disabled ? 'text-gray-400' : 'text-muted-foreground'
+                          }`}>
+                          <Clock className={`w-4 h-4 mr-2 ${course.disabled ? 'text-gray-400' : 'text-secondary'
+                            }`} />
                           <span>{course.duration}</span>
                         </div>
-                        <div className={`flex items-center text-sm ${
-                          course.disabled ? 'text-gray-400' : 'text-muted-foreground'
-                        }`}>
-                          <Award className={`w-4 h-4 mr-2 ${
-                            course.disabled ? 'text-gray-400' : 'text-secondary'
-                          }`} />
+                        <div className={`flex items-center text-sm ${course.disabled ? 'text-gray-400' : 'text-muted-foreground'
+                          }`}>
+                          <Award className={`w-4 h-4 mr-2 ${course.disabled ? 'text-gray-400' : 'text-secondary'
+                            }`} />
                           <span>{course.level}</span>
                         </div>
                       </div>
 
                       {/* Features */}
                       <div className="mb-8">
-                        <h4 className={`font-semibold mb-3 ${
-                          course.disabled ? 'text-gray-500' : 'text-foreground'
-                        }`}>Öğrenecekleri:</h4>
+                        <h4 className={`font-semibold mb-3 ${course.disabled ? 'text-gray-500' : 'text-foreground'
+                          }`}>Öğrenecekleri:</h4>
                         <ul className="space-y-2">
                           {course.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className={`flex items-center text-sm ${
-                              course.disabled ? 'text-gray-400' : 'text-muted-foreground'
-                            }`}>
-                              <ChevronRight className={`w-4 h-4 mr-2 ${
-                                course.disabled ? 'text-gray-400' : 'text-accent'
-                              }`} />
+                            <li key={featureIndex} className={`flex items-center text-sm ${course.disabled ? 'text-gray-400' : 'text-muted-foreground'
+                              }`}>
+                              <ChevronRight className={`w-4 h-4 mr-2 ${course.disabled ? 'text-gray-400' : 'text-accent'
+                                }`} />
                               {feature}
                             </li>
                           ))}

@@ -178,7 +178,7 @@ const FAQ = () => {
           question: "İade politikanız nasıl?",
           answer: (
             <>
-              İlk 2 hafta içinde %100 iade, 2-4 hafta arası alınan derslerin ücreti düşülür ve %25 kesinti uygulanır.
+              İlk 2 hafta içinde banka komisyon ücretleri harici paranız iade, 2-4 hafta arası alınan derslerin ücreti düşülür, %25 kesinti ve banka komisyon ücreti uygulanır.
               <br /><br />
               <a
                 href="/iade-politikasi"
@@ -225,8 +225,8 @@ const FAQ = () => {
             <>
               E-posta gönderebilir veya WhatsApp üzerinden mesaj atabilirsiniz. Tüm geri bildirimler 24 saat içinde yanıtlanır.
               <br /><br />
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="text-primary hover:text-primary-hover underline font-semibold"
                 onClick={(e) => {
                   e.preventDefault();

@@ -20,7 +20,7 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
                   <strong>Son Güncelleme:</strong> 1 Ocak 2025
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Bu gizlilik politikası, KodLab Junior olarak kişisel verilerinizi nasıl topladığımız, 
+                  Bu gizlilik politikası, KodLab Junior olarak kişisel verilerinizi nasıl topladığımız,
                   kullandığımız, koruduğumuz ve paylaştığımız konusunda sizi bilgilendirmek amacıyla hazırlanmıştır.
                 </p>
               </div>
@@ -52,7 +52,7 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
                 <h3 className="text-lg font-semibold mb-3">3. Çocukların Verilerinin Korunması</h3>
                 <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded text-sm">
                   <p className="text-muted-foreground">
-                    <strong>Önemli:</strong> 18 yaş altındaki öğrencilerimizin kişisel verilerinin işlenmesi için 
+                    <strong>Önemli:</strong> 18 yaş altındaki öğrencilerimizin kişisel verilerinin işlenmesi için
                     ebeveyn veya yasal veli onayı zorunludur.
                   </p>
                 </div>
@@ -91,7 +91,7 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
                   <strong>Son Güncelleme:</strong> 1 Ocak 2025
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Bu kullanım şartları, KodLab Junior eğitim hizmetlerini kullanırken uymanız gereken 
+                  Bu kullanım şartları, KodLab Junior eğitim hizmetlerini kullanırken uymanız gereken
                   kuralları ve koşulları belirtmektedir.
                 </p>
               </div>
@@ -112,7 +112,7 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
                 <h3 className="text-lg font-semibold mb-3">2. Yaş Sınırlaması</h3>
                 <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded text-sm">
                   <p className="text-muted-foreground">
-                    <strong>Önemli:</strong> Hizmetlerimiz 10-17 yaş arası çocuklara yöneliktir. 
+                    <strong>Önemli:</strong> Hizmetlerimiz 7-17 yaş arası çocuklara yöneliktir.
                     18 yaş altındaki tüm kayıtlar için ebeveyn veya yasal veli onayı zorunludur.
                   </p>
                 </div>
@@ -131,8 +131,8 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
               <section>
                 <h3 className="text-lg font-semibold mb-3">4. İptal ve İade</h3>
                 <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
-                  <li>İlk 2 hafta içinde %100 iade</li>
-                  <li>2-4 hafta arası: Alınan derslerin ücreti düşülür, %25 kesinti ve komisyon uygulanır</li>
+                  <li>İlk 2 hafta içinde banka giderleri hariç iade</li>
+                  <li>2-4 hafta arası: Alınan derslerin ücreti düşülür, %25 kesinti ve banka komisyon ücreti uygulanır</li>
                   <li>4 haftadan sonra iade yapılmaz, bakiye hesapta saklanır</li>
                   <li>Kurs erteleme 6 aya kadar mümkündür</li>
                 </ul>
@@ -201,7 +201,7 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
                 <div className="bg-orange-50 border-2 border-orange-200 p-3 rounded text-sm">
                   <h4 className="font-semibold mb-2 text-orange-800">🛡️ Yaş Gruplarına Göre Koruma:</h4>
                   <ul className="text-muted-foreground space-y-1">
-                    <li><strong>10-13 yaş:</strong> Ebeveyn onayı + sürekli denetim</li>
+                    <li><strong>7-13 yaş:</strong> Ebeveyn onayı + sürekli denetim</li>
                     <li><strong>14-15 yaş:</strong> Ebeveyn onayı + periyodik bilgilendirme</li>
                     <li><strong>16-17 yaş:</strong> Ebeveyn onayı + kendi rızası</li>
                   </ul>
@@ -261,7 +261,7 @@ export const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
         <DialogHeader className="p-6 pb-0">
           <DialogTitle className="text-2xl font-bold text-primary">{title}</DialogTitle>
         </DialogHeader>
-        <div 
+        <div
           className="legal-modal-content px-6 pb-6 max-h-[calc(90vh-80px)] overflow-y-auto"
           style={{
             scrollbarWidth: 'thin',

@@ -17,7 +17,7 @@ export const Features = () => {
     },
     {
       icon: Users,
-      title: 'Premium Gruplar (En Fazla 5 Kişi)',
+      title: 'Premium Gruplar (En Fazla 4 Kişi)',
       description: 'Daha küçük gruplarla daha fazla etkileşim. Her öğrenciye özel ilgi ve destek.',
       color: 'secondary'
     },
@@ -44,7 +44,7 @@ export const Features = () => {
   return (
     <section id="about" className="py-24 bg-background-secondary">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -55,10 +55,10 @@ export const Features = () => {
             Çocuğunuzun Teknoloji Geleceği
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-          
-            Çocuğunuzun geleceğini inşa etmek için buradayız. 
-            Çocuğunuzun kendini keşfetme yolculuğunu destek olmaya çalışan yardımcılarız. 
-            Sektörün en güncel bilgilerini, gerçek deneyimlerimizle öğretiyoruz. 
+
+            Çocuğunuzun geleceğini inşa etmek için buradayız.
+            Çocuğunuzun kendini keşfetme yolculuğunu destek olmaya çalışan yardımcılarız.
+            Sektörün en güncel bilgilerini, gerçek deneyimlerimizle öğretiyoruz.
           </p>
         </motion.div>
 
@@ -74,18 +74,17 @@ export const Features = () => {
               className="group"
             >
               <div className="bg-card rounded-2xl p-8 shadow-brand hover:shadow-glow transition-all duration-300 h-full border border-border hover:border-secondary/20">
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${
-                  feature.color === 'accent' ? 'bg-accent/10 text-accent' :
-                  feature.color === 'primary' ? 'bg-primary/10 text-primary' :
-                  'bg-secondary/10 text-secondary'
-                }`}>
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${feature.color === 'accent' ? 'bg-accent/10 text-accent' :
+                    feature.color === 'primary' ? 'bg-primary/10 text-primary' :
+                      'bg-secondary/10 text-secondary'
+                  }`}>
                   <feature.icon className="w-8 h-8" />
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-secondary transition-colors">
                   {feature.title}
                 </h3>
-                
+
                 <p className="text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
@@ -95,7 +94,7 @@ export const Features = () => {
         </div>
 
         {/* Bottom CTA */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
