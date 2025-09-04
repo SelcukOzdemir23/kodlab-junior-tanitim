@@ -134,7 +134,7 @@
     position: relative;
   }
   
-  .cursor-dot {
+  .paint-enabled .cursor-dot {
     position: fixed;
     width: 12px;
     height: 12px;
@@ -148,12 +148,12 @@
   }
   
   @media (min-width: 768px) {
-    .cursor-dot {
+    .paint-enabled .cursor-dot {
       display: block;
     }
   }
   
-  .paint-splash {
+  .paint-enabled .paint-splash {
     position: fixed;
     pointer-events: none;
     width: 16px;

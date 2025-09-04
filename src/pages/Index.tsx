@@ -49,7 +49,7 @@ const Index = memo(() => {
       "audience": {
         "@type": "Audience",
         "audienceType": "Children",
-        "suggestedMinAge": 10,
+        "suggestedMinAge": 7,
         "suggestedMaxAge": 17
       },
       "sameAs": [

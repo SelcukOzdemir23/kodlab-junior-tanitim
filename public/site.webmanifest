@@ -1,7 +1,7 @@
 {
   "name": "KodLab Junior",
   "short_name": "KodLab",
-  "description": "10-17 yaş arası çocuklar için kodlama eğitimi platformu",
+  "description": "7-17 yaş arası çocuklar için kodlama eğitimi platformu",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1e40af",
