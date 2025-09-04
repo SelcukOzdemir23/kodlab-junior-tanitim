@@ -53,25 +53,25 @@ class EmailService {
         parentName: bookingData.parentName,
         parentPhone: bookingData.parentPhone,
         parentEmail: bookingData.parentEmail,
-        
+
         // Çocuk bilgileri
         childName: bookingData.childName,
         childAge: bookingData.childAge,
-        
+
         // Ders bilgileri
         selectedDate: bookingData.selectedDate,
         selectedTime: bookingData.selectedTime,
         timeZone: bookingData.timeZone,
         dayOfWeek: bookingData.dayOfWeek,
-        
+
         // Sistem bilgileri
         status: bookingData.status,
         createdAt: bookingData.createdAt,
         bookingId: bookingData.bookingId || 'N/A',
-        
+
         // Ek bilgiler
         to_email: 'your-email@domain.com', // Kendi e-posta adresinizi buraya yazın
-        from_name: 'Kodlab Junior Connect Demo Sistemi',
+        from_name: 'Kodlab Junior Demo Sistemi',
         subject: `🎯 Yeni Demo Ders Rezervasyonu - ${bookingData.childName} (${bookingData.selectedDate} ${bookingData.selectedTime})`
       };
 

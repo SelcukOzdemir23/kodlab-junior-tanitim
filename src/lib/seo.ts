@@ -18,13 +18,13 @@ interface StructuredData {
 class SEOManager {
   private static instance: SEOManager;
   private defaultMeta: SEOMetaData = {
-    title: "KodLab Junior Connect - 10-17 Yaş Çocuklar İçin Kodlama Eğitimi",
-    description: "10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri. Geleceğin teknolojisini bugünden öğrenmeye başlayın!",
-    keywords: "kodlama eğitimi, çocuk kodlama, programlama kursu, python, scratch, web tasarım, robotik, 10-17 yaş, online eğitim, teknoloji eğitimi",
-    image: "https://kodlab-junior-connect.com/og-image.jpg",
-    url: "https://kodlab-junior-connect.com",
+    title: "KodLab Junior 7-17 Yaş Çocuklar İçin Kodlama ve Tasarım Eğitimi",
+    description: "7-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri. Geleceğin teknolojisini bugünden öğrenmeye başlayın!",
+    keywords: "kodlama eğitimi, çocuk kodlama, programlama kursu, python, scratch, web tasarım, robotik, 7-17 yaş, online eğitim, teknoloji eğitimi",
+    image: "https://kodlabjunior.com/og-image.jpg",
+    url: "https://kodlabjunior.com",
     type: "website",
-    siteName: "KodLab Junior Connect",
+    siteName: "KodLab Junior",
     locale: "tr_TR"
   };
 
@@ -157,14 +157,14 @@ class SEOManager {
       "provider": {
         "@type": "Organization",
         "name": course.provider,
-        "url": "https://kodlab-junior-connect.com"
+        "url": "https://kodlabjunior.com"
       },
       "url": course.url,
       "teaches": "Kodlama ve Programlama",
       "audience": {
         "@type": "Audience",
         "audienceType": "Children",
-        "suggestedMinAge": 10,
+        "suggestedMinAge": 7,
         "suggestedMaxAge": 17
       },
       ...(course.price && {
@@ -233,28 +233,28 @@ export const truncateText = (text: string, maxLength: number): string => {
 // Page-specific SEO configurations
 export const pageSEOConfigs = {
   home: {
-    title: "KodLab Junior Connect - 10-17 Yaş Çocuklar İçin Kodlama Eğitimi",
-    description: "10-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri. Python, Scratch, web tasarım ve robotik dersleri. Ücretsiz deneme dersi!",
-    keywords: "kodlama eğitimi, çocuk kodlama, programlama kursu, python, scratch, web tasarım, robotik, 10-17 yaş, online eğitim",
-    url: "https://kodlab-junior-connect.com/"
+    title: "KodLab Junior 7-17 Yaş Çocuklar İçin Kodlama ve Tasarım Eğitimi",
+    description: "7-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri. Python, Scratch, web tasarım ve robotik dersleri. Ücretsiz deneme dersi!",
+    keywords: "kodlama eğitimi, çocuk kodlama, programlama kursu, python, scratch, web tasarım, robotik, 7-17 yaş, online eğitim",
+    url: "https://kodlabjunior.com/"
   },
   courses: {
-    title: "Kodlama Kursları - KodLab Junior Connect",
+    title: "Kodlama Kursları - KodLab Junior",
     description: "Çocuklar için özel olarak tasarlanmış kodlama kursları. Python, Scratch, web geliştirme ve robotik eğitimleri.",
     keywords: "kodlama kursları, python kursu, scratch eğitimi, web geliştirme, robotik, çocuk programlama",
-    url: "https://kodlab-junior-connect.com/kurslar"
+    url: "https://kodlabjunior.com/kurslar"
   },
   faq: {
-    title: "Sıkça Sorulan Sorular - KodLab Junior Connect",
+    title: "Sıkça Sorulan Sorular - KodLab Junior",
     description: "Kodlama eğitimlerimiz hakkında merak ettiğiniz tüm soruların cevapları burada.",
     keywords: "sıkça sorulan sorular, kodlama eğitimi sss, kurs bilgileri",
-    url: "https://kodlab-junior-connect.com/sss"
+    url: "https://kodlabjunior.com/sss"
   },
   refund: {
-    title: "İade Politikası - KodLab Junior Connect",
-    description: "KodLab Junior Connect iade politikası ve koşulları hakkında detaylı bilgi.",
+    title: "İade Politikası - KodLab Junior",
+    description: "KodLab Junior iade politikası ve koşulları hakkında detaylı bilgi.",
     keywords: "iade politikası, geri ödeme, kurs iptali",
-    url: "https://kodlab-junior-connect.com/iade-politikasi"
+    url: "https://kodlabjunior.com/iade-politikasi"
   }
 };
 
