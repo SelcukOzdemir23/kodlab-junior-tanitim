@@ -197,7 +197,9 @@ const CourseDetail = () => {
                     <Users className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
                     <span className="text-xs sm:text-sm font-medium">GRUP</span>
                   </div>
-                  <div className="text-lg sm:text-xl font-bold text-white">{course.maxStudents}</div>
+                  <div className="text-lg sm:text-xl font-bold text-white">
+                    {course.maxStudents}
+                  </div>
                 </div>
               </motion.div>
 
@@ -257,14 +259,6 @@ const CourseDetail = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
                 
-                {/* Rating Badge */}
-                <div className="absolute top-4 sm:top-6 left-4 sm:left-6 bg-white/90 backdrop-blur-sm rounded-2xl p-2 sm:p-3 shadow-lg">
-                  <div className="flex items-center space-x-1 sm:space-x-2">
-                    <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 fill-current" />
-                    <span className="font-bold text-gray-900 text-sm sm:text-base">{course.rating}</span>
-                    <span className="text-gray-600 text-xs sm:text-sm">({course.reviewCount})</span>
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -291,18 +285,13 @@ const CourseDetail = () => {
                   {courseSlug === 'scratch-ile-baslangic' ? (
                     <>
                       <p>
-                        Scratch ile Başlangıç kursu, 6-9 yaş arası çocuklar için tasarlanmış eğlenceli bir programlama eğitimidir. 
+                        Scratch ile Başlangıç kursu, 7-10 yaş arası çocuklar için tasarlanmış eğlenceli bir programlama eğitimidir. 
                         Bu kursta çocuklar, dünyada en çok kullanılan blok tabanlı programlama aracı olan Scratch ile kodlamayı öğrenirler.
                       </p>
                       <p>
-                        Kurs boyunca öğrenciler, <strong className="text-foreground">drag-and-drop ile kod bloklarını</strong> kullanarak, 
+                        Kurs boyunca öğrenciler, <strong className="text-foreground">sürükle bırak ile kod bloklarını</strong> kullanarak, 
                         kendi oyunlarını, animasyonlarını ve hikayelerini oluştururlar. Her ders, yaratıcı projeler ve 
                         eğlenceli aktivitelerle desteklenir.
-                      </p>
-                      <p>
-                        <strong className="text-foreground">Çocuk gelişimi uzmanları ve yazılım mühendisleri</strong> tarafından geliştirilen 
-                        yaş grupuna uygun müfredat ile çocuğunuz, teknoloji ile tanışırken yaratıcılığını da geliştirir. 
-                        Kurs sonunda kendi oyunlarını tasarlayabilecek seviyeye ulaşır.
                       </p>
                     </>
                   ) : courseSlug === 'tinkercad' ? (
@@ -325,7 +314,7 @@ const CourseDetail = () => {
                   ) : courseSlug === 'kodu' ? (
                     <>
                       <p>
-                        Kodu kursu, 9-15 yaş arası çocuklar için tasarlanmış eğlenceli bir oyun tasarımı ve programlama eğitimidir. 
+                        Kodu kursu, 10-15 yaş arası çocuklar için tasarlanmış eğlenceli bir oyun tasarımı ve programlama eğitimidir. 
                         Bu kursta çocuklar, Microsoft'un özel olarak geliştirdiği Kodu platformu ile 3D oyunlar yaratırlar.
                       </p>
                       <p>
@@ -333,11 +322,7 @@ const CourseDetail = () => {
                         kendi 3D oyun dünyalarını tasarlar, karakterleri kontrol eder ve eğlenceli oyun mekaniği oluştururlar. 
                         Her ders, yaratıcı oyun projeleri ve etkileşimli deneyimlerle desteklenir.
                       </p>
-                      <p>
-                        <strong className="text-foreground">Oyun tasarımı uzmanları ve çocuk pedagojisti</strong> tarafından geliştirilen 
-                        yaş grupuna uygun müfredat ile çocuğunuz, oyun tasarımını öğrenirken problem çözme ve yaratıcı düşünme 
-                        becerilerini de geliştirir. Kurs sonunda kendi 3D oyunlarını tasarlayabilecek seviyeye ulaşır.
-                      </p>
+                     
                     </>
                   ) : courseSlug === 'gimp' ? (
                     <>
@@ -384,11 +369,7 @@ const CourseDetail = () => {
                         logo tasarımı, poster oluşturma, pixel art ve animasyon becerilerini geliştirirler. Her ders, yaratıcı 
                         projeler ve eğlenceli aktivitelerle desteklenir.
                       </p>
-                      <p>
-                        <strong className="text-foreground">Dijital tasarım uzmanları ve çocuk pedagojisti</strong> tarafından geliştirilen 
-                        yaş grupuna uygun müfredat ile çocuğunuz, teknoloji ile yaratıcılığını birleştirirken renk teorisi ve 
-                        kompozisyon becerilerini de geliştirir. Kurs sonunda kendi dijital tasarım portfolyosunu oluşturabilecek seviyeye ulaşır.
-                      </p>
+                      
                     </>
                   ) : courseSlug === 'dijital-tasarim-pro' ? (
                     <>
@@ -401,11 +382,7 @@ const CourseDetail = () => {
                         3D baskıya hazır modeller, marka kimliği tasarımları ve dijital sanat eserleri oluştururlar. Her ders, sektörel 
                         projeler ve profesyonel uygulamalarla desteklenir.
                       </p>
-                      <p>
-                        <strong className="text-foreground">Sektör deneyimli tasarımcılar ve 3D uzmanları</strong> tarafından geliştirilen güncel müfredat ile 
-                        gençler, dijital tasarım dünyasına profesyonel bir giriş yaparlar. Kurs sonunda hem 3D modelleme hem de 
-                        grafik tasarım alanlarında portfolyo oluşturabilecek seviyeye ulaşırlar.
-                      </p>
+                      
                     </>
                   ) : (
                     <>
@@ -436,42 +413,42 @@ const CourseDetail = () => {
                         { icon: Code, text: 'Blok tabanlı kolay programlama' },
                         { icon: Brain, text: 'Yaratıcılık odaklı öğrenme' },
                         { icon: Gamepad2, text: 'Oyun ve animasyon tabanlı eğitim' },
-                        { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
+                        { icon: Users, text: 'Premium 5 kişilik mini gruplar' }
                       ] : courseSlug === 'tinkercad' ? [
                         { icon: Code, text: '3D tasarım ve modelleme' },
                         { icon: Brain, text: 'STEM becerileri geliştirme' },
                         { icon: Gamepad2, text: 'Yaratıcı proje tabanlı eğitim' },
-                        { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
+                        { icon: Users, text: 'Premium 4 kişilik mini gruplar' }
                       ] : courseSlug === 'kodu' ? [
                         { icon: Code, text: 'Görsel programlama blokları' },
                         { icon: Brain, text: 'Oyun tasarımı odaklı öğrenme' },
                         { icon: Gamepad2, text: '3D oyun ve dünya yaratma' },
-                        { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
+                        { icon: Users, text: 'Premium 4 kişilik mini gruplar' }
                       ] : courseSlug === 'gimp' ? [
                         { icon: Code, text: 'Profesyonel düzenleme araçları' },
                         { icon: Brain, text: 'Sanat ve yaratıcılık odaklı öğrenme' },
                         { icon: Gamepad2, text: 'Dijital sanat ve fotoğraf projeler' },
-                        { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
+                        { icon: Users, text: 'Premium 4 kişilik mini gruplar' }
                       ] : courseSlug === 'web-gelistirme' ? [
                         { icon: Code, text: 'Modern web teknolojileri' },
                         { icon: Brain, text: 'Proje odaklı öğrenme' },
                         { icon: Gamepad2, text: 'Gerçek web uygulamaları' },
-                        { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
+                        { icon: Users, text: 'Premium 4 kişilik mini gruplar' }
                       ] : courseSlug === 'dijital-tasarim-giris' ? [
                         { icon: Code, text: 'Bilgisayar kullanımı temelleri' },
                         { icon: Brain, text: 'Yaratıcılık odaklı öğrenme' },
                         { icon: Gamepad2, text: 'Figma, Canva ve Piskel App' },
-                        { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
+                        { icon: Users, text: 'Premium 4 kişilik mini gruplar' }
                       ] : courseSlug === 'dijital-tasarim-pro' ? [
                         { icon: Code, text: 'Tinkercad ve GIMP uzmanlığı' },
                         { icon: Brain, text: 'Profesyonel tasarım becerileri' },
                         { icon: Gamepad2, text: '3D modelleme ve grafik tasarım' },
-                        { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
+                        { icon: Users, text: 'Premium 4 kişilik mini gruplar' }
                       ] : [
                         { icon: Code, text: 'Gerçek Python programlama dili' },
                         { icon: Brain, text: 'Problem çözme odaklı öğrenme' },
                         { icon: Gamepad2, text: 'Oyun ve proje tabanlı eğitim' },
-                        { icon: Users, text: 'Maksimum 4 kişilik mini gruplar' }
+                        { icon: Users, text: 'Premium 4 kişilik mini gruplar' }
                       ];
                       
                       return features.map((feature, index) => (
@@ -808,7 +785,7 @@ const CourseDetail = () => {
             <div className="text-center mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
                 <span className="text-secondary">
-                  32 Hafta Sonunda
+                  32  Hafta Sonunda
                 </span> Neler Yapabilecek?
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">

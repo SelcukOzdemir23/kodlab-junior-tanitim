@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { Code, Home, Users, Monitor, MessageCircle, Github } from 'lucide-react';
+import { Code, Home, Users, Monitor, MessageCircle, FileText } from 'lucide-react';
 
 export const Features = () => {
   const features = [
     {
       icon: Code,
-      title: 'Güncel Eğitmenler',
-      description: 'Sektörün en güncel bilgilerini, deneyimlerimizle öğretiyoruz.',
+      title: 'Güncel Eğitimler',
+      description: 'Sektörün en güncel bilgilerini sunuyoruz. Yazılım dünyasındaki hızlı değişime ayak uyduruyoruz.',
       color: 'accent'
     },
     {
@@ -24,7 +24,7 @@ export const Features = () => {
     {
       icon: Monitor,
       title: 'Etkin Çevrimiçi Deneyim',
-      description: 'Ekran paylaşımı, canlı kod yazımı ve geri bildirimler.Yüz yüze eğitimin tüm faydalarını sağlamaya çalışıyoruz.',
+      description: 'Ekran paylaşımı, canlı kod yazımı ve geri bildirimler. Yüz yüze eğitimin tüm faydalarını sağlamaya çalışıyoruz.',
       color: 'accent'
     },
     {
@@ -34,9 +34,9 @@ export const Features = () => {
       color: 'primary'
     },
     {
-      icon: Github,
-      title: 'Gerçek Proje Portföyü',
-      description: 'Çocuğunuz sadece öğrenmiyor, kendi projelerini yapıyor. GitHub\'da portfolio oluşturuyor.',
+      icon: FileText,
+      title: 'Yapılandırılmış Ödevler',
+      description: 'Her ders sonunda verilen ilgi çekici ödevler ve modül sonlarında yapılacak projelerde öğrendiklerimizi pekiştiriyoruz.',
       color: 'secondary'
     }
   ];
@@ -56,9 +56,12 @@ export const Features = () => {
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
 
-            Çocuğunuzun geleceğini inşa etmek için buradayız.
-            Çocuğunuzun kendini keşfetme yolculuğunu destek olmaya çalışan yardımcılarız.
-            Sektörün en güncel bilgilerini, gerçek deneyimlerimizle öğretiyoruz.
+            Çocuğunuzun geleceğini beraber inşa etmek için buradayız.
+            Kendini keşfetme yolculuğunu destek olmaya çalışan yardımcılarız.
+            <p>
+              Sektörün çeşitli alanlarını tanıtarak çocuğunuzun ilgi alanlarını fark etmesine yardımcı oluruz.
+            </p>
+            
           </p>
         </motion.div>
 

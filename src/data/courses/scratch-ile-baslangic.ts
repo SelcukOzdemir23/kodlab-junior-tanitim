@@ -3,13 +3,11 @@ import codingFunImage from '@/assets/coding-fun.jpg';
 
 export const scratchIleBaslangic: Course = {
   title: 'Scratch ile Başlangıç',
-  description: '6-9 yaş arası çocuklar için blok tabanlı programlama. Oyun yaparak kodlamayı öğrenme.',
-  ageRange: '6-9 yaş',
-  duration: '12 hafta',
+  description: '7-10 yaş arası çocuklar için blok tabanlı programlama. Oyun yaparak kodlamayı öğrenme.',
+  ageRange: '7-10 yaş',
+  duration: '24 hafta',
   level: 'Başlangıç',
-  maxStudents: 'Max 4 kişi',
-  rating: '4.8',
-  reviewCount: '89',
+  maxStudents: 'Standart:10-15, Premium: En fazla 4',
   features: [
     'Blok tabanlı programlama',
     'Oyun geliştirme',
