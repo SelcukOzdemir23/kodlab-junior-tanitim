@@ -352,11 +352,7 @@ const CourseDetail = () => {
                         responsive tasarım, kullanıcı deneyimi ve modern geliştirme araçlarını kullanırlar. Her ders, gerçek projeler ve 
                         sektörel uygulamalarla desteklenir.
                       </p>
-                      <p>
-                        <strong className="text-foreground">Sektör deneyimli yazılım mühendisleri</strong> tarafından geliştirilen güncel müfredat ile 
-                        gençler, web geliştirme dünyasına adım atarlar. Kurs sonunda kendi web sitelerini yapabilecek ve 
-                        internete yayınlayabilecek seviyeye ulaşırlar.
-                      </p>
+                      
                     </>
                   ) : courseSlug === 'dijital-tasarim-giris' ? (
                     <>
@@ -387,19 +383,15 @@ const CourseDetail = () => {
                   ) : (
                     <>
                       <p>
-                        Python ile Kodlama kursu, 10-13 yaş arası çocuklar için tasarlanmış kapsamlı bir programlama eğitimidir. 
-                        Bu kursta çocuklar, dünyanın en popüler programlama dillerinden biri olan Python'u öğrenirler.
+                        Python Pro kursu, 13-17 yaş arası gençler için tasarlanmış kapsamlı bir programlama eğitimidir. 
+                        Bu kursta gençler, dünyanın en popüler programlama dillerinden biri olan Python'u derinlemesine öğrenirler.
                       </p>
                       <p>
-                        Kurs boyunca öğrenciler, <strong className="text-foreground">gerçek kod yazmayı</strong> öğrenirken, 
-                        aynı zamanda problem çözme becerilerini geliştirirler. Her ders, eğlenceli projeler ve 
-                        interaktif uygulamalarla desteklenir.
+                        Kurs boyunca öğrenciler Python dilinin ileri seviye özelliklerini kullanarak, 
+                        gerçek dünya problemlerini çözen projeler geliştirirler. Veri yapıları, algoritmalar, 
+                        nesne yönelimli programlama ve web geliştirme gibi konular eğlenceli ve etkileşimli projelerle öğretilir.
                       </p>
-                      <p>
-                        <strong className="text-foreground">4 yazılım mühendisi</strong> tarafından geliştirilen özel müfredat ile 
-                        çocuğunuz, sektörün gerçek ihtiyaçlarına uygun bilgiler edinir. Kurs sonunda kendi mini projelerini 
-                        geliştirebilecek seviyeye ulaşır.
-                      </p>
+                      
                     </>
                   )}
                 </div>
