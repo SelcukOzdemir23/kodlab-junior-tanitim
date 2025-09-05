@@ -7,9 +7,8 @@ export const dijitalTasarimPro: Course = {
   ageRange: '13-17 yaş',
   duration: '32 hafta',
   level: 'İleri',
-  maxStudents: 'Max 4 kişi',
-  rating: '4.8',
-  reviewCount: '94',
+  maxStudents: 'Standart:10-15, Premium: En fazla 4',
+
   features: [
     'Tinkercad ile 3D modelleme',
     'GIMP ile profesyonel grafik tasarım',

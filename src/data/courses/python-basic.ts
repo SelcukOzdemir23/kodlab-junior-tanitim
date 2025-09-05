@@ -7,9 +7,7 @@ export const pythonBasic: Course = {
   ageRange: '9-12 yaş',
   duration: '32 hafta',
   level: 'Başlangıç',
-  maxStudents: 'Max 4 kişi',
-  rating: '4.8',
-  reviewCount: '89',
+  maxStudents: 'Standart:10-15, Premium: En fazla 4',
   features: [
     'Python temelleri',
     'Basit oyunlar yapma',

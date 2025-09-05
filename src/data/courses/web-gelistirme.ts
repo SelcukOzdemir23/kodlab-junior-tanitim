@@ -3,13 +3,11 @@ import codingFunImage from '@/assets/coding-fun.jpg';
 
 export const webGelistirme: Course = {
   title: 'Web Geliştirme',
-  description: '12-16 yaş arası gençler için modern web teknolojileri. HTML, CSS ve JavaScript ile gerçek web siteleri yapma.',
+  description: '12-17 yaş arası gençler için modern web teknolojileri. HTML, CSS ve JavaScript ile gerçek web siteleri yapma.',
   ageRange: '12-17 yaş',
   duration: '32 hafta',
   level: 'Orta-İleri',
-  maxStudents: 'Max 4 kişi',
-  rating: '4.9',
-  reviewCount: '156',
+  maxStudents: 'Standart:10-15, Premium: En fazla 4',
   features: [
     'HTML5 ve semantik yapı',
     'Modern CSS ve Flexbox',

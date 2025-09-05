@@ -7,9 +7,7 @@ export const pythonPro: Course = {
   ageRange: '13-17 yaş',
   duration: '32 hafta',
   level: 'İleri',
-  maxStudents: 'Max 4 kişi',
-  rating: '4.9',
-  reviewCount: '156',
+  maxStudents: 'Standart:10-15, Premium: En fazla 4',
   features: [
     'İleri seviye Python',
     'Veri yapıları ve algoritmalar',
