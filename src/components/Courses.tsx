@@ -24,7 +24,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
           title: 'Scratch',
           slug: 'scratch-ile-baslangic',
           description: 'Görsel programlama ile kodlamaya ilk adım. Oyun ve animasyon yaratma.',
-          ageRange: '7-17 yaş',
+          ageRange: '7-10 yaş',
           duration: '32 hafta',
           level: 'Başlangıç',
           features: ['Drag & Drop Kodlama', 'Oyun Tasarımı', 'Animasyon', 'Sanat Projeleri'],
@@ -38,7 +38,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
           title: 'Kodu',
           slug: 'kodu',
           description: 'Görsel programlama ile oyun tasarımı. Karakter kontrolü ve dünya yaratma.',
-          ageRange: '7-17 yaş',
+          ageRange: '10-15 yaş',
           duration: '32 hafta',
           level: 'Orta',
           features: ['Görsel Programlama', 'Oyun Tasarımı', 'Karakter Kontrolü', '3D Dünyalar'],
@@ -173,7 +173,7 @@ export const Courses = ({ onBookDemo }: CoursesProps) => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Tüm <span className="text-secondary">Kurslarımız</span>
+            <span className="text-orange-400">Tüm</span> <span className="text-blue-600">Kurslarımız</span>
           </h2>
         </motion.div>
 

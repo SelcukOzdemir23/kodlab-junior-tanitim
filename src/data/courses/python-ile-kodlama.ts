@@ -7,9 +7,7 @@ export const pythonIleKodlama: Course = {
   ageRange: '10-13 yaş',
   duration: '16 hafta',
   level: 'Orta',
-  maxStudents: 'Max 4 kişi',
-  rating: '4.9',
-  reviewCount: '127',
+  maxStudents: 'Standart:10-15, Premium: En fazla 4',
   features: [
     'Gerçek Python programlama',
     'Problem çözme becerileri',

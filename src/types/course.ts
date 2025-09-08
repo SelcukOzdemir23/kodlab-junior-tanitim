@@ -41,8 +41,8 @@ export interface Course {
   duration: string;
   level: string;
   maxStudents: string;
-  rating: string;
-  reviewCount: string;
+  rating?: string;
+  reviewCount?: string;
   features: string[];
   curriculum: CurriculumWeek[];
   achievements: Achievement[];

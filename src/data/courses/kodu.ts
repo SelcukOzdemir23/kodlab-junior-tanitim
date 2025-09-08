@@ -3,13 +3,11 @@ import codingFunImage from '@/assets/coding-fun.jpg';
 
 export const kodu: Course = {
   title: 'Kodu',
-  description: '9-15 yaş arası çocuklar için görsel programlama ile oyun tasarımı. Karakter kontrolü ve dünya yaratma.',
-  ageRange: '9-15 yaş',
-  duration: '14 hafta',
+  description: '10-15 yaş arası çocuklar için görsel programlama ile oyun tasarımı. Karakter kontrolü ve dünya yaratma.',
+  ageRange: '10-15 yaş',
+  duration: '32 hafta',
   level: 'Orta',
-  maxStudents: 'Max 4 kişi',
-  rating: '4.9',
-  reviewCount: '112',
+  maxStudents: 'Standart: 10-15, Premium: En fazla 4 kişi',
   features: [
     'Görsel programlama blokları',
     '3D oyun tasarımı',
@@ -124,7 +122,7 @@ export const kodu: Course = {
     },
     {
       icon: "🌍",
-      title: "Dünya Yaratıcısı",
+      title: "Dünyalar Oluşturma",
       description: "3D ortamlar tasarlayarak yaratıcı dünyalar oluşturur"
     },
     {
@@ -136,11 +134,6 @@ export const kodu: Course = {
       icon: "🎵",
       title: "Ses Tasarımı",
       description: "Oyunlarına ses efektleri ve müzik ekleyerek deneyimi zenginleştirir"
-    },
-    {
-      icon: "🤖",
-      title: "Yapay Zeka",
-      description: "NPC davranışları ve otomatik sistemler programlar"
     },
     {
       icon: "📖",

@@ -15,7 +15,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
   ];*/
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-16 md:pt-16 pt-24 relative overflow-hidden" style={{
+    <section id="home" className="min-h-screen flex items-center md:pt-16 pt-24 relative overflow-hidden" style={{
       background: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%)'
     }}>
       {/* Background decorations */}
@@ -82,6 +82,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 Ücretsiz Deneme Dersi Al
               </Button>
 
+              {/* Tanıtım Videosu butonu ileride eklenecek
               <Button
                 variant="outline"
                 size="lg"
@@ -97,6 +98,7 @@ export const Hero = ({ onBookDemo }: HeroProps) => {
                 <Play className="w-5 h-5 mr-2 group-hover:animate-pulse" />
                 Tanıtım Videosu
               </Button>
+              */}
             </motion.div>
 
             {/* Stats */}
