@@ -79,7 +79,7 @@ const FAQ = () => {
       borderColor: "border-blue-200",
       questions: [
         {
-          question: "Hangi yaş grubundaki çocuklar kursa katılabilir?",
+          question: "Hangi yaş grubundaki çocuklar kursa katılabilirler?",
           answer: "Kurslarımız 7-17 yaş arası çocuklar için tasarlanmıştır. Kurslarımız özelinde yaş aralığı daralabilmektedir."
         },
         {
