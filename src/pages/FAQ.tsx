@@ -48,7 +48,7 @@ const FAQ = () => {
         answer: "Hayır, hiçbir ön bilgi gerekmez. Tamamen sıfırdan başlayarak, adım adım öğretim metodumuzla çocuklar kolayca öğrenebilir."
       },
       {
-        question: "Kurslar online mı yoksa yüz yüze mi?",
+        question: "Kurslar çevrimiçi mi yoksa yüz yüze mi?",
         answer: "Hem online hem de yüz yüze eğitim seçeneklerimiz bulunmaktadır. İhtiyaçlarınıza göre en uygun formatı seçebilirsiniz."
       },
       {
