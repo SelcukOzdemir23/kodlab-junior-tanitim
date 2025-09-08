@@ -42,7 +42,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
         publish_branch: production
-        force_orphan: true
         
-    - name: Trigger Hostinger deployment
-      run: curl -X POST https://webhooks.hostinger.com/deploy/3bee9a7f118491022b116862f25309ea
