@@ -70,7 +70,7 @@ class EmailService {
         bookingId: bookingData.bookingId || 'N/A',
 
         // Ek bilgiler
-        to_email: 'your-email@domain.com', // Kendi e-posta adresinizi buraya yazın
+        to_email: 'kodlabjuniorofficial@gmail.com', // Kendi e-posta adresinizi buraya yazın
         from_name: 'Kodlab Junior Demo Sistemi',
         subject: `🎯 Yeni Demo Ders Rezervasyonu - ${bookingData.childName} (${bookingData.selectedDate} ${bookingData.selectedTime})`
       };
