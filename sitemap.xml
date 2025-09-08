@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Ana Sayfa -->
+  <url>
+    <loc>https://kodlabjunior.com/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Kurslar Sayfası -->
+  <url>
+    <loc>https://kodlabjunior.com/kurslar</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Python Kursu -->
+  <url>
+    <loc>https://kodlabjunior.com/kurslar/python-programlama</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Scratch Kursu -->
+  <url>
+    <loc>https://kodlabjunior.com/kurslar/scratch-programlama</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Web Geliştirme Kursu -->
+  <url>
+    <loc>https://kodlabjunior.com/kurslar/web-gelistirme</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Robotik Kursu -->
+  <url>
+    <loc>https://kodlabjunior.com/kurslar/robotik-programlama</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Oyun Geliştirme Kursu -->
+  <url>
+    <loc>https://kodlabjunior.com/kurslar/oyun-gelistirme</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Mobil Uygulama Geliştirme Kursu -->
+  <url>
+    <loc>https://kodlabjunior.com/kurslar/mobil-uygulama-gelistirme</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sıkça Sorulan Sorular -->
+  <url>
+    <loc>https://kodlabjunior.com/sss</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- İade Politikası -->
+  <url>
+    <loc>https://kodlabjunior.com/iade-politikasi</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Hakkımızda -->
+  <url>
+    <loc>https://kodlabjunior.com/hakkimizda</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- İletişim -->
+  <url>
+    <loc>https://kodlabjunior.com/iletisim</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Blog (gelecekte eklenebilir) -->
+  <url>
+    <loc>https://kodlabjunior.com/blog</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset> 
