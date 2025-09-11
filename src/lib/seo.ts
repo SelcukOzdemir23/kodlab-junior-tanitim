@@ -21,7 +21,7 @@ class SEOManager {
     title: "KodLab Junior 7-17 Yaş Çocuklar İçin Kodlama ve Tasarım Eğitimi",
     description: "7-17 yaş arası çocuklar için eğlenceli ve etkili kodlama eğitimleri. Geleceğin teknolojisini bugünden öğrenmeye başlayın!",
     keywords: "kodlama eğitimi, çocuk kodlama, programlama kursu, python, scratch, web tasarım, robotik, 7-17 yaş, online eğitim, teknoloji eğitimi",
-    image: "https://kodlabjunior.com/og-image.jpg",
+    image: "https://kodlabjunior.com/sitepreview.png",
     url: "https://kodlabjunior.com",
     type: "website",
     siteName: "KodLab Junior",

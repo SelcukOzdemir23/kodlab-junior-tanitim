@@ -7,7 +7,7 @@ export const kodu: Course = {
   ageRange: '10-15 yaş',
   duration: '32 hafta',
   level: 'Orta',
-  maxStudents: 'Standart: 10-15, Premium: En fazla 4 kişi',
+  maxStudents: 'Standart: 10-15, Premium: En fazla 5 kişi',
   features: [
     'Görsel programlama blokları',
     '3D oyun tasarımı',
@@ -111,13 +111,13 @@ export const kodu: Course = {
       description: "3D dünyalar yaratarak kendi oyunlarını tasarlar"
     },
     {
-      icon: "🕹️", 
+      icon: "🕹️",
       title: "Görsel Programlama",
       description: "Blok tabanlı programlama ile karmaşık mantıklar kurabilir"
     },
     {
       icon: "🎭",
-      title: "Karakter Kontrolü", 
+      title: "Karakter Kontrolü",
       description: "Oyun karakterlerini kontrol etme ve davranış programlama"
     },
     {

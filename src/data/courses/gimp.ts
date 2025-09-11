@@ -7,7 +7,7 @@ export const gimp: Course = {
   ageRange: '10-16 yaş',
   duration: '10 hafta',
   level: 'Başlangıç-Orta',
-  maxStudents: 'Max 4 kişi',
+  maxStudents: 'Max 5 kişi',
   rating: '4.8',
   reviewCount: '87',
   features: [
@@ -89,13 +89,13 @@ export const gimp: Course = {
       description: "Profesyonel düzeyde fotoğraf düzenleme ve iyileştirme yapar"
     },
     {
-      icon: "🎨", 
+      icon: "🎨",
       title: "Dijital Sanatçı",
       description: "Özgün dijital sanat eserleri ve illüstrasyonlar oluşturur"
     },
     {
       icon: "🖌️",
-      title: "Grafik Tasarımcısı", 
+      title: "Grafik Tasarımcısı",
       description: "Logo, poster ve grafik tasarım projelerini gerçekleştirir"
     },
     {

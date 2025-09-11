@@ -7,7 +7,7 @@ export const dijitalTasarimGiris: Course = {
   ageRange: '9-12 yaş',
   duration: '32 hafta',
   level: 'Başlangıç',
-  maxStudents: 'Standart:10-15, Premium: En fazla 4',
+  maxStudents: 'Standart:10-15, Premium: En fazla 5',
   features: [
     'Bilgisayar kullanımı temelleri',
     'Figma ile tasarım',
@@ -123,13 +123,13 @@ export const dijitalTasarimGiris: Course = {
       description: "Bilgisayar temellerini öğrenir ve güvenli kullanım alışkanlığı kazanır"
     },
     {
-      icon: "🎨", 
+      icon: "🎨",
       title: "Canva Tasarımcısı",
       description: "Canva ile poster, kartvizit ve sosyal medya tasarımları yapar"
     },
     {
       icon: "🖌️",
-      title: "Figma Sanatçısı", 
+      title: "Figma Sanatçısı",
       description: "Figma ile logo, ikon ve karakter tasarımları oluşturur"
     },
     {

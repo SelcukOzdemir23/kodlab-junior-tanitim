@@ -7,7 +7,7 @@ export const webGelistirme: Course = {
   ageRange: '12-17 yaş',
   duration: '32 hafta',
   level: 'Orta-İleri',
-  maxStudents: 'Standart:10-15, Premium: En fazla 4',
+  maxStudents: 'Standart:10-15, Premium: En fazla 5',
   features: [
     'HTML5 ve semantik yapı',
     'Modern CSS ve Flexbox',
@@ -123,13 +123,13 @@ export const webGelistirme: Course = {
       description: "Semantik HTML5 etiketleri ile yapılandırılmış web sayfaları oluşturur"
     },
     {
-      icon: "🎨", 
+      icon: "🎨",
       title: "CSS Tasarımcısı",
       description: "Modern CSS teknikleri ile görsel olarak etkileyici tasarımlar yapar"
     },
     {
       icon: "⚡",
-      title: "JavaScript Programcısı", 
+      title: "JavaScript Programcısı",
       description: "JavaScript ile interaktif ve dinamik web uygulamaları geliştirir"
     },
     {

@@ -17,8 +17,8 @@ export const Features = () => {
     },
     {
       icon: Users,
-      title: 'Premium Gruplar (En Fazla 4 Kişi)',
-      description: 'Daha küçük gruplarla daha fazla etkileşim. Her öğrenciye özel ilgi ve destek.',
+      title: 'Premium Gruplar (En Fazla 5 Kişi)',
+      description: 'Standart(10-15 Kişi) gruplarlarımız dışında, daha küçük gruplarla daha fazla etkileşim. Her öğrenciye özel ilgi ve destek.',
       color: 'secondary'
     },
     {
@@ -61,7 +61,7 @@ export const Features = () => {
             <p>
               Sektörün çeşitli alanlarını tanıtarak çocuğunuzun ilgi alanlarını fark etmesine yardımcı oluruz.
             </p>
-            
+
           </p>
         </motion.div>
 
@@ -78,8 +78,8 @@ export const Features = () => {
             >
               <div className="bg-card rounded-2xl p-8 shadow-brand hover:shadow-glow transition-all duration-300 h-full border border-border hover:border-secondary/20">
                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${feature.color === 'accent' ? 'bg-accent/10 text-accent' :
-                    feature.color === 'primary' ? 'bg-primary/10 text-primary' :
-                      'bg-secondary/10 text-secondary'
+                  feature.color === 'primary' ? 'bg-primary/10 text-primary' :
+                    'bg-secondary/10 text-secondary'
                   }`}>
                   <feature.icon className="w-8 h-8" />
                 </div>
