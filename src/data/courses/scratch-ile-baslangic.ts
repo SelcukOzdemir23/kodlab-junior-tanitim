@@ -5,9 +5,9 @@ export const scratchIleBaslangic: Course = {
   title: 'Scratch ile Başlangıç',
   description: '7-10 yaş arası çocuklar için blok tabanlı programlama. Oyun yaparak kodlamayı öğrenme.',
   ageRange: '7-10 yaş',
-  duration: '24 hafta',
+  duration: '32 hafta',
   level: 'Başlangıç',
-  maxStudents: 'Standart:10-15, Premium: En fazla 4',
+  maxStudents: 'Standart:10-15, Premium: En fazla 5',
   features: [
     'Blok tabanlı programlama',
     'Oyun geliştirme',
@@ -99,13 +99,13 @@ export const scratchIleBaslangic: Course = {
       description: "Drag-and-drop ile kod bloklarını kullanmayı öğrenir"
     },
     {
-      icon: "🎮", 
+      icon: "🎮",
       title: "Oyun Geliştirme",
       description: "Kendi oyunlarını tasarlayıp geliştirebilir"
     },
     {
       icon: "🎨",
-      title: "Yaratıcı Tasarım", 
+      title: "Yaratıcı Tasarım",
       description: "Karakter, kostüm ve sahne tasarımı yapar"
     },
     {

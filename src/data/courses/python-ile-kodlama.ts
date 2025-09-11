@@ -7,7 +7,7 @@ export const pythonIleKodlama: Course = {
   ageRange: '10-13 yaş',
   duration: '16 hafta',
   level: 'Orta',
-  maxStudents: 'Standart:10-15, Premium: En fazla 4',
+  maxStudents: 'Standart:10-15, Premium: En fazla 5',
   features: [
     'Gerçek Python programlama',
     'Problem çözme becerileri',
@@ -123,13 +123,13 @@ export const pythonIleKodlama: Course = {
       description: "Değişkenler, veri tipleri, operatörler ve temel syntax'ı öğrenir"
     },
     {
-      icon: "🔄", 
+      icon: "🔄",
       title: "Kontrol Yapıları",
       description: "If-else koşulları ve for-while döngülerini kullanabilir"
     },
     {
       icon: "📊",
-      title: "Veri Yapıları", 
+      title: "Veri Yapıları",
       description: "Listeler, sözlükler ve string işlemlerinde uzmanlaşır"
     },
     {

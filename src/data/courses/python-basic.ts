@@ -7,7 +7,7 @@ export const pythonBasic: Course = {
   ageRange: '9-12 yaş',
   duration: '32 hafta',
   level: 'Başlangıç',
-  maxStudents: 'Standart:10-15, Premium: En fazla 4',
+  maxStudents: 'Standart:10-15, Premium: En fazla 5',
   features: [
     'Python temelleri',
     'Basit oyunlar yapma',
@@ -123,13 +123,13 @@ export const pythonBasic: Course = {
       description: "Değişkenler, veri tipleri ve temel syntax'ı öğrenir"
     },
     {
-      icon: "🎮", 
+      icon: "🎮",
       title: "Oyun Yapımı",
       description: "Basit ama eğlenceli oyunlar tasarlar ve kodlar"
     },
     {
       icon: "🎨",
-      title: "Turtle Sanatçısı", 
+      title: "Turtle Sanatçısı",
       description: "Turtle modülü ile renkli desenler ve sanat eserleri oluşturur"
     },
     {

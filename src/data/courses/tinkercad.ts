@@ -5,9 +5,9 @@ export const tinkercad: Course = {
   title: 'Tinkercad',
   description: '8-14 yaş arası çocuklar için 3D tasarım ve modelleme. Yaratıcı projeler ve 3D baskı hazırlığı.',
   ageRange: '8-14 yaş',
-  duration: '12 hafta',
+  duration: '32 hafta',
   level: 'Başlangıç-Orta',
-  maxStudents: 'Max 4 kişi',
+  maxStudents: 'Max 5 kişi',
   rating: '4.8',
   reviewCount: '94',
   features: [
@@ -101,13 +101,13 @@ export const tinkercad: Course = {
       description: "Uzamsal algı ve 3 boyutlu düşünme becerisi geliştirir"
     },
     {
-      icon: "📐", 
+      icon: "📐",
       title: "Geometri Ustası",
       description: "Geometrik şekiller ve mekansal ilişkileri anlayarak kullanır"
     },
     {
       icon: "🛠️",
-      title: "Tasarım Becerisi", 
+      title: "Tasarım Becerisi",
       description: "Yaratıcı ve fonksiyonel 3D objeler tasarlayabilir"
     },
     {

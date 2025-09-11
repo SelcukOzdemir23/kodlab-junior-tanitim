@@ -7,7 +7,7 @@ export const dijitalTasarimPro: Course = {
   ageRange: '13-17 yaş',
   duration: '32 hafta',
   level: 'İleri',
-  maxStudents: 'Standart:10-15, Premium: En fazla 4',
+  maxStudents: 'Standart:10-15, Premium: En fazla 5',
 
   features: [
     'Tinkercad ile 3D modelleme',
@@ -124,13 +124,13 @@ export const dijitalTasarimPro: Course = {
       description: "Tinkercad ile karmaşık 3D modeller tasarlar ve 3D baskıya hazırlar"
     },
     {
-      icon: "🎨", 
+      icon: "🎨",
       title: "GIMP Profesyoneli",
       description: "GIMP ile profesyonel seviyede fotoğraf düzenleme ve grafik tasarım yapar"
     },
     {
       icon: "📷",
-      title: "Fotoğraf Editörü", 
+      title: "Fotoğraf Editörü",
       description: "İleri seviye fotoğraf düzenleme ve manipülasyon teknikleri uygular"
     },
     {

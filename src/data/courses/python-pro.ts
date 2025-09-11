@@ -7,7 +7,7 @@ export const pythonPro: Course = {
   ageRange: '13-17 yaş',
   duration: '32 hafta',
   level: 'İleri',
-  maxStudents: 'Standart:10-15, Premium: En fazla 4',
+  maxStudents: 'Standart:10-15, Premium: En fazla 5',
   features: [
     'İleri seviye Python',
     'Veri yapıları ve algoritmalar',
@@ -123,13 +123,13 @@ export const pythonPro: Course = {
       description: "İleri seviye Python programlama becerilerine sahip olur"
     },
     {
-      icon: "🏗️", 
+      icon: "🏗️",
       title: "Nesne Yönelimli Programcı",
       description: "OOP prensiplerini kullanarak karmaşık sistemler tasarlar"
     },
     {
       icon: "📊",
-      title: "Veri Yapıları Uzmanı", 
+      title: "Veri Yapıları Uzmanı",
       description: "Algoritmalar ve veri yapılarını etkin şekilde kullanır"
     },
     {
