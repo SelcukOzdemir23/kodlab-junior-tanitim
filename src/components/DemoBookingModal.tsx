@@ -92,9 +92,14 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
       const style = document.createElement('style');
       style.id = 'modal-scrollbar-hide';
       style.textContent = `
-        body::-webkit-scrollbar { display: none !important; }
-        .modal-content::-webkit-scrollbar { display: none !important; }
-        .modal-content { scrollbar-width: none; -ms-overflow-style: none; }
+        * { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+        *::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+        html, body { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+        html::-webkit-scrollbar, body::-webkit-scrollbar { display: none !important; }
+        [data-radix-dialog-content] { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+        [data-radix-dialog-content]::-webkit-scrollbar { display: none !important; }
+        .modal-content, .modal-content * { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+        .modal-content::-webkit-scrollbar, .modal-content *::-webkit-scrollbar { display: none !important; }
       `;
       document.head.appendChild(style);
     } else if (scrollPosition !== 0) {
@@ -449,7 +454,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
           </DialogTitle>
         </DialogHeader>
 
-        <div className="flex-1 overflow-y-auto px-1">
+        <div className="flex-1 overflow-y-auto px-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           <AnimatePresence mode="wait">
           {isSuccess ? (
             <motion.div
