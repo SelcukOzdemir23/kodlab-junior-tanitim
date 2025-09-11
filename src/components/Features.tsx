@@ -18,7 +18,7 @@ export const Features = () => {
     {
       icon: Users,
       title: 'Premium Gruplar (En Fazla 5 Kişi)',
-      description: 'Daha küçük gruplarla daha fazla etkileşim. Her öğrenciye özel ilgi ve destek.',
+      description: 'Standart(10-15 Kişi) gruplarlarımız dışında, daha küçük gruplarla daha fazla etkileşim. Her öğrenciye özel ilgi ve destek.',
       color: 'secondary'
     },
     {
