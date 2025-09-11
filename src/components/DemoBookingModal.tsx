@@ -78,13 +78,25 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
       const currentScrollY = window.pageYOffset;
       setScrollPosition(currentScrollY);
       
-      // Body scroll'u engelle ama pozisyonu koru
+      // Body scroll'u engelle ve scrollbar'ı gizle
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
       document.body.style.top = `-${currentScrollY}px`;
       document.body.style.left = '0';
       document.body.style.right = '0';
       document.body.style.width = '100%';
+      (document.body.style as any).scrollbarWidth = 'none'; // Firefox
+      (document.body.style as any).msOverflowStyle = 'none'; // IE/Edge
+      
+      // Webkit scrollbar gizle
+      const style = document.createElement('style');
+      style.id = 'modal-scrollbar-hide';
+      style.textContent = `
+        body::-webkit-scrollbar { display: none !important; }
+        .modal-content::-webkit-scrollbar { display: none !important; }
+        .modal-content { scrollbar-width: none; -ms-overflow-style: none; }
+      `;
+      document.head.appendChild(style);
     } else if (scrollPosition !== 0) {
       // Modal kapandığında scroll pozisyonunu geri yükle
       document.body.style.overflow = '';
@@ -93,6 +105,12 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
       document.body.style.left = '';
       document.body.style.right = '';
       document.body.style.width = '';
+      (document.body.style as any).scrollbarWidth = '';
+      (document.body.style as any).msOverflowStyle = '';
+      
+      // Scrollbar gizleme stilini kaldır
+      const style = document.getElementById('modal-scrollbar-hide');
+      if (style) style.remove();
       
       // Scroll pozisyonunu geri yükle
       requestAnimationFrame(() => {
@@ -108,6 +126,11 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
       document.body.style.left = '';
       document.body.style.right = '';
       document.body.style.width = '';
+      (document.body.style as any).scrollbarWidth = '';
+      (document.body.style as any).msOverflowStyle = '';
+      
+      const style = document.getElementById('modal-scrollbar-hide');
+      if (style) style.remove();
     };
   }, [isOpen]);
 
@@ -408,7 +431,11 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent 
-        className="w-[95vw] max-w-2xl h-[90vh] flex flex-col" 
+        className="modal-content w-[95vw] max-w-2xl h-[90vh] flex flex-col overflow-hidden" 
+        style={{
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none'
+        }}
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => {
           if (isSubmitting) {
@@ -636,15 +663,12 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
                         {ageOptions.map((age) => (
                           <button
                             key={age.value}
-                            disabled={age.disabled}
-                            onClick={() => !age.disabled && handleInputChange('childAge', age.value)}
+                            onClick={() => handleInputChange('childAge', age.value)}
                             className={cn(
                               "h-10 md:h-12 rounded-lg border-2 font-medium transition-all text-sm md:text-base",
-                              age.disabled 
-                                ? "border-muted bg-muted text-muted-foreground cursor-not-allowed"
-                                : bookingData.childAge === age.value
-                                  ? "border-secondary bg-secondary text-secondary-foreground"
-                                  : "border-border hover:border-secondary hover:bg-secondary/10"
+                              bookingData.childAge === age.value
+                                ? "border-secondary bg-secondary text-secondary-foreground"
+                                : "border-border hover:border-secondary hover:bg-secondary/10"
                             )}
                           >
                             {age.label}
