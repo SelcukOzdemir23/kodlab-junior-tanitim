@@ -22,6 +22,7 @@ interface QuizBookingModalProps {
   parentInfo?: {
     name: string;
     phone: string;
+    childName: string;
     availableDay: string;
     availableTime: string;
   };
@@ -115,7 +116,7 @@ export const QuizBookingModal = ({ isOpen, onClose, recommendedCourse, parentInf
     parentName: parentInfo?.name || '',
     phone: parentInfo?.phone || '+90 ',
     email: '',
-    childName: '',
+    childName: parentInfo?.childName || '',
     childAge: 0,
     selectedDate: null,
     selectedTime: '',
@@ -128,7 +129,8 @@ export const QuizBookingModal = ({ isOpen, onClose, recommendedCourse, parentInf
       setBookingData(prev => ({
         ...prev,
         parentName: parentInfo.name,
-        phone: parentInfo.phone || '+90 '
+        phone: parentInfo.phone || '+90 ',
+        childName: parentInfo.childName || ''
       }));
       
       // Gün bilgisine göre otomatik tarih seçimi
@@ -382,10 +384,10 @@ export const QuizBookingModal = ({ isOpen, onClose, recommendedCourse, parentInf
   const resetModal = () => {
     setStep(1);
     setBookingData({
-      parentName: '',
-      phone: '+90 ',
+      parentName: parentInfo?.name || '',
+      phone: parentInfo?.phone || '+90 ',
       email: '',
-      childName: '',
+      childName: parentInfo?.childName || '',
       childAge: 0,
       selectedDate: null,
       selectedTime: '',

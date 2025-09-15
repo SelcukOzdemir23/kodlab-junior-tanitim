@@ -12,7 +12,7 @@ interface QuizQuestion {
   type: 'quiz' | 'parent-info';
   question: string;
   multiSelect?: boolean;
-  inputType?: 'name' | 'phone' | 'email';
+  inputType?: 'name' | 'phone' | 'email' | 'childName';
   options?: {
     id: string;
     text: string;
@@ -102,12 +102,8 @@ const allQuestions: QuizQuestion[] = [
   {
     id: 7,
     type: 'parent-info',
-    question: "Hangi saatlerde müsaitsiniz?",
-    options: [
-      { id: "morning", text: "Sabah (10:00-12:00)", emoji: "🌅", value: "morning" },
-      { id: "afternoon", text: "Öğleden sonra (14:00-17:00)", emoji: "☀️", value: "afternoon" },
-      { id: "evening", text: "Akşam (18:00-21:00)", emoji: "🌆", value: "evening" }
-    ]
+    question: "Çocuğunuzun adını öğrenebilir miyiz?",
+    inputType: 'childName'/*  */
   },
   {
     id: 8,
@@ -160,7 +156,7 @@ const categoryToCourses: Record<string, string[]> = {
   general: ['web-gelistirme', 'scratch-ile-baslangic']
 };
 
-const NameInput = ({ onSubmit }: { onSubmit: (name: string) => void }) => {
+const NameInput = ({ onSubmit, placeholder = "Adınız ve soyadınız" }: { onSubmit: (name: string) => void, placeholder?: string }) => {
   const [name, setName] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -177,7 +173,7 @@ const NameInput = ({ onSubmit }: { onSubmit: (name: string) => void }) => {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Adınız ve soyadınız"
+          placeholder={placeholder}
           className="h-12 text-center text-lg"
           autoFocus
         />
@@ -359,6 +355,19 @@ export const WelcomeQuiz = () => {
     }
   };
 
+  const handleChildNameSubmit = (childName: string) => {
+    setParentInfo(prev => ({ ...prev, childName }));
+    if (currentQuestion < allQuestions.length - 1) {
+      setTimeout(() => {
+        setCurrentQuestion(currentQuestion + 1);
+      }, 300);
+    } else {
+      setTimeout(() => {
+        calculateResult(answers);
+      }, 300);
+    }
+  };
+
   const calculateResult = (allAnswers: Record<number, string | string[]>) => {
     const categoryCount: Record<string, number> = {};
 
@@ -423,9 +432,28 @@ export const WelcomeQuiz = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, #f66916, #0665be, #f6f6f6, #f66916)',
+            backgroundSize: '300% 300%',
+            opacity: 0.7,
+            animation: 'gradientFlow 15s ease-in-out infinite'
+          }}></div>
+      </div>
+      <style>{`
+        @keyframes gradientFlow {
+          0% { background-position: 0% 0%; }
+          25% { background-position: 100% 0%; }
+          50% { background-position: 100% 100%; }
+          75% { background-position: 0% 100%; }
+          100% { background-position: 0% 0%; }
+        }
+      `}</style>
       {/* Header */}
-      <div className="bg-white shadow-sm border-b">
+      <div className="relative z-20 bg-white shadow-sm border-b">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -451,10 +479,10 @@ export const WelcomeQuiz = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-green-100 via-yellow-50 to-orange-100 rounded-3xl opacity-80"></div>
 
                 {/* Decorative elements */}
-                <div className="absolute top-4 left-4 md:top-10 md:left-10 text-3xl md:text-5xl animate-bounce">🦋</div>
-                <div className="absolute top-4 right-8 md:top-26 md:right-20 text-xl md:text-2xl animate-pulse delay-300">🌸</div>
-                <div className="absolute bottom-16 left-4 md:bottom-20 md:left-20 text-3xl md:text-5xl animate-bounce delay-300">🌿</div>
-                <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 text-2xl md:text-4xl animate-pulse delay-500">🐝</div>
+                <div className="absolute top-4 left-4 md:top-10 md:left-10 text-3xl md:text-5xl animate-bounce">🔬</div>
+                <div className="absolute top-4 right-8 md:top-26 md:right-20 text-xl md:text-2xl animate-pulse delay-300">⚗️</div>
+                <div className="absolute bottom-16 left-4 md:bottom-20 md:left-20 text-3xl md:text-5xl animate-bounce delay-300">🧪</div>
+                <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 text-2xl md:text-4xl animate-pulse delay-500">🔭</div>
 
                 <div className="relative z-10 text-center py-6 lg:py-12 px-4 lg:px-8">
                   <div className="mb-3 md:mb-5">
@@ -481,7 +509,7 @@ export const WelcomeQuiz = () => {
 
                   <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-4 md:mb-6">
                     <div className="text-center transform hover:scale-105 transition-transform duration-200">
-                      <div className="text-2xl md:text-4xl line-through text-gray-500 mb-1 md:mb-2 font-bold">1350 TL</div>
+                      <div className="text-2xl md:text-4xl line-through text-gray-500 mb-1 md:mb-2 font-bold">576 TL</div>
                       <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 py-2 md:px-6 md:py-3 rounded-full text-xl md:text-3xl font-bold shadow-lg border-2 border-yellow-600">
                         ücretsiz
                       </div>
@@ -492,7 +520,7 @@ export const WelcomeQuiz = () => {
                         Bir kaç soruyu yanıtlayın ve çocuğunuz için
                       </p>
                       <p className="text-base md:text-xl font-bold">
-                        ÜCRETSİZ ders alın
+                        ÜCRETSİZ deneme dersi alın
                       </p>
                     </div>
                   </div>
@@ -548,7 +576,7 @@ export const WelcomeQuiz = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="space-y-8"
+              className="relative z-10 space-y-8"
             >
               {/* Progress */}
               <div className="space-y-2">
@@ -560,7 +588,7 @@ export const WelcomeQuiz = () => {
               </div>
 
               {/* Question */}
-              <Card className="border-0 shadow-lg">
+              <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
                 <CardContent className="p-8">
                   <motion.div
                     key={currentQuestion}
@@ -576,6 +604,8 @@ export const WelcomeQuiz = () => {
                       <NameInput onSubmit={handleNameSubmit} />
                     ) : allQuestions[currentQuestion].type === 'parent-info' && allQuestions[currentQuestion].inputType === 'phone' ? (
                       <PhoneInput onSubmit={handlePhoneSubmit} />
+                    ) : allQuestions[currentQuestion].type === 'parent-info' && allQuestions[currentQuestion].inputType === 'childName' ? (
+                      <NameInput onSubmit={handleChildNameSubmit} placeholder="Çocuğunuzun adı" />
                     ) : (
                       <>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -648,10 +678,10 @@ export const WelcomeQuiz = () => {
               key="result"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="space-y-8"
+              className="relative z-10 space-y-8"
             >
               {/* Result Card */}
-              <Card className="border-0 shadow-xl overflow-hidden">
+              <Card className="border-0 shadow-xl overflow-hidden bg-white/90 backdrop-blur-sm">
                 <div className={`h-2 ${result?.color}`} />
                 <CardContent className="p-8 text-center">
                   <motion.div
@@ -724,6 +754,7 @@ export const WelcomeQuiz = () => {
         parentInfo={{
           name: parentInfo.name,
           phone: parentInfo.phone,
+          childName: parentInfo.childName,
           availableDay: parentInfo.availableDay,
           availableTime: parentInfo.availableTime
         }}
