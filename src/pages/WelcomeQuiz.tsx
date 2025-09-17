@@ -432,7 +432,7 @@ export const WelcomeQuiz = () => {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="h-screen relative overflow-hidden">
       {/* Animated gradient background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0"
@@ -456,15 +456,17 @@ export const WelcomeQuiz = () => {
       <div className="relative z-20 bg-white shadow-sm border-b">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <img src="/logo.png" alt="Kodlab Junior" className="h-8" />
-              <span className="text-xl font-bold text-gray-800">kodlab junior</span>
+            <div className="flex items-center space-x-2">
+              <img src="/logo.png" alt="KodLab Junior Logo" className="w-8 h-8" />
+              <span className="text-xl font-bold">
+                <span className="text-orange-500">KodLab</span> <span className="text-blue-600">Junior</span>
+              </span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-4 lg:py-8">
+      <div className="max-w-6xl mx-auto px-4">
         <AnimatePresence mode="wait">
           {showWelcome ? (
             <motion.div
@@ -472,7 +474,7 @@ export const WelcomeQuiz = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="min-h-[90vh] flex items-center justify-center py-4"
+              className="min-h-[90vh] flex items-center justify-center"
             >
               <div className="relative w-full max-w-7xl mx-auto">
                 {/* Background with nature elements */}
@@ -486,20 +488,20 @@ export const WelcomeQuiz = () => {
 
                 <div className="relative z-10 text-center py-6 lg:py-12 px-4 lg:px-8">
                   <div className="mb-3 md:mb-5">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-green-800 mb-2 lg:mb-3" style={{ fontFamily: 'serif' }}>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-orange-500 mb-2 lg:mb-3" style={{ fontFamily: 'serif' }}>
                       ÇOCUKLAR İÇİN
                     </h1>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-green-700 mb-1 lg:mb-2" style={{ fontFamily: 'serif' }}>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500 mb-1 lg:mb-2" style={{ fontFamily: 'serif' }}>
                       KODLAMA
                     </h2>
-                    <p className="text-xl md:text-2xl text-green-600 font-medium mb-1">
+                    <p className="text-xl md:text-2xl text-orange-500 font-medium mb-1">
                       ve
                     </p>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-green-700 mb-3 lg:mb-4" style={{ fontFamily: 'serif' }}>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500 mb-3 lg:mb-4" style={{ fontFamily: 'serif' }}>
                       TASARIM
                     </h2>
 
-                    <p className="text-lg md:text-xl lg:text-2xl text-green-600 font-medium mb-2">
+                    <p className="text-lg md:text-xl lg:text-2xl text-orange-500 font-medium mb-2">
                       Yaş: 7-17
                     </p>
                     <p className="text-base md:text-lg lg:text-xl text-green-600 underline decoration-2 mb-4">
@@ -542,19 +544,12 @@ export const WelcomeQuiz = () => {
                   >
                     <Button
                       onClick={() => setShowWelcome(false)}
-                      className="relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-12 py-6 lg:px-20 lg:py-10 text-xl md:text-2xl lg:text-3xl font-bold rounded-3xl shadow-2xl transform hover:scale-110 transition-all duration-300 border-2 border-blue-500"
-                      style={{
-                        animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                      }}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 lg:px-20 lg:py-10 text-xl md:text-2xl lg:text-3xl font-bold rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
                     >
-                      <span className="relative z-10 flex items-center gap-2 md:gap-3">
-                        Ders alın
+                      <span className="flex items-center gap-2 md:gap-3">
+                        Yerinizi Ayırtın
                         <span className="text-xl md:text-2xl">🚀</span>
                       </span>
-                      {/* Glow effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl blur-lg opacity-30" style={{
-                        animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                      }}></div>
                     </Button>
                   </motion.div>
 
