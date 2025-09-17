@@ -150,33 +150,47 @@ const NameInput = ({ onSubmit, placeholder = "Adınız ve soyadınız" }: { onSu
 };
 
 const PhoneInput = ({ onSubmit }: { onSubmit: (phone: string) => void }) => {
-  const [phone, setPhone] = useState('+90 ');
+  const [phone, setPhone] = useState('+90 5');
 
   const formatPhoneNumber = (value: string): string => {
-    if (value === '') return '+90 ';
-
-    if (!value.startsWith('+') && /^\d/.test(value)) {
-      value = '+90 ' + value;
+    // Ensure it always starts with '+90 5'
+    if (!value.startsWith('+90 5')) {
+      // If user deletes part of '+90 5', reset it
+      if (value.length < 5) return '+90 5';
+      // If user types something else at the beginning, try to correct it
+      const digitsOnly = value.replace(/\D/g, '');
+      if (digitsOnly.startsWith('905')) {
+        value = '+90 5' + digitsOnly.substring(3);
+      } else if (digitsOnly.startsWith('5')) {
+        value = '+90 5' + digitsOnly.substring(1);
+      } else {
+        value = '+90 5' + digitsOnly;
+      }
     }
 
-    if (value.startsWith('+90 ')) {
-      const afterCode = value.substring(4).replace(/\D/g, '');
-
-      if (afterCode.length === 0) return '+90 ';
-      if (afterCode.length <= 3) return `+90 ${afterCode}`;
-      if (afterCode.length <= 6) return `+90 ${afterCode.slice(0, 3)} ${afterCode.slice(3)}`;
-      if (afterCode.length <= 8) return `+90 ${afterCode.slice(0, 3)} ${afterCode.slice(3, 6)} ${afterCode.slice(6)}`;
-      if (afterCode.length <= 10) return `+90 ${afterCode.slice(0, 3)} ${afterCode.slice(3, 6)} ${afterCode.slice(6, 8)} ${afterCode.slice(8)}`;
-
-      return `+90 ${afterCode.slice(0, 3)} ${afterCode.slice(3, 6)} ${afterCode.slice(6, 8)} ${afterCode.slice(8, 10)}`;
+    let afterCode = value.substring(5).replace(/\D/g, '');
+    // Limit afterCode to 9 digits (total 10 digits including the pre-filled '5')
+    if (afterCode.length > 9) {
+      afterCode = afterCode.slice(0, 9);
     }
 
-    return value;
+    if (afterCode.length === 0) return '+90 5';
+    if (afterCode.length <= 2) return `+90 5${afterCode}`;
+    if (afterCode.length <= 5) return `+90 5${afterCode.slice(0, 2)} ${afterCode.slice(2)}`;
+    if (afterCode.length <= 7) return `+90 5${afterCode.slice(0, 2)} ${afterCode.slice(2, 5)} ${afterCode.slice(5)}`;
+    if (afterCode.length <= 9) return `+90 5${afterCode.slice(0, 2)} ${afterCode.slice(2, 5)} ${afterCode.slice(5, 7)} ${afterCode.slice(7)}`;
+
+    return `+90 5${afterCode.slice(0, 2)} ${afterCode.slice(2, 5)} ${afterCode.slice(5, 7)} ${afterCode.slice(7, 9)}`;
+  };
+
+  const validatePhoneFormat = (phoneNumber: string): boolean => {
+    const phoneRegex = /^\+90\s5\d{2}\s\d{3}\s\d{2}\s\d{2}$/;
+    return phoneRegex.test(phoneNumber);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (phone.length >= 8) {
+    if (validatePhoneFormat(phone)) {
       onSubmit(phone);
     }
   };
@@ -188,14 +202,15 @@ const PhoneInput = ({ onSubmit }: { onSubmit: (phone: string) => void }) => {
           type="tel"
           value={phone}
           onChange={(e) => setPhone(formatPhoneNumber(e.target.value))}
-          placeholder="+90 5xx xxx xx xx"
+          placeholder="5xx xxx xx xx"
           className="h-12 text-center text-lg"
           autoFocus
+          maxLength={17} // +90 5xx xxx xx xx (5 chars + 9 digits + 3 spaces = 17)
         />
       </div>
       <Button
         type="submit"
-        disabled={phone.length < 8}
+        disabled={!validatePhoneFormat(phone)}
         className="w-full bg-blue-600 hover:bg-blue-700 text-white"
         size="lg"
       >
