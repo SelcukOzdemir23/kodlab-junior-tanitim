@@ -249,7 +249,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                   onClick={() => navigate('/course/scratch-ile-baslangic')}
                   className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
                 >
-                  Scratch (7-17 yaş)
+                  Scratch
                 </button>
               </li>
               <li>
@@ -257,7 +257,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                   onClick={() => navigate('/course/kodu')}
                   className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
                 >
-                  Kodu (7-17 yaş)
+                  Kodu 
                 </button>
               </li>
               <li>
@@ -265,7 +265,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                   onClick={() => navigate('/course/python-basic')}
                   className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
                 >
-                  Python Basic (9-12 yaş)
+                  Python Basic 
                 </button>
               </li>
               <li>
@@ -273,7 +273,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                   onClick={() => navigate('/course/python-pro')}
                   className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
                 >
-                  Python Pro (13-17 yaş)
+                  Python Pro 
                 </button>
               </li>
               <li>
@@ -281,7 +281,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                   onClick={() => navigate('/course/web-gelistirme')}
                   className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
                 >
-                  Web Geliştirme (12-17 yaş)
+                  Web Geliştirme
                 </button>
               </li>
               <li>
@@ -289,7 +289,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                   onClick={() => navigate('/course/dijital-tasarim-giris')}
                   className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
                 >
-                  Dijital Tasarım Giriş (9-12 yaş)
+                  Dijital Tasarım Giriş 
                 </button>
               </li>
               <li>
@@ -297,7 +297,7 @@ export const Footer = ({ onBookDemo }: FooterProps) => {
                   onClick={() => navigate('/course/dijital-tasarim-pro')}
                   className="text-primary-foreground/80 hover:text-secondary transition-colors text-left block"
                 >
-                  Dijital Tasarım Pro (13-17 yaş)
+                  Dijital Tasarım Pro
                 </button>
               </li>
             </ul>

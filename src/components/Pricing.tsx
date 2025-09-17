@@ -58,41 +58,41 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
   const premiumPlans = [
     {
       name: 'Tek Kurs Premium',
-      price: 24000,
-      originalPrice: 24576,
-      pricePerLesson: 750,
+      price: 21000,
+      originalPrice: 24000,
+      pricePerLesson: 656,
       duration: '32 ders',
-      discount: 576,
+      discount: 3000,
       description: 'Maksimum 4 kişilik özel grupta bir kursu tamamlayın',
       popular: false
     },
     {
       name: 'İkili Paket Premium',
-      price: 43200,
-      originalPrice: 48000,
-      pricePerLesson: 675,
+      price: 38000,
+      originalPrice: 42000,
+      pricePerLesson: 600,
       duration: '64 ders',
-      discount: 4800,
+      discount: 4000,
       description: 'Maksimum 4 kişilik özel grupta iki kursu tamamlayın',
       popular: true
     },
     {
       name: 'Üçlü Paket Premium',
-      price: 64000,
-      originalPrice: 72000,
-      pricePerLesson: 667,
+      price: 56000,
+      originalPrice: 63000,
+      pricePerLesson: 583,
       duration: '96 ders',
-      discount: 8000,
+      discount: 7000,
       description: 'Maksimum 4 kişilik özel grupta üç kursu tamamlayın',
       popular: false
     },
     {
       name: 'Dörtlü Paket Premium',
-      price: 83200,
-      originalPrice: 96000,
-      pricePerLesson: 650,
+      price: 72800,
+      originalPrice: 84000,
+      pricePerLesson: 568,
       duration: '128 ders',
-      discount: 12800,
+      discount: 11200,
       description: 'Maksimum 4 kişilik özel grupta dört kursu tamamlayın',
       popular: false
     }

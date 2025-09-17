@@ -48,7 +48,7 @@ const FAQ = () => {
         answer: "Hayır, hiçbir ön bilgi gerekmez. Tamamen sıfırdan başlayarak, adım adım öğretim metodumuzla çocuklar kolayca öğrenebilir."
       },
       {
-        question: "Kurslar çevrimiçi mi yoksa yüz yüze mi?",
+        question: "Kurslar online mı yoksa yüz yüze mi?",
         answer: "Hem online hem de yüz yüze eğitim seçeneklerimiz bulunmaktadır. İhtiyaçlarınıza göre en uygun formatı seçebilirsiniz."
       },
       {
@@ -79,7 +79,7 @@ const FAQ = () => {
       borderColor: "border-blue-200",
       questions: [
         {
-          question: "Hangi yaş grubundaki çocuklar kursa katılabilir mi?",
+          question: "Hangi yaş grubundaki çocuklar kursa katılabilir?",
           answer: "Kurslarımız 7-17 yaş arası çocuklar için tasarlanmıştır. Kurslarımız özelinde yaş aralığı daralabilmektedir."
         },
         {
@@ -88,7 +88,7 @@ const FAQ = () => {
         },
         {
           question: "Kurs ne kadar sürer?",
-          answer: "Python ile Kodlama kursu 32 hafta (6 ay) sürmektedir. Haftada 1 kez 90 dakikalık dersler yapılır. Detaylı bilgiyi kurs detay sayfasında edinebilirsiniz."
+          answer: "Python ile Kodlama kursu 32 hafta (8 ay) sürmektedir. Haftada 1 kez 90 dakikalık dersler yapılır. Detaylı bilgiyi kurs detay sayfasında edinebilirsiniz."
         },
         {
           question: "Dersler hangi günlerde ve saatlerde?",
@@ -96,7 +96,7 @@ const FAQ = () => {
         },
         {
           question: "Sınıf mevcudu kaç kişi?",
-          answer: "Standart ve Premium olmak üzere 2 farklı sınıfımız bulunmaktadır. Standart gruplarımız 10, premium gruplarımız 5 kişi olarak planlanır."
+          answer: "Standart ve Premium olmak üzere 2 farklı sınıfımız bulunmaktadır. Standart gruplarımız ortalama 10, premium gruplarımız en fazla 4 kişi olarak planlanır."
         }
       ]
     },
@@ -110,15 +110,15 @@ const FAQ = () => {
       questions: [
         {
           question: "Hangi bilgisayar ve işletim sistemi gerekli?",
-          answer: "Windows 10/11, macOS 10.14+ veya Ubuntu 18.04+ işletim sistemli herhangi bir bilgisayar yeterlidir. Minimum 4GB RAM ve 2GB boş disk alanı önerilir. En iyi deneyim için bilgisiyar kullanımı tavsiye edilir."
+          answer: "Windows 10/11, macOS 10.14+ veya Ubuntu 18.04+ işletim sistemli herhangi bir bilgisayar yeterlidir. Minimum 8GB RAM ve 10GB boş disk alanı önerilir. En iyi deneyim için bilgisayar kullanımı tavsiye edilir."
         },
         {
           question: "İnternet hızı ne kadar olmalı?",
-          answer: "Minimum 10 Mbps download hızı önerilir. Video konferans kalitesi için stable bir bağlantı önemlidir. Mobil internet kullanılabilir ancak sabit internet tercih edilir."
+          answer: "Minimum 20 Mbps download hızı önerilir. Video konferans kalitesi için kararlı bir bağlantı önemlidir. Mobil internet kullanılabilir ancak sabit internet tercih edilir."
         },
         {
           question: "Özel bir program yüklemek gerekiyor mu?",
-          answer: "Evet, kurlarımız için gerekli programları (Python, Visual Studio Code, Zoom) yükleme konusunda yardımcı olunacaktır."
+          answer: "Evet, kurslarımız için gerekli programları (Python, Visual Studio Code, Zoom) yükleme konusunda yardımcı olunacaktır."
         },
         {
           question: "Web kamerası ve mikrofon zorunlu mu?",
@@ -126,7 +126,7 @@ const FAQ = () => {
         },
         {
           question: "Teknik sorun yaşarsak ne yapmalıyız?",
-          answer: "Herhangi bir sorunda teknik destek WhatsApp hattımız bulunmaktadır. İstediğiniz zaman bize ulaşabilirsiniz."
+          answer: "Herhangi bir sorunda bize WhatsApp veya elektronik mail üzerinden ulaşabilirsiniz."
         }
       ]
     },
@@ -140,7 +140,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Müfredat nasıl ilerliyor?",
-          answer: "32 haftalık müfredat proje tabanlı olarak ilerler. Her hafta yeni konular öğrenip, o konuyla ilgili küçük bir proje yaparız. Son 4 haftada büyük bir final projesi geliştirilir."
+          answer: "Genel olarak 32 haftalık müfredat proje tabanlı olarak ilerler. Her hafta yeni konular öğrenip, o konuyla ilgili küçük bir proje yaparız. Son 4 haftada büyük bir final projesi geliştirilir. Detaylı bilgi için kurs sayfasını ziyaret edin."
         },
         {
           question: "Ödev veriliyor mu?",
@@ -170,11 +170,11 @@ const FAQ = () => {
       questions: [
         {
           question: "Kurs ücretleri nedir?",
-          answer: "Kurs detay sayfamızda kursların ücretlerini bulabilirsiniz. İlk ders ücretsizdir."
+          answer: "Ana sayfamızda kursların ücretlerini bulabilirsiniz. Deneme dersimiz ücretsizdir."
         },
         {
           question: "Hangi ödeme yöntemleri kabul ediliyor?",
-          answer: "Kredi kartı, banka kartı, havale/EFT ve taksitli ödeme seçenekleri mevcuttur."
+          answer: "Kredi kartı, banka kartı ve taksitli ödeme seçenekleri mevcuttur."
         },
         {
           question: "İade politikanız nasıl?",
@@ -211,7 +211,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Eğitmenlerle nasıl iletişim kurabiliriz?",
-          answer: "Her grup için WhatsApp grubu oluşturulur. Eğitmenler 24 saat içinde sorularınızı yanıtlar."
+          answer: "Her grup için WhatsApp grubu oluşturulur. Eğitmenler 24 saat içerisinde sorularınızı yanıtlar."
         },
         {
           question: "Ders saatlerini değiştirebilir miyiz?",
