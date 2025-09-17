@@ -415,14 +415,11 @@ export const WelcomeQuiz = () => {
         }
       `}</style>
       {/* Header */}
-      <div className="relative z-20 bg-white shadow-sm border-b">
-        <div className="max-w-4xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <img src="/logo.png" alt="KodLab Junior Logo" className="w-8 h-8" />
-              <span className="text-xl font-bold">
-                <span className="text-orange-500">KodLab</span> <span className="text-blue-600">Junior</span>
-              </span>
+      <div className="relative z-20">
+        <div className="max-w-4xl mx-auto px-4 py-2">
+          <div className="flex items-center justify-center">
+            <div className="flex items-center">
+              <img src="/logo.png" alt="KodLab Junior Logo" className="w-24 h-24" />
             </div>
           </div>
         </div>
