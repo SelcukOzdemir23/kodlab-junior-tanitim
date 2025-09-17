@@ -48,7 +48,7 @@ const allQuestions: QuizQuestion[] = [
   {
     id: 2,
     type: 'parent-info',
-    question: "Sizinle iletişim kurabilmemiz için adınızı öğrenebilir miyiz?",
+    question: "Sizinle iletişim kurabilmemiz için ad ve soyadınızı öğrenebilir miyiz?",
     inputType: 'name'
   },
   {
@@ -428,27 +428,27 @@ export const WelcomeQuiz = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-green-100 via-yellow-50 to-orange-100 rounded-3xl opacity-80"></div>
 
                 {/* Decorative elements */}
-                <div className="absolute top-4 left-4 md:top-10 md:left-10 text-3xl md:text-5xl animate-bounce">🔬</div>
-                <div className="absolute top-4 right-8 md:top-26 md:right-20 text-xl md:text-2xl animate-pulse delay-300">⚗️</div>
-                <div className="absolute bottom-16 left-4 md:bottom-20 md:left-20 text-3xl md:text-5xl animate-bounce delay-300">🧪</div>
-                <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 text-2xl md:text-4xl animate-pulse delay-500">🔭</div>
+                <div className="absolute top-4 left-4 md:top-10 md:left-10 text-3xl md:text-5xl animate-bounce"></div>
+                <div className="absolute top-4 right-8 md:top-26 md:right-20 text-xl md:text-2xl animate-pulse delay-300"></div>
+                <div className="absolute bottom-16 left-4 md:bottom-20 md:left-20 text-3xl md:text-5xl animate-bounce delay-300"></div>
+                <div className="absolute bottom-4 right-4 md:bottom-10 md:right-10 text-2xl md:text-4xl animate-pulse delay-500"></div>
 
                 <div className="relative z-10 text-center py-6 lg:py-12 px-4 lg:px-8">
                   <div className="mb-3 md:mb-5">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-orange-500 mb-2 lg:mb-3" style={{ fontFamily: 'serif' }}>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-orange-500 mb-2 lg:mb-3 font-bangers">
                       ÇOCUKLAR İÇİN
                     </h1>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500 mb-1 lg:mb-2" style={{ fontFamily: 'serif' }}>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500 mb-1 lg:mb-2 font-bangers">
                       KODLAMA
                     </h2>
-                    <p className="text-xl md:text-2xl text-orange-500 font-medium mb-1">
+                    <p className="text-xl md:text-2xl text-orange-500 font-medium mb-1 font-bangers">
                       ve
                     </p>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500 mb-3 lg:mb-4" style={{ fontFamily: 'serif' }}>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500 mb-3 lg:mb-4 font-bangers">
                       TASARIM
                     </h2>
 
-                    <p className="text-lg md:text-xl lg:text-2xl text-orange-500 font-medium mb-2">
+                    <p className="text-lg md:text-xl lg:text-2xl text-orange-500 font-medium mb-2 font-bangers">
                       Yaş: 7-17
                     </p>
                     <p className="text-base md:text-lg lg:text-xl text-green-600 underline decoration-2 mb-4">
@@ -480,7 +480,7 @@ export const WelcomeQuiz = () => {
                     transition={{ repeat: Infinity, duration: 3 }}
                     className="text-2xl md:text-3xl mb-2 md:mb-3"
                   >
-                    ⬇️
+                    
                   </motion.div>
 
                   <motion.div
