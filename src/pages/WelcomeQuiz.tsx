@@ -394,7 +394,7 @@ export const WelcomeQuiz = () => {
   };
 
   return (
-    <div className="h-screen relative overflow-hidden">
+    <div className="min-h-screen relative">
       {/* Animated gradient background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0"
@@ -425,7 +425,7 @@ export const WelcomeQuiz = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4 py-8">
         <AnimatePresence mode="wait">
           {showWelcome ? (
             <motion.div
@@ -433,7 +433,7 @@ export const WelcomeQuiz = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="min-h-[90vh] flex items-center justify-center"
+              className="min-h-[80vh] flex items-center justify-center p-4"
             >
               <div className="relative w-full max-w-7xl mx-auto">
                 {/* Background with nature elements */}

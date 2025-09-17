@@ -436,7 +436,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent 
-        className="modal-content w-[95vw] max-w-2xl h-[90vh] flex flex-col overflow-hidden" 
+        className="modal-content w-[95vw] max-w-2xl max-h-[90vh] flex flex-col overflow-hidden" 
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none'

@@ -411,7 +411,7 @@ export const QuizBookingModal = ({ isOpen, onClose, recommendedCourse, parentInf
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent 
-        className="w-[95vw] max-w-2xl h-[90vh] flex flex-col overflow-hidden" 
+        className="w-[95vw] max-w-2xl max-h-[90vh] flex flex-col overflow-hidden" 
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => {
           if (isSubmitting) {
