@@ -34,7 +34,7 @@ const allQuestions: QuizQuestion[] = [
   {
     id: 1,
     type: 'quiz',
-    question: "Çocuğunuz genellikle boş zamanlarını nasıl geçirir?",
+    question: "Çocuğunuz genellikle boş zamanlarını nasıl geçirir? (birden fazla seçim yapabilirsiniz)",
     multiSelect: true,
     options: [
       { id: "tech", text: "Cep telefonu ve bilgisayarda oyun oynar", emoji: "📱", category: "technology" },
@@ -53,8 +53,14 @@ const allQuestions: QuizQuestion[] = [
   },
   {
     id: 3,
+    type: 'parent-info',
+    question: "Çocuğunuzun adını öğrenebilir miyiz?",
+    inputType: 'childName'
+  },
+  {
+    id: 4,
     type: 'quiz',
-    question: "Çocuğunuzun okulda en sevdiği ders hangisidir?",
+    question: "Çocuğunuzun okulda en sevdiği dersler hangileridir?",
     multiSelect: true,
     options: [
       { id: "science", text: "Fen bilimleri", emoji: "🔬", category: "science" },
@@ -63,21 +69,6 @@ const allQuestions: QuizQuestion[] = [
       { id: "history", text: "Tarih, Edebiyat", emoji: "📚", category: "literature" },
       { id: "math", text: "Matematik", emoji: "📐", category: "math" },
       { id: "language", text: "Yabancı diller", emoji: "🌍", category: "language" }
-    ]
-  },
-  {
-    id: 4,
-    type: 'parent-info',
-    question: "Deneme dersi için hangi günler size uygun?",
-    multiSelect: true,
-    options: [
-      { id: "monday", text: "Pazartesi", emoji: "📅", value: "monday" },
-      { id: "tuesday", text: "Salı", emoji: "📅", value: "tuesday" },
-      { id: "wednesday", text: "Çarşamba", emoji: "📅", value: "wednesday" },
-      { id: "thursday", text: "Perşembe", emoji: "📅", value: "thursday" },
-      { id: "friday", text: "Cuma", emoji: "📅", value: "friday" },
-      { id: "saturday", text: "Cumartesi", emoji: "🎆", value: "saturday" },
-      { id: "sunday", text: "Pazar", emoji: "🎆", value: "sunday" }
     ]
   },
   {
@@ -98,38 +89,6 @@ const allQuestions: QuizQuestion[] = [
     type: 'parent-info',
     question: "İletişim için telefon numaranızı alabilir miyiz?",
     inputType: 'phone'
-  },
-  {
-    id: 7,
-    type: 'parent-info',
-    question: "Çocuğunuzun adını öğrenebilir miyiz?",
-    inputType: 'childName'/*  */
-  },
-  {
-    id: 8,
-    type: 'quiz',
-    question: "Çocuğunuzun en büyük ilgi alanı hangisidir?",
-    options: [
-      { id: "creating", text: "Bir şeyler yaratmak ve tasarlamak", emoji: "🎨", category: "creative" },
-      { id: "problem-solving", text: "Problem çözmek ve bulmacalar", emoji: "🧩", category: "logical" },
-      { id: "storytelling", text: "Hikaye anlatmak ve yazmak", emoji: "📚", category: "narrative" },
-      { id: "building", text: "İnşa etmek ve monte etmek", emoji: "🔧", category: "engineering" },
-      { id: "exploring", text: "Keşfetmek ve deneyim yapmak", emoji: "🔍", category: "exploration" },
-      { id: "helping", text: "Başkalarına yardım etmek", emoji: "🤝", category: "social" }
-    ]
-  },
-  {
-    id: 9,
-    type: 'quiz',
-    question: "Çocuğunuz gelecekte hangi alanda kariyer yapmak istiyor?",
-    options: [
-      { id: "tech-career", text: "Teknoloji ve yazılım", emoji: "💻", category: "technology" },
-      { id: "art-career", text: "Sanat ve tasarım", emoji: "🎨", category: "art" },
-      { id: "science-career", text: "Bilim ve mühendislik", emoji: "🔬", category: "science" },
-      { id: "business-career", text: "İş dünyası ve girişimcilik", emoji: "💼", category: "business" },
-      { id: "education-career", text: "Eğitim ve öğretmenlik", emoji: "👩🏫", category: "education" },
-      { id: "undecided", text: "Henüz karar vermedi", emoji: "🤔", category: "undecided" }
-    ]
   }
 ];
 
@@ -315,56 +274,44 @@ export const WelcomeQuiz = () => {
     }
 
     if (currentQuestion < allQuestions.length - 1) {
-      setTimeout(() => {
-        setCurrentQuestion(currentQuestion + 1);
-      }, 300);
+      setCurrentQuestion(currentQuestion + 1);
     } else {
-      setTimeout(() => {
-        calculateResult(answers);
-      }, 300);
+      calculateResult(answers);
     }
   };
 
   const handleMultiSelectNext = () => {
     if (currentQuestion < allQuestions.length - 1) {
-      setTimeout(() => {
-        setCurrentQuestion(currentQuestion + 1);
-      }, 300);
+      setCurrentQuestion(currentQuestion + 1);
     } else {
-      setTimeout(() => {
-        calculateResult(answers);
-      }, 300);
+      calculateResult(answers);
     }
   };
 
   const handleNameSubmit = (name: string) => {
     setParentInfo(prev => ({ ...prev, name }));
     if (currentQuestion < allQuestions.length - 1) {
-      setTimeout(() => {
-        setCurrentQuestion(currentQuestion + 1);
-      }, 300);
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      calculateResult(answers);
     }
   };
 
   const handlePhoneSubmit = (phone: string) => {
     setParentInfo(prev => ({ ...prev, phone }));
     if (currentQuestion < allQuestions.length - 1) {
-      setTimeout(() => {
-        setCurrentQuestion(currentQuestion + 1);
-      }, 300);
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      calculateResult(answers);
     }
   };
 
   const handleChildNameSubmit = (childName: string) => {
     setParentInfo(prev => ({ ...prev, childName }));
     if (currentQuestion < allQuestions.length - 1) {
-      setTimeout(() => {
-        setCurrentQuestion(currentQuestion + 1);
-      }, 300);
+      setCurrentQuestion(currentQuestion + 1);
     } else {
-      setTimeout(() => {
-        calculateResult(answers);
-      }, 300);
+      calculateResult(answers);
     }
   };
 
@@ -718,7 +665,7 @@ export const WelcomeQuiz = () => {
                       onClick={resetQuiz}
                       className="w-full"
                     >
-                      Quizi tekrar yap
+                      Testi tekrar yap
                     </Button>
                   </div>
                 </CardContent>
