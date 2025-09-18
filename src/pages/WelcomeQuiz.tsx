@@ -126,21 +126,21 @@ const NameInput = ({ onSubmit, placeholder = "Adınız ve soyadınız" }: { onSu
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
       <div className="max-w-md mx-auto">
         <Input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder={placeholder}
-          className="h-12 text-center text-lg"
+          className="h-12 text-center text-base md:text-lg"
           autoFocus
         />
       </div>
       <Button
         type="submit"
         disabled={!name.trim()}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm md:text-base"
         size="lg"
       >
         Devam Et
@@ -196,14 +196,14 @@ const PhoneInput = ({ onSubmit }: { onSubmit: (phone: string) => void }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
       <div className="max-w-md mx-auto">
         <Input
           type="tel"
           value={phone}
           onChange={(e) => setPhone(formatPhoneNumber(e.target.value))}
           placeholder="5xx xxx xx xx"
-          className="h-12 text-center text-lg"
+          className="h-12 text-center text-base md:text-lg"
           autoFocus
           maxLength={17} // +90 5xx xxx xx xx (5 chars + 9 digits + 3 spaces = 17)
         />
@@ -211,7 +211,7 @@ const PhoneInput = ({ onSubmit }: { onSubmit: (phone: string) => void }) => {
       <Button
         type="submit"
         disabled={!validatePhoneFormat(phone)}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm md:text-base"
         size="lg"
       >
         Devam Et
@@ -292,9 +292,20 @@ export const WelcomeQuiz = () => {
     // Select
     setSelectedOptions({ ...selectedOptions, [currentQuestion]: [optionId] });
     
-    const newAnswers = { ...answers, [currentQuestion]: category };
     if (currentQ.type === 'quiz' && category) {
+      const newAnswers = { ...answers, [currentQuestion]: category };
       setAnswers(newAnswers);
+      
+      // Auto advance for single-select quiz questions
+      if (currentQuestion < allQuestions.length - 1) {
+        setTimeout(() => {
+          setCurrentQuestion(currentQuestion + 1);
+        }, 300);
+      } else {
+        setTimeout(() => {
+          calculateResult(newAnswers);
+        }, 300);
+      }
     } else if (currentQ.type === 'parent-info') {
       if (currentQ.inputType === 'name') {
         return;
@@ -303,13 +314,18 @@ export const WelcomeQuiz = () => {
           ...prev,
           [currentQ.id === 7 ? 'availableTime' : 'availableDay']: value
         }));
+        
+        // Auto advance for parent info questions
+        if (currentQuestion < allQuestions.length - 1) {
+          setTimeout(() => {
+            setCurrentQuestion(currentQuestion + 1);
+          }, 300);
+        } else {
+          setTimeout(() => {
+            calculateResult(answers);
+          }, 300);
+        }
       }
-    }
-
-    if (currentQuestion < allQuestions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      calculateResult(newAnswers);
     }
   };
 
@@ -406,6 +422,7 @@ export const WelcomeQuiz = () => {
   const resetQuiz = () => {
     setCurrentQuestion(0);
     setAnswers({});
+    setSelectedOptions({});
     setShowResult(false);
     setResult(null);
     setShowWelcome(true);
@@ -443,7 +460,7 @@ export const WelcomeQuiz = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-3 md:px-4 py-6 md:py-8">
         <AnimatePresence mode="wait">
           {showWelcome ? (
             <motion.div
@@ -519,13 +536,13 @@ export const WelcomeQuiz = () => {
                     transition={{ delay: 0.5, duration: 0.6 }}
                     className="relative mb-3 md:mb-4"
                   >
-                    <Button
+                  <Button
                       onClick={() => setShowWelcome(false)}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 lg:px-20 lg:py-10 text-xl md:text-2xl lg:text-3xl font-bold rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 md:px-12 md:py-6 lg:px-20 lg:py-10 text-lg md:text-xl lg:text-3xl font-bold rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
                     >
                       <span className="flex items-center gap-2 md:gap-3">
                         Yerinizi Ayırtın
-                        <span className="text-xl md:text-2xl">🚀</span>
+                        <span className="text-lg md:text-xl lg:text-2xl">🚀</span>
                       </span>
                     </Button>
                   </motion.div>
@@ -535,7 +552,7 @@ export const WelcomeQuiz = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1, duration: 0.5 }}
-                    className="text-xs md:text-base text-green-600 mt-3 md:mt-6 font-medium"
+                    className="text-sm md:text-base text-green-600 mt-3 md:mt-6 font-medium"
                   >
                     ✨ Sadece 2 dakika sürer • Hiçbir ödeme bilgisi istenmez ✨
                   </motion.p>
@@ -561,14 +578,14 @@ export const WelcomeQuiz = () => {
 
               {/* Question */}
               <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm">
-                <CardContent className="p-8">
+                <CardContent className="p-4 sm:p-6 md:p-8">
                   <motion.div
                     key={currentQuestion}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="space-y-8"
+                    className="space-y-6 md:space-y-8"
                   >
-                    <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
+                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-center text-gray-800 mb-6 md:mb-8 leading-tight">
                       {allQuestions[currentQuestion].question}
                     </h2>
 
@@ -580,12 +597,12 @@ export const WelcomeQuiz = () => {
                       <NameInput onSubmit={handleChildNameSubmit} placeholder="Çocuğunuzun adı" />
                     ) : (
                       <>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                           {allQuestions[currentQuestion].options?.map((option) => {
                             const isSelected = selectedOptions[currentQuestion]?.includes(option.id) || false;
                             return (
                               <motion.button
-                                key={option.id}
+                                key={`${currentQuestion}-${option.id}-${isSelected}`} // Force re-render when state changes
                                 onClick={() => {
                                   if (allQuestions[currentQuestion].type === 'quiz') {
                                     handleAnswer(option.id, option.category);
@@ -593,16 +610,27 @@ export const WelcomeQuiz = () => {
                                     handleAnswer(option.id, undefined, option.value);
                                   }
                                 }}
-                                className={`p-4 text-left border-2 rounded-xl transition-all duration-200 group ${isSelected
+                                className={`p-3 md:p-4 text-left border-2 rounded-xl transition-all duration-200 group active:scale-95 ${isSelected
                                   ? 'border-blue-500 bg-blue-50'
                                   : 'border-gray-200 hover:border-blue-400 hover:bg-blue-50'
-                                  } ${!allQuestions[currentQuestion].multiSelect || selectedOptions[currentQuestion]?.length ? '' : 'border-gray-200'}`}
+                                  }`}
+                                style={{
+                                  // Force re-render on mobile to clear hover states
+                                  WebkitTapHighlightColor: 'transparent'
+                                }}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
+                                onTouchStart={() => {
+                                  // Clear any hover states on touch devices
+                                }}
+                                onTouchEnd={(e) => {
+                                  // Ensure no residual states after touch
+                                  e.currentTarget.blur();
+                                }}
                               >
-                                <div className="flex items-center space-x-3">
-                                  <span className="text-2xl">{option.emoji}</span>
-                                  <span className={`font-medium ${isSelected ? 'text-blue-700' : 'text-gray-700 group-hover:text-blue-700'
+                                <div className="flex items-center space-x-2 md:space-x-3">
+                                  <span className="text-xl md:text-2xl flex-shrink-0">{option.emoji}</span>
+                                  <span className={`font-medium text-sm md:text-base leading-tight ${isSelected ? 'text-blue-700' : 'text-gray-700 group-hover:text-blue-700'
                                     }`}>
                                     {option.text}
                                   </span>
@@ -612,11 +640,11 @@ export const WelcomeQuiz = () => {
                           })}
                         </div>
                         {allQuestions[currentQuestion].multiSelect && (
-                          <div className="text-center mt-6">
+                          <div className="text-center mt-4 md:mt-6">
                             <Button
                               onClick={handleMultiSelectNext}
                               disabled={!selectedOptions[currentQuestion]?.length}
-                              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+                              className="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-3 text-sm md:text-base"
                             >
                               Devam Et ({selectedOptions[currentQuestion]?.length || 0} seçili)
                             </Button>
@@ -629,17 +657,17 @@ export const WelcomeQuiz = () => {
               </Card>
 
               {/* Navigation */}
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
                 <Button
                   variant="outline"
                   onClick={goBack}
                   disabled={currentQuestion === 0}
-                  className="flex items-center space-x-2"
+                  className="flex items-center space-x-1 md:space-x-2 text-sm md:text-base px-3 md:px-4 py-3"
                 >
-                  <ArrowLeft className="w-4 h-4" />
+                  <ArrowLeft className="w-3 h-3 md:w-4 md:h-4" />
                   <span>Önceki</span>
                 </Button>
-                <div className="text-sm text-gray-500 self-center">
+                <div className="text-sm md:text-sm text-gray-500 text-center px-2">
                   Bir seçenek seçin
                 </div>
               </div>
@@ -654,36 +682,36 @@ export const WelcomeQuiz = () => {
               {/* Result Card */}
               <Card className="border-0 shadow-xl overflow-hidden bg-white/90 backdrop-blur-sm">
                 <div className={`h-2 ${result?.color}`} />
-                <CardContent className="p-8 text-center">
+                <CardContent className="p-4 sm:p-6 md:p-8 text-center">
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2 }}
                   >
-                    <Sparkles className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
+                    <Sparkles className="w-12 h-12 md:w-16 md:h-16 text-yellow-500 mx-auto mb-4" />
                   </motion.div>
 
-                  <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-4 leading-tight">
                     Deneme dersi için hangi saatte uygunsunuz?
                   </h2>
 
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-sm md:text-base text-gray-600 mb-6">
                     Özel dersinizi rezerve etmek için birkaç adım kaldı! Sizinle tanışmak için sabırsızlanıyoruz 🥰
                   </p>
 
-                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 mb-8">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
                       Önerilen Kurs{result?.course.includes(',') ? 'lar' : ''}: {result?.course}
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-sm md:text-base text-gray-600">
                       {result?.description}
                     </p>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-3 md:space-y-4">
                     <Button
                       onClick={() => setShowBookingModal(true)}
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 text-lg font-semibold"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 md:py-4 text-base md:text-lg font-semibold"
                       size="lg"
                     >
                       Rezervasyon için tıklayın 🎯
@@ -692,7 +720,7 @@ export const WelcomeQuiz = () => {
                     <Button
                       variant="outline"
                       onClick={resetQuiz}
-                      className="w-full"
+                      className="w-full text-sm md:text-base"
                     >
                       Testi tekrar yap
                     </Button>
@@ -702,13 +730,13 @@ export const WelcomeQuiz = () => {
 
               {/* Additional Info */}
               <div className="text-center space-y-2">
-                <p className="text-sm text-gray-500">
+                <p className="text-sm md:text-sm text-gray-500">
                   Saat (UTC +03:00) Europe/Istanbul
                 </p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm md:text-sm text-gray-500">
                   Saat diliminde gösterilen saatler, geçerli saat <strong>{new Date().toLocaleTimeString('tr-TR')}</strong>
                 </p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm md:text-sm text-gray-500 leading-relaxed px-2">
                   Deneme dersi için başlangıç için ebeveyn olarak eşlik etmeniz gerektiğini lütfen unutmayın, aksi takdirde deneme dersi yapılamayacaktır
                 </p>
               </div>

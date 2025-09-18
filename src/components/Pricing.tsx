@@ -124,20 +124,20 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
       })}
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-2xl">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-3 md:mb-4 drop-shadow-2xl">
             Fiyatlandırma
           </h2>
-          <p className="text-xl text-white mb-8 drop-shadow-xl font-medium">
+          <p className="text-lg md:text-xl text-white mb-6 md:mb-8 drop-shadow-xl font-medium">
             Size en uygun öğrenme formatını seçin
           </p>
 
           {/* Format Seçici */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-6 md:mb-8">
             <div className="bg-white/20 rounded-full p-1 border border-white/30">
               <button
                 onClick={() => setSelectedFormat('standard')}
-                className={`px-6 py-2 rounded-full transition-all duration-200 font-semibold ${selectedFormat === 'standard'
+                className={`px-4 py-2 md:px-6 md:py-2 rounded-full transition-all duration-200 font-semibold text-sm md:text-base ${selectedFormat === 'standard'
                   ? 'bg-white text-blue-600 shadow-lg'
                   : 'text-white hover:bg-white/20'
                   }`}
@@ -146,7 +146,7 @@ export const Pricing = memo(({ onBookDemo }: PricingProps) => {
               </button>
               <button
                 onClick={() => setSelectedFormat('premium')}
-                className={`px-6 py-2 rounded-full transition-all duration-200 font-semibold ${selectedFormat === 'premium'
+                className={`px-4 py-2 md:px-6 md:py-2 rounded-full transition-all duration-200 font-semibold text-sm md:text-base ${selectedFormat === 'premium'
                   ? 'bg-white text-blue-600 shadow-lg'
                   : 'text-white hover:bg-white/20'
                   }`}

@@ -323,3 +323,32 @@ html {
   scrollbar-width: thick;
   scrollbar-color: #ff8c00 rgb(1, 82, 119);
 }
+
+/* Mobile touch device fixes */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .group:hover {
+    border-color: inherit !important;
+    background-color: inherit !important;
+  }
+  
+  /* Ensure tap highlight is removed */
+  * {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Re-enable text selection for inputs and text areas */
+  input, textarea, [contenteditable] {
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+}

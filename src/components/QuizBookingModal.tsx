@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import { db } from '@/lib/firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { emailService } from '@/services/emailService';
+import { useSwipe } from '@/hooks/useSwipe';
 
 interface QuizBookingModalProps {
   isOpen: boolean;
@@ -182,6 +183,16 @@ export const QuizBookingModal = ({ isOpen, onClose, recommendedCourse, parentInf
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+  // Swipe gesture support for mobile
+  const swipeRef = useSwipe({
+    onSwipeDown: () => {
+      if (!isSubmitting) {
+        handleClose();
+      }
+    },
+    threshold: 100
+  });
 
   // Validation functions
   const validateParentName = (name: string): string => {
@@ -411,6 +422,7 @@ export const QuizBookingModal = ({ isOpen, onClose, recommendedCourse, parentInf
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent 
+        ref={swipeRef}
         className="w-[95vw] max-w-2xl max-h-[90vh] flex flex-col overflow-hidden" 
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => {

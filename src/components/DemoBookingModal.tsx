@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import { db } from '@/lib/firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { emailService } from '@/services/emailService';
+import { useSwipe } from '@/hooks/useSwipe';
 
 interface DemoBookingModalProps {
   isOpen: boolean;
@@ -153,6 +154,16 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+  // Swipe gesture support for mobile
+  const swipeRef = useSwipe({
+    onSwipeDown: () => {
+      if (!isSubmitting) {
+        handleClose();
+      }
+    },
+    threshold: 100
+  });
 
   // Validation fonksiyonları
   const validateParentName = (name: string): string => {
@@ -436,6 +447,7 @@ export const DemoBookingModal = ({ isOpen, onClose }: DemoBookingModalProps) => 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent 
+        ref={swipeRef}
         className="modal-content w-[95vw] max-w-2xl max-h-[90vh] flex flex-col overflow-hidden" 
         style={{
           scrollbarWidth: 'none',
