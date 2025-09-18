@@ -274,8 +274,26 @@ export const WelcomeQuiz = () => {
       return;
     }
 
+    // --- Start of single-select logic ---
+    const isCurrentlySelected = selectedOptions[currentQuestion]?.[0] === optionId;
+
+    if (isCurrentlySelected) {
+      // Deselect
+      const newSelectedOptions = { ...selectedOptions };
+      delete newSelectedOptions[currentQuestion];
+      setSelectedOptions(newSelectedOptions);
+
+      const newAnswers = { ...answers };
+      delete newAnswers[currentQuestion];
+      setAnswers(newAnswers);
+      return;
+    }
+
+    // Select
+    setSelectedOptions({ ...selectedOptions, [currentQuestion]: [optionId] });
+    
+    const newAnswers = { ...answers, [currentQuestion]: category };
     if (currentQ.type === 'quiz' && category) {
-      const newAnswers = { ...answers, [currentQuestion]: category };
       setAnswers(newAnswers);
     } else if (currentQ.type === 'parent-info') {
       if (currentQ.inputType === 'name') {
@@ -291,7 +309,7 @@ export const WelcomeQuiz = () => {
     if (currentQuestion < allQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      calculateResult(answers);
+      calculateResult(newAnswers);
     }
   };
 
@@ -588,7 +606,6 @@ export const WelcomeQuiz = () => {
                                     }`}>
                                     {option.text}
                                   </span>
-                                  {isSelected && <span className="text-blue-500 ml-auto">✓</span>}
                                 </div>
                               </motion.button>
                             );
